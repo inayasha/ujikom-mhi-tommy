@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "pertanyaan": "Apa yang dimaksud dengan integritas ASN?",
+        "opsi": {
+            "A": "A. Kemampuan ASN untuk bekerja sesuai dengan kompetensi yang dimilikinya",
+            "B": "B. Tindakan ASN untuk mendapatkan promosi jabatan dengan cara apapun",
+            "C": "C. Komitmen ASN untuk menjalankan tugasnya dengan jujur, adil, dan bertanggung jawab sesuai aturan yang berlaku",
+            "D": "D. . Kedisiplinan ASN dalam mematuhi jam kerja dan prosedur administrasi",
+            "E": "E. Kemampuan ASN dalam mengelola keuangan negara"
+        },
+        "kunci_jawaban": "C"
+    },
+    {
+        "id": 2,
+        "pertanyaan": "Salah satu contoh penerapan integritas ASN dalam pelayanan publik adalah:",
+        "opsi": {
+            "A": "A. Memilih memberikan pelayanan hanya kepada kenalan dekat",
+            "B": "B. Menerima hadiah dari masyarakat sebagai ucapan terima kasih",
+            "C": "C. Menghindari konflik kepentingan dalam pengambilan keputusan",
+            "D": "D. Mempercepat proses administrasi dengan meminta imbalan",
+            "E": "E. Mengabaikan keluhan masyarakat karena dianggap tidak penting"
+        },
+        "kunci_jawaban": "C"
+    }
+]
