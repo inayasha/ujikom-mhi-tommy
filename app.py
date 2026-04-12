@@ -75,7 +75,7 @@ with st.sidebar:
     st.metric("Soal Essay",    len(soal_essay))
     st.metric("Soal Simulasi", min(JUMLAH_SOAL_SIMULASI, len(soal_pg)))
     st.divider()
-    st.caption("Gunakan tab di atas untuk berpindah menu.")
+    st.caption("Mediator Hubungan Industrial Ahli Madya.")
 
 # ==========================================
 # 6. NAVIGASI TABS — di area utama
@@ -119,7 +119,7 @@ with tab_pg:
 
     col_info, col_reset = st.columns([3, 1])
     with col_reset:
-        if st.button("🔀 Acak Ulang", use_container_width=True, key="pg_reset"):
+        if st.button("⚡ Acak Ulang", use_container_width=True, key="pg_reset"):
             st.session_state.latihan_pg_questions = random.sample(soal_pg, len(soal_pg))
             st.session_state.latihan_pg_answers   = {}
             st.session_state.latihan_pg_checked   = {}
@@ -165,7 +165,7 @@ with tab_pg:
     st.session_state.latihan_pg_answers[idx] = pilihan
 
     sudah_dicek = st.session_state.latihan_pg_checked.get(idx, False)
-    if st.button("✅ Cek Jawaban", type="primary", key=f"pg_cek_{idx}"):
+    if st.button("🎯 Cek Jawaban", type="primary", key=f"pg_cek_{idx}"):
         st.session_state.latihan_pg_checked[idx] = True
         sudah_dicek = True
 
@@ -200,7 +200,7 @@ with tab_essay:
 
     col_info_e, col_reset_e = st.columns([3, 1])
     with col_reset_e:
-        if st.button("🔀 Acak Ulang", use_container_width=True, key="essay_reset"):
+        if st.button("⚡ Acak Ulang", use_container_width=True, key="essay_reset"):
             st.session_state.latihan_essay_questions = random.sample(soal_essay, len(soal_essay))
             st.session_state.latihan_essay_shown     = {}
             st.session_state.current_q               = 0
@@ -269,7 +269,7 @@ with tab_simulasi:
         - Soal **tidak bisa diubah** setelah dikumpulkan
         """)
         st.warning("Pastikan Anda siap sebelum memulai. Timer akan langsung berjalan.")
-        if st.button("▶️ Mulai Simulasi", type="primary", use_container_width=True):
+        if st.button("🚀 Mulai Simulasi", type="primary", use_container_width=True):
             st.session_state.simulasi_started     = True
             st.session_state.simulasi_answers     = {}
             st.session_state.simulasi_submitted   = False
@@ -298,7 +298,7 @@ with tab_simulasi:
             dtk = waktu_total % 60
 
             if lulus:
-                st.success(f"### ✅ LULUS — Skor: {skor_akhir:.1f}%")
+                st.success(f"### 🎯 LULUS — Skor: {skor_akhir:.1f}%")
             else:
                 st.error(f"### ❌ BELUM LULUS — Skor: {skor_akhir:.1f}% (minimum {int(PASSING_SCORE)}%)")
 
@@ -316,7 +316,7 @@ with tab_simulasi:
                     st.session_state.simulasi_review_idx  = 0
                     st.rerun()
             with cb:
-                if st.button("🔄 Simulasi Baru", use_container_width=True):
+                if st.button("⚡ Simulasi Baru", use_container_width=True):
                     st.session_state.simulasi_started     = False
                     st.session_state.simulasi_submitted   = False
                     st.session_state.simulasi_show_review = False
@@ -337,7 +337,7 @@ with tab_simulasi:
             kunci        = q['kunci_jawaban']
 
             if jawaban_user == kunci:
-                st.success(f"**Soal {ridx + 1} — Benar ✅**")
+                st.success(f"**Soal {ridx + 1} — Benar 🎯**")
             else:
                 st.error(f"**Soal {ridx + 1} — Salah ❌**")
 
@@ -346,9 +346,9 @@ with tab_simulasi:
 
             for key, teks in q['opsi'].items():
                 if key == kunci and key == jawaban_user:
-                    st.markdown(f"✅ **{key}. {teks}** ← Jawaban Anda (Benar)")
+                    st.markdown(f"🎯 **{key}. {teks}** ← Jawaban Anda (Benar)")
                 elif key == kunci:
-                    st.markdown(f"✅ **{key}. {teks}** ← Kunci Jawaban")
+                    st.markdown(f"🎯 **{key}. {teks}** ← Kunci Jawaban")
                 elif key == jawaban_user:
                     st.markdown(f"❌ ~~{key}. {teks}~~ ← Jawaban Anda")
                 else:
