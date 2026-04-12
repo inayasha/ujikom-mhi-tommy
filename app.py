@@ -7,7 +7,7 @@ import random
 # ==========================================
 # 1. KONFIGURASI HALAMAN
 # ==========================================
-st.set_page_config(page_title="CAT MHI - Inayasha", page_icon="🎓", layout="centered")
+st.set_page_config(page_title="CAT MHI", page_icon="🎓", layout="centered")
 
 # ==========================================
 # 2. LOAD DATA
@@ -38,10 +38,10 @@ PASSING_SCORE        = 70.0   # ambang batas lulus (%)
 # ==========================================
 def init_state():
     defaults = {
-        'mode': 'Beranda',
         'current_q': 0,
 
         # Simulasi
+        'simulasi_started': False,
         'simulasi_answers': {},
         'simulasi_submitted': False,
         'simulasi_start_time': None,
@@ -51,12 +51,12 @@ def init_state():
 
         # Latihan PG
         'latihan_pg_questions': [],
-        'latihan_pg_answers': {},   # simpan jawaban per soal {idx: pilihan}
-        'latihan_pg_checked': {},   # soal yang sudah dicek {idx: True}
+        'latihan_pg_answers': {},
+        'latihan_pg_checked': {},
 
         # Latihan Essay
         'latihan_essay_questions': [],
-        'latihan_essay_shown': {},  # soal yang sudah tampil referensi
+        'latihan_essay_shown': {},
     }
     for k, v in defaults.items():
         if k not in st.session_state:
@@ -65,78 +65,66 @@ def init_state():
 init_state()
 
 # ==========================================
-# 5. SIDEBAR (NAVIGASI)
+# 5. SIDEBAR — info saja, tanpa navigasi
 # ==========================================
 with st.sidebar:
     st.title("🎓 CAT MHI")
-    st.caption("Inayasha — Uji Kompetensi")
+    st.caption("Simulasi Uji Kompetensi")
     st.divider()
-
-    if st.button("🏠 Beranda", use_container_width=True):
-        st.session_state.mode = 'Beranda'
-
-    if st.button("📝 Latihan Pilihan Ganda", use_container_width=True):
-        st.session_state.mode = 'PG'
-        st.session_state.current_q = 0
-        st.session_state.latihan_pg_questions = random.sample(soal_pg, len(soal_pg))
-        st.session_state.latihan_pg_answers = {}
-        st.session_state.latihan_pg_checked = {}
-
-    if st.button("✏️ Latihan Essay", use_container_width=True):
-        st.session_state.mode = 'Essay'
-        st.session_state.current_q = 0
-        st.session_state.latihan_essay_questions = random.sample(soal_essay, len(soal_essay))
-        st.session_state.latihan_essay_shown = {}
-
+    st.metric("Soal PG",       len(soal_pg))
+    st.metric("Soal Essay",    len(soal_essay))
+    st.metric("Soal Simulasi", min(JUMLAH_SOAL_SIMULASI, len(soal_pg)))
     st.divider()
-
-    n_sim = min(JUMLAH_SOAL_SIMULASI, len(soal_pg))
-    if st.button(f"🚀 Simulasi Ujian ({n_sim} Soal)", use_container_width=True, type="primary"):
-        st.session_state.mode = 'Simulasi'
-        st.session_state.simulasi_answers = {}
-        st.session_state.simulasi_submitted = False
-        st.session_state.simulasi_start_time = time.time()
-        st.session_state.simulasi_questions = random.sample(soal_pg, n_sim)
-        st.session_state.current_q = 0
-        st.session_state.simulasi_show_review = False
-        st.session_state.simulasi_review_idx = 0
-
-    st.divider()
-    st.caption(f"📚 {len(soal_pg)} soal PG tersedia")
-    st.caption(f"📖 {len(soal_essay)} soal Essay tersedia")
-
+    st.caption("Gunakan tab di atas untuk berpindah menu.")
 
 # ==========================================
-# 6. HALAMAN BERANDA
+# 6. NAVIGASI TABS — di area utama
 # ==========================================
-if st.session_state.mode == 'Beranda':
+tab_beranda, tab_pg, tab_essay, tab_simulasi = st.tabs([
+    "🏠 Beranda",
+    "📝 Latihan PG",
+    "✏️ Latihan Essay",
+    "🚀 Simulasi Ujian",
+])
+
+
+# ══════════════════════════════════════════
+# TAB 1 — BERANDA
+# ══════════════════════════════════════════
+with tab_beranda:
     st.title("Simulasi Ujikom MHI")
     st.write("Aplikasi latihan soal **Pilihan Ganda** dan **Essay** untuk persiapan Uji Kompetensi.")
 
     col1, col2, col3 = st.columns(3)
-    with col1:
-        st.metric("Soal PG", f"{len(soal_pg)}")
-    with col2:
-        st.metric("Soal Essay", f"{len(soal_essay)}")
-    with col3:
-        st.metric("Soal Simulasi", f"{min(JUMLAH_SOAL_SIMULASI, len(soal_pg))}")
+    col1.metric("Soal PG",       len(soal_pg))
+    col2.metric("Soal Essay",    len(soal_essay))
+    col3.metric("Soal Simulasi", min(JUMLAH_SOAL_SIMULASI, len(soal_pg)))
 
     st.divider()
-    st.markdown("""
+    st.markdown(f"""
     **Panduan Penggunaan:**
     - **Latihan PG** — Kerjakan soal satu per satu, cek jawaban langsung, navigasi bebas.
     - **Latihan Essay** — Baca soal, tulis jawaban sendiri, lalu tampilkan referensi untuk evaluasi diri.
-    - **Simulasi Ujian** — {n} soal acak dengan timer 2 jam. Jawaban dikunci setelah dikumpulkan. Ambang batas lulus: **{p}%**.
-    """.format(n=min(JUMLAH_SOAL_SIMULASI, len(soal_pg)), p=int(PASSING_SCORE)))
+    - **Simulasi Ujian** — {min(JUMLAH_SOAL_SIMULASI, len(soal_pg))} soal acak dengan timer 2 jam. \
+Jawaban dikunci setelah dikumpulkan. Ambang batas lulus: **{int(PASSING_SCORE)}%**.
+    """)
+    st.info("💡 Pilih tab di atas untuk mulai. Urutan soal diacak setiap kali sesi dimulai.")
 
-    st.info("💡 Setiap kali memilih mode, urutan soal diacak ulang secara otomatis.")
 
-
-# ==========================================
-# 7. HALAMAN LATIHAN PILIHAN GANDA
-# ==========================================
-elif st.session_state.mode == 'PG':
+# ══════════════════════════════════════════
+# TAB 2 — LATIHAN PILIHAN GANDA
+# ══════════════════════════════════════════
+with tab_pg:
     st.title("📝 Latihan Pilihan Ganda")
+
+    col_info, col_reset = st.columns([3, 1])
+    with col_reset:
+        if st.button("🔀 Acak Ulang", use_container_width=True, key="pg_reset"):
+            st.session_state.latihan_pg_questions = random.sample(soal_pg, len(soal_pg))
+            st.session_state.latihan_pg_answers   = {}
+            st.session_state.latihan_pg_checked   = {}
+            st.session_state.current_q            = 0
+            st.rerun()
 
     if not st.session_state.latihan_pg_questions:
         st.session_state.latihan_pg_questions = random.sample(soal_pg, len(soal_pg))
@@ -144,17 +132,27 @@ elif st.session_state.mode == 'PG':
     questions = st.session_state.latihan_pg_questions
     total_q   = len(questions)
     idx       = st.session_state.current_q
-    q         = questions[idx]
 
-    # Progress
+    if idx >= total_q:
+        idx = 0
+        st.session_state.current_q = 0
+
+    q = questions[idx]
+
+    with col_info:
+        n_checked = len(st.session_state.latihan_pg_checked)
+        n_benar   = sum(
+            1 for i in st.session_state.latihan_pg_checked
+            if st.session_state.latihan_pg_answers.get(i) == questions[i]['kunci_jawaban']
+        )
+        st.caption(f"Sudah dicek: {n_checked} soal  |  Benar: {n_benar}")
+
     st.progress((idx + 1) / total_q)
     st.write(f"**Soal {idx + 1} dari {total_q}**")
-
     st.write("### " + q['pertanyaan'])
 
-    # Jawaban sebelumnya (jika ada)
-    saved = st.session_state.latihan_pg_answers.get(idx)
-    opsi_keys = list(q['opsi'].keys())
+    saved       = st.session_state.latihan_pg_answers.get(idx)
+    opsi_keys   = list(q['opsi'].keys())
     default_idx = opsi_keys.index(saved) if saved in opsi_keys else 0
 
     pilihan = st.radio(
@@ -164,169 +162,181 @@ elif st.session_state.mode == 'PG':
         key=f"pg_radio_{idx}",
         index=default_idx,
     )
-
-    # Simpan pilihan ke state
     st.session_state.latihan_pg_answers[idx] = pilihan
 
-    # Tombol cek jawaban
     sudah_dicek = st.session_state.latihan_pg_checked.get(idx, False)
+    if st.button("✅ Cek Jawaban", type="primary", key=f"pg_cek_{idx}"):
+        st.session_state.latihan_pg_checked[idx] = True
+        sudah_dicek = True
 
-    col_btn1, col_btn2 = st.columns([1, 2])
-    with col_btn1:
-        if st.button("✅ Cek Jawaban", type="primary"):
-            st.session_state.latihan_pg_checked[idx] = True
-            sudah_dicek = True
-
-    # Tampilkan hasil jika sudah dicek
     if sudah_dicek:
         kunci = q['kunci_jawaban']
         if pilihan == kunci:
-            st.success(f"**Benar!** Jawaban: **{kunci}. {q['opsi'][kunci]}**")
+            st.success(f"**Benar!** Kunci: **{kunci}. {q['opsi'][kunci]}**")
         else:
             st.error(f"**Salah.** Jawaban Anda: {pilihan}. {q['opsi'].get(pilihan, '')}")
             st.info(f"Kunci Jawaban: **{kunci}. {q['opsi'][kunci]}**")
 
     st.divider()
 
-    # Navigasi
-    col1, col_mid, col2 = st.columns([1, 2, 1])
+    col1, col2 = st.columns(2)
     with col1:
         if idx > 0:
-            if st.button("◀ Sebelumnya", use_container_width=True):
+            if st.button("◀ Sebelumnya", use_container_width=True, key="pg_prev"):
                 st.session_state.current_q -= 1
                 st.rerun()
-    with col_mid:
-        # Ringkasan jawaban
-        n_checked = len(st.session_state.latihan_pg_checked)
-        n_benar   = sum(
-            1 for i, c in st.session_state.latihan_pg_checked.items()
-            if c and st.session_state.latihan_pg_answers.get(i) == questions[i]['kunci_jawaban']
-        )
-        if n_checked:
-            st.caption(f"Sudah dicek: {n_checked} soal | Benar: {n_benar}")
     with col2:
         if idx < total_q - 1:
-            if st.button("Selanjutnya ▶", use_container_width=True):
+            if st.button("Selanjutnya ▶", use_container_width=True, key="pg_next"):
                 st.session_state.current_q += 1
                 st.rerun()
 
 
-# ==========================================
-# 8. HALAMAN LATIHAN ESSAY
-# ==========================================
-elif st.session_state.mode == 'Essay':
+# ══════════════════════════════════════════
+# TAB 3 — LATIHAN ESSAY
+# ══════════════════════════════════════════
+with tab_essay:
     st.title("✏️ Latihan Essay")
+
+    col_info_e, col_reset_e = st.columns([3, 1])
+    with col_reset_e:
+        if st.button("🔀 Acak Ulang", use_container_width=True, key="essay_reset"):
+            st.session_state.latihan_essay_questions = random.sample(soal_essay, len(soal_essay))
+            st.session_state.latihan_essay_shown     = {}
+            st.session_state.current_q               = 0
+            st.rerun()
 
     if not st.session_state.latihan_essay_questions:
         st.session_state.latihan_essay_questions = random.sample(soal_essay, len(soal_essay))
 
-    questions = st.session_state.latihan_essay_questions
-    total_q   = len(questions)
-    idx       = st.session_state.current_q
-    q         = questions[idx]
+    questions_e = st.session_state.latihan_essay_questions
+    total_e     = len(questions_e)
+    idx_e       = st.session_state.current_q
 
-    st.progress((idx + 1) / total_q)
-    st.write(f"**Soal {idx + 1} dari {total_q}**")
+    if idx_e >= total_e:
+        idx_e = 0
+        st.session_state.current_q = 0
 
-    st.write("### " + q['pertanyaan'])
-    st.text_area("Ketik jawaban Anda:", height=150, key=f"essay_input_{idx}")
+    qe = questions_e[idx_e]
 
-    if st.button("📖 Tampilkan Referensi Jawaban", type="primary"):
-        st.session_state.latihan_essay_shown[idx] = True
+    with col_info_e:
+        n_shown = len(st.session_state.latihan_essay_shown)
+        st.caption(f"Referensi sudah ditampilkan: {n_shown} soal")
 
-    if st.session_state.latihan_essay_shown.get(idx):
-        st.info("**Referensi Jawaban Resmi:**\n\n" + q['referensi_jawaban'])
+    st.progress((idx_e + 1) / total_e)
+    st.write(f"**Soal {idx_e + 1} dari {total_e}**")
+    st.write("### " + qe['pertanyaan'])
+
+    st.text_area("Ketik jawaban Anda:", height=150, key=f"essay_input_{idx_e}")
+
+    if st.button("📖 Tampilkan Referensi Jawaban", type="primary", key=f"essay_ref_{idx_e}"):
+        st.session_state.latihan_essay_shown[idx_e] = True
+
+    if st.session_state.latihan_essay_shown.get(idx_e):
+        st.info("**Referensi Jawaban Resmi:**\n\n" + qe['referensi_jawaban'])
 
     st.divider()
 
-    col1, col2 = st.columns(2)
-    with col1:
-        if idx > 0:
-            if st.button("◀ Sebelumnya", use_container_width=True):
+    col1_e, col2_e = st.columns(2)
+    with col1_e:
+        if idx_e > 0:
+            if st.button("◀ Sebelumnya", use_container_width=True, key="essay_prev"):
                 st.session_state.current_q -= 1
                 st.rerun()
-    with col2:
-        if idx < total_q - 1:
-            if st.button("Selanjutnya ▶", use_container_width=True):
+    with col2_e:
+        if idx_e < total_e - 1:
+            if st.button("Selanjutnya ▶", use_container_width=True, key="essay_next"):
                 st.session_state.current_q += 1
                 st.rerun()
 
 
-# ==========================================
-# 9. HALAMAN SIMULASI UJIAN
-# ==========================================
-elif st.session_state.mode == 'Simulasi':
+# ══════════════════════════════════════════
+# TAB 4 — SIMULASI UJIAN
+# ══════════════════════════════════════════
+with tab_simulasi:
 
+    n_sim     = min(JUMLAH_SOAL_SIMULASI, len(soal_pg))
     questions = st.session_state.simulasi_questions
-    total_q   = len(questions)
 
-    # ── Tampilan setelah submit: HASIL + REVIEW ──────────────────────────────
-    if st.session_state.simulasi_submitted:
+    # ── Belum mulai ───────────────────────────────────────────────────────────
+    if not st.session_state.simulasi_started:
+        st.title("🚀 Simulasi Ujian")
+        st.markdown(f"""
+        **Ketentuan Simulasi:**
+        - Jumlah soal : **{n_sim} soal** (dipilih acak)
+        - Waktu ujian : **120 menit**
+        - Ambang lulus: **{int(PASSING_SCORE)}%**
+        - Soal **tidak bisa diubah** setelah dikumpulkan
+        """)
+        st.warning("Pastikan Anda siap sebelum memulai. Timer akan langsung berjalan.")
+        if st.button("▶️ Mulai Simulasi", type="primary", use_container_width=True):
+            st.session_state.simulasi_started     = True
+            st.session_state.simulasi_answers     = {}
+            st.session_state.simulasi_submitted   = False
+            st.session_state.simulasi_start_time  = time.time()
+            st.session_state.simulasi_questions   = random.sample(soal_pg, n_sim)
+            st.session_state.current_q            = 0
+            st.session_state.simulasi_show_review = False
+            st.session_state.simulasi_review_idx  = 0
+            st.rerun()
+
+    # ── Hasil & Review ────────────────────────────────────────────────────────
+    elif st.session_state.simulasi_submitted:
+        total_q = len(questions)
 
         if not st.session_state.simulasi_show_review:
-            # ── Kartu Hasil ─────────────────────────────────────────────────
             st.title("🎉 Hasil Simulasi")
 
-            benar = sum(
-                1 for q in questions
-                if st.session_state.simulasi_answers.get(str(q['id'])) == q['kunci_jawaban']
-            )
-            salah       = total_q - benar
-            skor_akhir  = (benar / total_q) * 100
-            lulus       = skor_akhir >= PASSING_SCORE
+            benar      = sum(1 for q in questions
+                             if st.session_state.simulasi_answers.get(str(q['id'])) == q['kunci_jawaban'])
+            salah      = total_q - benar
+            skor_akhir = (benar / total_q) * 100
+            lulus      = skor_akhir >= PASSING_SCORE
 
-            waktu_total  = int(time.time() - st.session_state.simulasi_start_time)
-            menit_habis  = waktu_total // 60
-            detik_habis  = waktu_total % 60
+            waktu_total = int(time.time() - st.session_state.simulasi_start_time)
+            mnt = waktu_total // 60
+            dtk = waktu_total % 60
 
             if lulus:
                 st.success(f"### ✅ LULUS — Skor: {skor_akhir:.1f}%")
             else:
-                st.error(f"### ❌ BELUM LULUS — Skor: {skor_akhir:.1f}% (minimum {PASSING_SCORE:.0f}%)")
+                st.error(f"### ❌ BELUM LULUS — Skor: {skor_akhir:.1f}% (minimum {int(PASSING_SCORE)}%)")
 
-            col1, col2, col3, col4 = st.columns(4)
-            col1.metric("Skor",  f"{skor_akhir:.1f}%")
-            col2.metric("Benar", benar)
-            col3.metric("Salah", salah)
-            col4.metric("Waktu", f"{menit_habis}m {detik_habis}s")
+            c1, c2, c3, c4 = st.columns(4)
+            c1.metric("Skor",  f"{skor_akhir:.1f}%")
+            c2.metric("Benar", benar)
+            c3.metric("Salah", salah)
+            c4.metric("Waktu", f"{mnt}m {dtk}s")
 
             st.divider()
-            col_a, col_b = st.columns(2)
-            with col_a:
+            ca, cb = st.columns(2)
+            with ca:
                 if st.button("🔍 Review Jawaban", use_container_width=True, type="primary"):
                     st.session_state.simulasi_show_review = True
-                    st.session_state.simulasi_review_idx = 0
+                    st.session_state.simulasi_review_idx  = 0
                     st.rerun()
-            with col_b:
-                if st.button("🔄 Ulangi Simulasi (Soal Baru)", use_container_width=True):
-                    n_sim = min(JUMLAH_SOAL_SIMULASI, len(soal_pg))
-                    st.session_state.simulasi_answers   = {}
-                    st.session_state.simulasi_submitted = False
-                    st.session_state.simulasi_start_time = time.time()
-                    st.session_state.simulasi_questions = random.sample(soal_pg, n_sim)
-                    st.session_state.current_q = 0
+            with cb:
+                if st.button("🔄 Simulasi Baru", use_container_width=True):
+                    st.session_state.simulasi_started     = False
+                    st.session_state.simulasi_submitted   = False
                     st.session_state.simulasi_show_review = False
                     st.rerun()
 
         else:
-            # ── Mode Review: satu soal per halaman ──────────────────────────
+            # Review per soal
             st.title("🔍 Review Jawaban")
             ridx = st.session_state.simulasi_review_idx
             q    = questions[ridx]
 
-            # Status seluruh soal (strip ringkasan di atas)
-            n_benar_total = sum(
-                1 for qq in questions
-                if st.session_state.simulasi_answers.get(str(qq['id'])) == qq['kunci_jawaban']
-            )
+            n_benar_total = sum(1 for qq in questions
+                                if st.session_state.simulasi_answers.get(str(qq['id'])) == qq['kunci_jawaban'])
             st.caption(f"Soal {ridx + 1} dari {total_q}  |  Total benar: {n_benar_total}/{total_q}")
             st.progress((ridx + 1) / total_q)
 
             jawaban_user = st.session_state.simulasi_answers.get(str(q['id']))
             kunci        = q['kunci_jawaban']
-            benar_soal   = jawaban_user == kunci
 
-            if benar_soal:
+            if jawaban_user == kunci:
                 st.success(f"**Soal {ridx + 1} — Benar ✅**")
             else:
                 st.error(f"**Soal {ridx + 1} — Salah ❌**")
@@ -345,45 +355,46 @@ elif st.session_state.mode == 'Simulasi':
                     st.markdown(f"　 {key}. {teks}")
 
             st.divider()
-            col1, col_mid, col2 = st.columns([1, 2, 1])
-            with col1:
+            r1, r2, r3 = st.columns([1, 2, 1])
+            with r1:
                 if ridx > 0:
-                    if st.button("◀ Sebelumnya", use_container_width=True):
+                    if st.button("◀ Sebelumnya", use_container_width=True, key="rev_prev"):
                         st.session_state.simulasi_review_idx -= 1
                         st.rerun()
-            with col_mid:
-                if st.button("◀ Kembali ke Hasil", use_container_width=True):
+            with r2:
+                if st.button("◀ Kembali ke Hasil", use_container_width=True, key="rev_back"):
                     st.session_state.simulasi_show_review = False
                     st.rerun()
-            with col2:
+            with r3:
                 if ridx < total_q - 1:
-                    if st.button("Selanjutnya ▶", use_container_width=True):
+                    if st.button("Selanjutnya ▶", use_container_width=True, key="rev_next"):
                         st.session_state.simulasi_review_idx += 1
                         st.rerun()
 
-    # ── Tampilan saat ujian berlangsung ──────────────────────────────────────
+    # ── Ujian berlangsung ─────────────────────────────────────────────────────
     else:
-        idx = st.session_state.current_q
-        q   = questions[idx]
+        total_q = len(questions)
+        idx     = st.session_state.current_q
+        if idx >= total_q:
+            idx = 0
+            st.session_state.current_q = 0
+        q = questions[idx]
 
-        # Header & Timer
         elapsed_time = int(time.time() - st.session_state.simulasi_start_time)
         sisa_waktu   = max(0, WAKTU_UJIAN_DETIK - elapsed_time)
 
-        # Auto-submit jika waktu habis
         if sisa_waktu == 0:
             st.session_state.simulasi_submitted = True
             st.rerun()
 
-        st.title(f"🚀 Simulasi Ujian — Soal {idx + 1}/{total_q}")
+        st.title(f"🚀 Simulasi — Soal {idx + 1}/{total_q}")
         st.progress((idx + 1) / total_q)
 
-        # Timer HTML
         timer_html = f"""
-        <div style="background:#fff3cd;border-left:5px solid #ff4b4b;padding:12px 18px;
-                    border-radius:6px;margin-bottom:10px;">
-            <span style="font-size:1rem;font-weight:600;color:#333;">⏱️ Sisa Waktu: </span>
-            <span id="clock" style="font-size:1.2rem;font-weight:700;color:#ff4b4b;">Memuat...</span>
+        <div style="background:#fff3cd;border-left:5px solid #ff4b4b;padding:10px 16px;
+                    border-radius:6px;margin-bottom:8px;">
+            <span style="font-size:.95rem;font-weight:600;color:#333;">⏱️ Sisa Waktu: </span>
+            <span id="clock" style="font-size:1.1rem;font-weight:700;color:#ff4b4b;">Memuat...</span>
         </div>
         <script>
             var timeLeft = {sisa_waktu};
@@ -402,9 +413,8 @@ elif st.session_state.mode == 'Simulasi':
             }}
         </script>
         """
-        components.html(timer_html, height=65)
+        components.html(timer_html, height=60)
 
-        # Soal
         st.write("### " + q['pertanyaan'])
 
         opsi_keys    = list(q['opsi'].keys())
@@ -418,46 +428,40 @@ elif st.session_state.mode == 'Simulasi':
             key=f"sim_radio_{idx}_{q['id']}",
             index=default_idx,
         )
-
         if pilihan:
             st.session_state.simulasi_answers[str(q['id'])] = pilihan
 
-        # Indikator berapa soal sudah dijawab
         n_dijawab = len(st.session_state.simulasi_answers)
         st.caption(f"Sudah dijawab: {n_dijawab}/{total_q} soal")
-
         st.divider()
 
-        # Navigasi soal
-        col1, col_kumpul, col2 = st.columns([1, 2, 1])
-        with col1:
+        s1, s2, s3 = st.columns([1, 2, 1])
+        with s1:
             if idx > 0:
-                if st.button("◀ Sebelumnya", use_container_width=True):
+                if st.button("◀ Sebelumnya", use_container_width=True, key="sim_prev"):
                     st.session_state.current_q -= 1
                     st.rerun()
-        with col_kumpul:
-            label_kumpul = f"📥 Kumpulkan ({n_dijawab}/{total_q} dijawab)"
-            if st.button(label_kumpul, use_container_width=True, type="primary"):
+        with s2:
+            if st.button(f"📥 Kumpulkan ({n_dijawab}/{total_q})", use_container_width=True,
+                         type="primary", key="sim_kumpul"):
                 st.session_state.simulasi_submitted = True
                 st.rerun()
-        with col2:
+        with s3:
             if idx < total_q - 1:
-                if st.button("Selanjutnya ▶", use_container_width=True):
+                if st.button("Selanjutnya ▶", use_container_width=True, key="sim_next"):
                     st.session_state.current_q += 1
                     st.rerun()
 
-        # Peta soal (grid kecil navigasi cepat)
+        # Peta soal
         with st.expander("🗺️ Peta Soal — Navigasi Cepat", expanded=False):
             cols_per_row = 10
-            all_keys     = [str(q['id']) for q in questions]
-            rows         = [questions[i:i+cols_per_row] for i in range(0, total_q, cols_per_row)]
-
+            rows = [questions[i:i+cols_per_row] for i in range(0, total_q, cols_per_row)]
             for row_start, row in enumerate(rows):
                 cols = st.columns(cols_per_row)
                 for col_pos, soal in enumerate(row):
                     soal_idx   = row_start * cols_per_row + col_pos
                     dijawab    = str(soal['id']) in st.session_state.simulasi_answers
-                    label_peta = f"{'✓' if dijawab else '○'}{soal_idx+1}"
+                    label_peta = f"{'✓' if dijawab else '○'}{soal_idx + 1}"
                     with cols[col_pos]:
                         if st.button(label_peta, key=f"peta_{soal_idx}", use_container_width=True):
                             st.session_state.current_q = soal_idx
