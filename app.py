@@ -33,11 +33,145 @@ DURASI_OPSI     = {"60 menit": 3600, "90 menit": 5400, "120 menit": 7200}
 PASSING_SCORE   = 70.0
 
 # ══════════════════════════════════════════════════════════════════
-# 3. STATE
+# 3. CSS  — ikut tema Streamlit (light/dark diatur dari Settings)
+# ══════════════════════════════════════════════════════════════════
+st.markdown("""
+<style>
+/* ── Sidebar rata tengah ── */
+[data-testid="stSidebar"] > div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 1.2rem;
+}
+[data-testid="stSidebar"] .stMetric,
+[data-testid="stSidebar"] .stMetric label,
+[data-testid="stSidebar"] .stMetric > div {
+    text-align: center !important;
+    justify-content: center !important;
+}
+
+/* ── Font responsive (mobile) ── */
+h1 { font-size: clamp(1.2rem, 4vw, 1.85rem) !important; }
+h2 { font-size: clamp(1.05rem, 3.5vw, 1.5rem) !important; }
+[data-testid="stTabs"] button p {
+    font-size: clamp(0.65rem, 2vw, 0.88rem) !important;
+    white-space: nowrap;
+}
+
+/* ── Progress bar animasi ── */
+.prog-wrap {
+    background: rgba(128,128,128,0.2);
+    border-radius: 99px;
+    height: 7px;
+    margin: 0.3rem 0 0.6rem;
+    overflow: hidden;
+}
+.prog-bar {
+    height: 7px;
+    border-radius: 99px;
+    background: linear-gradient(90deg, #3b82f6, #7c3aed);
+    transition: width 0.45s cubic-bezier(.4,0,.2,1);
+}
+
+/* ── Card soal ── */
+.q-card {
+    border: 1px solid rgba(128,128,128,0.25);
+    border-radius: 14px;
+    padding: 1.1rem 1.3rem;
+    margin-bottom: 0.9rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    font-size: clamp(0.88rem, 2.5vw, 1rem);
+    line-height: 1.6;
+}
+
+/* ── Metric row (center + responsive) ── */
+.metric-row {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0.75rem 0;
+}
+.metric-box {
+    border: 1px solid rgba(128,128,128,0.25);
+    border-radius: 12px;
+    padding: 0.7rem 1rem;
+    text-align: center;
+    flex: 1 1 80px;
+    min-width: 75px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+}
+.metric-box .mval {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    font-weight: 700;
+    color: #3b82f6;
+    line-height: 1.1;
+}
+.metric-box .mlbl {
+    font-size: 0.68rem;
+    opacity: 0.65;
+    margin-top: 0.15rem;
+}
+
+/* ── Tag kategori ── */
+.tag {
+    display: inline-block;
+    background: rgba(59,130,246,0.12);
+    color: #3b82f6;
+    border-radius: 99px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 0.12rem 0.55rem;
+    margin-bottom: 0.45rem;
+}
+
+/* ── Opsi jawaban ── */
+.opsi-item {
+    display: block;
+    padding: 0.55rem 0.85rem;
+    border-radius: 9px;
+    margin-bottom: 0.32rem;
+    border: 1.5px solid rgba(128,128,128,0.25);
+    font-size: clamp(0.82rem, 2.3vw, 0.94rem);
+}
+.opsi-benar {
+    border-color: #16a34a !important;
+    background: rgba(22,163,74,0.1) !important;
+    color: #15803d !important;
+    font-weight: 600;
+}
+.opsi-salah {
+    border-color: #dc2626 !important;
+    background: rgba(220,38,38,0.08) !important;
+    color: #b91c1c !important;
+    font-weight: 600;
+}
+
+/* ── Donut chart ── */
+.donut-wrap { display: flex; justify-content: center; margin: 0.8rem 0; }
+
+/* ── Histori skor ── */
+.skor-item {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.38rem 0.6rem;
+    border-radius: 8px;
+    border: 1px solid rgba(128,128,128,0.2);
+    margin-bottom: 0.35rem;
+    font-size: 0.82rem;
+}
+.skor-badge { font-weight: 700; font-size: 0.9rem; min-width: 48px; text-align: right; }
+</style>
+""", unsafe_allow_html=True)
+
+# ══════════════════════════════════════════════════════════════════
+# 4. STATE
 # ══════════════════════════════════════════════════════════════════
 def init_state():
     defaults = {
-        'dark_mode': False,
         'current_q': 0,
         # Simulasi
         'simulasi_started': False,
@@ -72,163 +206,6 @@ def init_state():
 init_state()
 
 # ══════════════════════════════════════════════════════════════════
-# 4. CSS
-# ══════════════════════════════════════════════════════════════════
-dark = st.session_state.dark_mode
-
-BG        = "#0e1117"       if dark else "#f5f7fa"
-CARD_BG   = "#1e2130"       if dark else "#ffffff"
-TEXT      = "#e0e0e0"       if dark else "#1a1a2e"
-SUB_TEXT  = "#9aa0b0"       if dark else "#6b7280"
-BORDER    = "#2e3250"       if dark else "#e5e7eb"
-ACCENT    = "#4f8ef7"       if dark else "#3b82f6"
-SUCCESS   = "#2e7d32"       if dark else "#16a34a"
-ERROR_C   = "#b71c1c"       if dark else "#dc2626"
-TAG_BG    = "#2e3250"       if dark else "#eff6ff"
-SUC_BG    = "#1b3a1f"       if dark else "#e8f5e9"
-ERR_BG    = "#3a1a1a"       if dark else "#ffebee"
-
-st.markdown(f"""
-<style>
-html, body, [data-testid="stAppViewContainer"] {{
-    background-color: {BG} !important;
-    color: {TEXT};
-}}
-[data-testid="stSidebar"] {{
-    background-color: {CARD_BG} !important;
-    border-right: 1px solid {BORDER};
-}}
-/* ─ Sidebar rata tengah ─ */
-[data-testid="stSidebar"] > div:first-child {{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding-top: 1.2rem;
-}}
-[data-testid="stSidebar"] .stMetric,
-[data-testid="stSidebar"] .stMetric label,
-[data-testid="stSidebar"] .stMetric > div {{
-    text-align: center !important;
-    justify-content: center !important;
-}}
-/* ─ Font responsive ─ */
-h1 {{ font-size: clamp(1.25rem, 4vw, 1.9rem) !important; }}
-h2 {{ font-size: clamp(1.1rem, 3.5vw, 1.55rem) !important; }}
-h3 {{ font-size: clamp(0.95rem, 3vw, 1.25rem) !important; }}
-[data-testid="stTabs"] button p {{
-    font-size: clamp(0.65rem, 2vw, 0.88rem) !important;
-    white-space: nowrap;
-}}
-/* ─ Card ─ */
-.q-card {{
-    background: {CARD_BG};
-    border: 1px solid {BORDER};
-    border-radius: 14px;
-    padding: 1.1rem 1.3rem;
-    margin-bottom: 0.9rem;
-    box-shadow: 0 2px 14px rgba(0,0,0,{0.18 if dark else 0.07});
-    font-size: clamp(0.88rem, 2.5vw, 1rem);
-    line-height: 1.55;
-}}
-/* ─ Progress ─ */
-.prog-wrap {{
-    background: {BORDER};
-    border-radius: 99px;
-    height: 7px;
-    margin: 0.35rem 0 0.65rem;
-    overflow: hidden;
-}}
-.prog-bar {{
-    height: 7px;
-    border-radius: 99px;
-    background: linear-gradient(90deg, {ACCENT}, #7c3aed);
-    transition: width 0.45s cubic-bezier(.4,0,.2,1);
-}}
-/* ─ Metric row ─ */
-.metric-row {{
-    display: flex;
-    gap: 0.6rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0.8rem 0;
-}}
-.metric-box {{
-    background: {CARD_BG};
-    border: 1px solid {BORDER};
-    border-radius: 12px;
-    padding: 0.75rem 1rem;
-    text-align: center;
-    flex: 1 1 80px;
-    min-width: 75px;
-    box-shadow: 0 1px 6px rgba(0,0,0,{0.12 if dark else 0.05});
-}}
-.metric-box .mval {{
-    font-size: clamp(1.2rem, 4vw, 1.55rem);
-    font-weight: 700;
-    color: {ACCENT};
-    line-height: 1.1;
-}}
-.metric-box .mlbl {{
-    font-size: 0.68rem;
-    color: {SUB_TEXT};
-    margin-top: 0.15rem;
-}}
-/* ─ Tag ─ */
-.tag {{
-    display: inline-block;
-    background: {TAG_BG};
-    color: {ACCENT};
-    border-radius: 99px;
-    font-size: 0.68rem;
-    font-weight: 600;
-    padding: 0.12rem 0.55rem;
-    margin-bottom: 0.45rem;
-}}
-/* ─ Opsi ─ */
-.opsi-item {{
-    display: block;
-    padding: 0.55rem 0.85rem;
-    border-radius: 9px;
-    margin-bottom: 0.3rem;
-    border: 1.5px solid {BORDER};
-    background: {CARD_BG};
-    font-size: clamp(0.82rem, 2.3vw, 0.95rem);
-    transition: all 0.15s;
-}}
-.opsi-benar {{
-    border-color: {SUCCESS} !important;
-    background: {SUC_BG} !important;
-    color: {SUCCESS} !important;
-    font-weight: 600;
-}}
-.opsi-salah {{
-    border-color: {ERROR_C} !important;
-    background: {ERR_BG} !important;
-    color: {ERROR_C} !important;
-    font-weight: 600;
-}}
-/* ─ Histori ─ */
-.skor-item {{
-    display: flex;
-    align-items: center;
-    gap: 0.45rem;
-    padding: 0.38rem 0.6rem;
-    border-radius: 8px;
-    background: {CARD_BG};
-    border: 1px solid {BORDER};
-    margin-bottom: 0.35rem;
-    font-size: 0.82rem;
-}}
-.skor-badge {{ font-weight: 700; font-size: 0.9rem; min-width: 48px; text-align: right; }}
-.c-ok  {{ color: {SUCCESS}; }}
-.c-err {{ color: {ERROR_C}; }}
-/* ─ Donut ─ */
-.donut-wrap {{ display:flex; justify-content:center; margin: 0.8rem 0; }}
-</style>
-""", unsafe_allow_html=True)
-
-# ══════════════════════════════════════════════════════════════════
 # HELPERS
 # ══════════════════════════════════════════════════════════════════
 def filter_pg(kat):
@@ -237,8 +214,8 @@ def filter_pg(kat):
     return [q for q in soal_pg if q.get('kategori', 'Umum') == kat]
 
 def prog_html(pct, label=""):
-    return (f'<div style="font-size:.7rem;color:{SUB_TEXT};margin-bottom:2px">{label}</div>'
-            f'<div class="prog-wrap"><div class="prog-bar" style="width:{pct*100:.1f}%"></div></div>')
+    lbl = f'<div style="font-size:.7rem;opacity:.6;margin-bottom:2px">{label}</div>' if label else ""
+    return f'{lbl}<div class="prog-wrap"><div class="prog-bar" style="width:{pct*100:.1f}%"></div></div>'
 
 def metrics_html(*items):
     boxes = "".join(
@@ -247,23 +224,23 @@ def metrics_html(*items):
     return f'<div class="metric-row">{boxes}</div>'
 
 def donut_html(benar, total):
-    salah = total - benar
-    pct   = benar / total * 100 if total else 0
-    R     = 68
-    circ  = 2 * 3.14159 * R
-    dash  = circ * benar / total if total else 0
-    green = "#22c55e"; red = "#ef4444"
+    pct  = benar / total * 100 if total else 0
+    R    = 66
+    circ = 2 * 3.14159 * R
+    dash = circ * benar / total if total else 0
     return f"""
     <div class="donut-wrap">
-      <svg width="170" height="170" viewBox="0 0 170 170">
-        <circle cx="85" cy="85" r="{R}" fill="none" stroke="{red}" stroke-width="20"/>
-        <circle cx="85" cy="85" r="{R}" fill="none" stroke="{green}" stroke-width="20"
+      <svg width="165" height="165" viewBox="0 0 165 165">
+        <circle cx="82.5" cy="82.5" r="{R}" fill="none" stroke="#ef4444" stroke-width="19"/>
+        <circle cx="82.5" cy="82.5" r="{R}" fill="none" stroke="#22c55e" stroke-width="19"
                 stroke-dasharray="{dash:.1f} {circ:.1f}"
                 stroke-dashoffset="{circ/4:.1f}" stroke-linecap="round"/>
-        <text x="85" y="80" text-anchor="middle" font-size="21"
-              font-weight="700" fill="{TEXT}">{pct:.0f}%</text>
-        <text x="85" y="100" text-anchor="middle" font-size="10" fill="{SUB_TEXT}">Skor Akhir</text>
-        <text x="85" y="115" text-anchor="middle" font-size="10" fill="{SUB_TEXT}">{benar}/{total} benar</text>
+        <text x="82.5" y="77" text-anchor="middle" font-size="20"
+              font-weight="700" fill="currentColor">{pct:.0f}%</text>
+        <text x="82.5" y="96" text-anchor="middle" font-size="10"
+              fill="currentColor" opacity=".6">Skor Akhir</text>
+        <text x="82.5" y="110" text-anchor="middle" font-size="10"
+              fill="currentColor" opacity=".6">{benar}/{total} benar</text>
       </svg>
     </div>"""
 
@@ -287,11 +264,11 @@ def konfetti_js():
 # 5. SIDEBAR
 # ══════════════════════════════════════════════════════════════════
 with st.sidebar:
-    st.markdown(f"""
+    st.markdown("""
     <div style="text-align:center;padding:0.3rem 0 0.5rem">
-      <div style="font-size:1.9rem">🎓</div>
-      <div style="font-weight:700;font-size:1.05rem;margin-top:0.25rem;color:{TEXT}">CAT MHI</div>
-      <div style="font-size:0.7rem;color:{SUB_TEXT};margin-top:0.1rem;line-height:1.4">
+      <div style="font-size:2rem">🎓</div>
+      <div style="font-weight:700;font-size:1.05rem;margin-top:0.25rem">CAT MHI</div>
+      <div style="font-size:0.7rem;opacity:.6;margin-top:0.1rem;line-height:1.5">
         Mediator Hubungan Industrial<br>Ahli Madya
       </div>
     </div>
@@ -305,31 +282,24 @@ with st.sidebar:
         (st.session_state.simulasi_jumlah, "Simulasi"),
     ), unsafe_allow_html=True)
 
-    st.divider()
-
-    dm_lbl = "☀️ Mode Terang" if dark else "🌙 Mode Gelap"
-    if st.button(dm_lbl, use_container_width=True, key="dm_toggle"):
-        st.session_state.dark_mode = not st.session_state.dark_mode
-        st.rerun()
-
     bm_count = len(st.session_state.bookmarks)
     if bm_count:
-        st.markdown(f'<div style="text-align:center;font-size:0.75rem;color:{SUB_TEXT};'
-                    f'margin-top:0.4rem">🔖 {bm_count} soal bookmark</div>',
+        st.markdown(f'<div style="text-align:center;font-size:0.75rem;opacity:.6;'
+                    f'margin-top:0.5rem">🔖 {bm_count} soal bookmark</div>',
                     unsafe_allow_html=True)
 
     if st.session_state.simulasi_histori:
         st.divider()
-        st.markdown(f'<div style="text-align:center;font-size:0.73rem;font-weight:600;'
-                    f'color:{SUB_TEXT}">Histori Terakhir</div>', unsafe_allow_html=True)
+        st.markdown('<div style="text-align:center;font-size:0.73rem;font-weight:600;opacity:.6">Histori Terakhir</div>',
+                    unsafe_allow_html=True)
         for h in st.session_state.simulasi_histori[-3:]:
             lulus = h['skor'] >= PASSING_SCORE
-            warna = SUCCESS if lulus else ERROR_C
+            warna = "#16a34a" if lulus else "#dc2626"
             icon  = "✅" if lulus else "❌"
             st.markdown(f"""
             <div class="skor-item">
               <span>{icon}</span>
-              <span style="flex:1;color:{SUB_TEXT};font-size:.72rem">{h.get('label','')}</span>
+              <span style="flex:1;opacity:.6;font-size:.72rem">{h.get('label','')}</span>
               <span class="skor-badge" style="color:{warna}">{h['skor']:.0f}%</span>
             </div>""", unsafe_allow_html=True)
 
@@ -358,7 +328,7 @@ with tab_beranda:
     kat_counts = Counter(q.get('kategori', 'Umum') for q in soal_pg)
     for kat, cnt in sorted(kat_counts.items(), key=lambda x: -x[1]):
         pct = cnt / len(soal_pg)
-        st.markdown(prog_html(pct, f"{kat} ({cnt})"), unsafe_allow_html=True)
+        st.markdown(prog_html(pct, f"{kat} ({cnt} soal)"), unsafe_allow_html=True)
 
     st.divider()
     st.markdown(f"""
@@ -382,10 +352,10 @@ with tab_pg:
     with c_rst:
         if st.button("🔀 Acak", use_container_width=True, key="pg_reset"):
             pool = filter_pg(kat_pg)
-            st.session_state.latihan_pg_questions = random.sample(pool, len(pool))
-            st.session_state.latihan_pg_answers   = {}
-            st.session_state.latihan_pg_checked   = {}
-            st.session_state.current_q            = 0
+            st.session_state.latihan_pg_questions  = random.sample(pool, len(pool))
+            st.session_state.latihan_pg_answers    = {}
+            st.session_state.latihan_pg_checked    = {}
+            st.session_state.current_q             = 0
             st.session_state.latihan_pg_salah_mode = False
             st.rerun()
 
@@ -408,7 +378,7 @@ with tab_pg:
     idx     = min(st.session_state.current_q, total_q - 1)
     q       = questions[idx]
 
-    # Statistik
+    # Statistik mini
     all_q_ref = st.session_state.latihan_pg_questions
     n_checked = len(st.session_state.latihan_pg_checked)
     n_benar   = sum(
@@ -423,15 +393,16 @@ with tab_pg:
             (n_checked - n_benar, "Salah"), (akurasi, "Akurasi"),
         ), unsafe_allow_html=True)
 
-    st.markdown(prog_html((idx+1)/total_q, f"Soal {idx+1} dari {total_q}"), unsafe_allow_html=True)
+    # Progress
+    st.markdown(prog_html((idx+1)/total_q, f"Soal {idx+1} dari {total_q}"),
+                unsafe_allow_html=True)
 
-    # Header soal + bookmark
-    bm_id  = q['id']
-    is_bm  = bm_id in st.session_state.bookmarks
+    # Bookmark
+    bm_id = q['id']
+    is_bm = bm_id in st.session_state.bookmarks
     c_q, c_bm = st.columns([11, 1])
     with c_bm:
-        bm_icon = "⭐" if is_bm else "☆"
-        if st.button(bm_icon, key=f"bm_pg_{idx}_{bm_id}", help="Bookmark"):
+        if st.button("⭐" if is_bm else "☆", key=f"bm_pg_{idx}_{bm_id}", help="Bookmark"):
             if is_bm:
                 st.session_state.bookmarks.discard(bm_id)
             else:
@@ -453,13 +424,13 @@ with tab_pg:
         kunci = q['kunci_jawaban']
         for k, v in q['opsi'].items():
             if k == kunci and k == saved:
-                cls = "opsi-item opsi-benar"; icon = "✅ "
+                cls, icon = "opsi-item opsi-benar", "✅ "
             elif k == kunci:
-                cls = "opsi-item opsi-benar"; icon = "✅ "
+                cls, icon = "opsi-item opsi-benar", "✅ "
             elif k == saved:
-                cls = "opsi-item opsi-salah"; icon = "❌ "
+                cls, icon = "opsi-item opsi-salah", "❌ "
             else:
-                cls = "opsi-item"; icon = ""
+                cls, icon = "opsi-item", ""
             st.markdown(f'<div class="{cls}">{icon}{k}. {v}</div>', unsafe_allow_html=True)
         if saved == kunci:
             st.success("**Benar!**")
@@ -531,12 +502,14 @@ with tab_essay:
     with c_ie:
         st.caption(f"Referensi ditampilkan: {len(st.session_state.latihan_essay_shown)}/{tot_e}")
 
-    st.markdown(prog_html((idx_e+1)/tot_e, f"Soal {idx_e+1} dari {tot_e}"), unsafe_allow_html=True)
+    st.markdown(prog_html((idx_e+1)/tot_e, f"Soal {idx_e+1} dari {tot_e}"),
+                unsafe_allow_html=True)
     st.markdown(f'<div class="q-card"><strong>{qe["pertanyaan"]}</strong></div>',
                 unsafe_allow_html=True)
 
     st.text_area("Jawaban Anda:", height=130, key=f"essay_in_{idx_e}",
-                 label_visibility="collapsed", placeholder="Tulis jawaban Anda di sini...")
+                 label_visibility="collapsed",
+                 placeholder="Tulis jawaban Anda di sini...")
 
     if st.button("📖 Tampilkan Referensi", type="primary", key=f"essay_ref_{idx_e}"):
         st.session_state.latihan_essay_shown[idx_e] = True
@@ -566,7 +539,6 @@ with tab_simulasi:
     # ── Belum mulai ───────────────────────────────────────────────
     if not st.session_state.simulasi_started:
         st.markdown("## 🚀 Simulasi Ujian")
-        st.markdown(f'<div class="q-card">', unsafe_allow_html=True)
 
         c_jml, c_dur = st.columns(2)
         with c_jml:
@@ -581,14 +553,15 @@ with tab_simulasi:
                                    key="sim_dur")
             st.session_state.simulasi_durasi_label = dur_lbl
 
-        kat_sim = st.selectbox("Kategori", ["Semua Kategori"] + SEMUA_KATEGORI, key="sim_kat")
+        kat_sim = st.selectbox("Kategori Soal", ["Semua Kategori"] + SEMUA_KATEGORI,
+                               key="sim_kat")
         st.session_state.simulasi_kategori = kat_sim
-        st.markdown('</div>', unsafe_allow_html=True)
 
         pool_sim = filter_pg(kat_sim)
         n_sim    = min(jml, len(pool_sim))
+
         st.markdown(metrics_html(
-            (len(pool_sim), f"Tersedia"),
+            (len(pool_sim), "Tersedia"),
             (n_sim,         "Diambil"),
             (dur_lbl.replace(" menit", "m"), "Durasi"),
             (f"{int(PASSING_SCORE)}%", "Min. Lulus"),
@@ -596,7 +569,8 @@ with tab_simulasi:
 
         st.warning("⚠️ Timer langsung berjalan setelah klik Mulai.")
 
-        if st.button("▶️ Mulai Simulasi", type="primary", use_container_width=True, key="sim_mulai"):
+        if st.button("▶️ Mulai Simulasi", type="primary",
+                     use_container_width=True, key="sim_mulai"):
             st.session_state.simulasi_started     = True
             st.session_state.simulasi_answers     = {}
             st.session_state.simulasi_submitted   = False
@@ -609,20 +583,20 @@ with tab_simulasi:
             st.session_state.sim_confirm_kumpul   = False
             st.rerun()
 
-        # Histori
+        # Histori lengkap
         if st.session_state.simulasi_histori:
             st.divider()
             st.markdown("#### 📈 Histori Skor")
             for h in reversed(st.session_state.simulasi_histori):
                 lulus = h['skor'] >= PASSING_SCORE
                 icon  = "✅" if lulus else "❌"
-                warna = SUCCESS if lulus else ERROR_C
+                warna = "#16a34a" if lulus else "#dc2626"
                 mnt   = h['waktu'] // 60; dtk = h['waktu'] % 60
                 st.markdown(f"""
                 <div class="skor-item">
                   <span>{icon}</span>
                   <span style="flex:1">{h.get('label','')}</span>
-                  <span style="color:{SUB_TEXT};font-size:.75rem">{h['benar']}/{h['total']} &nbsp; {mnt}m{dtk}s</span>
+                  <span style="opacity:.6;font-size:.75rem">{h['benar']}/{h['total']} &nbsp;{mnt}m{dtk}s</span>
                   <span class="skor-badge" style="color:{warna}">{h['skor']:.1f}%</span>
                 </div>""", unsafe_allow_html=True)
 
@@ -641,7 +615,7 @@ with tab_simulasi:
             wkt        = int(time.time() - st.session_state.simulasi_start_time)
             mnt        = wkt // 60; dtk = wkt % 60
 
-            # Simpan histori (sekali saja)
+            # Simpan histori sekali saja
             if not st.session_state._hist_saved:
                 st.session_state.simulasi_histori.append({
                     'skor': skor_akhir, 'benar': benar, 'total': total_q, 'waktu': wkt,
@@ -695,15 +669,15 @@ with tab_simulasi:
         else:
             # Review per soal
             st.markdown("## 🔍 Review Jawaban")
-            ridx     = st.session_state.simulasi_review_idx
-            q        = sim_q[ridx]
-            n_bt     = sum(1 for qq in sim_q
-                           if st.session_state.simulasi_answers.get(str(qq['id'])) == qq['kunci_jawaban'])
+            ridx  = st.session_state.simulasi_review_idx
+            q     = sim_q[ridx]
+            n_bt  = sum(1 for qq in sim_q
+                        if st.session_state.simulasi_answers.get(str(qq['id'])) == qq['kunci_jawaban'])
 
             st.caption(f"Soal {ridx+1}/{total_q}  |  Benar: {n_bt}/{total_q}")
             st.markdown(prog_html((ridx+1)/total_q), unsafe_allow_html=True)
 
-            jaw  = st.session_state.simulasi_answers.get(str(q['id']))
+            jaw   = st.session_state.simulasi_answers.get(str(q['id']))
             kunci = q['kunci_jawaban']
 
             if jaw == kunci:
@@ -765,9 +739,9 @@ with tab_simulasi:
         st.markdown(prog_html((idx+1)/total_q), unsafe_allow_html=True)
 
         timer_html = f"""
-        <div style="background:#fff3cd;border-left:5px solid #ef4444;padding:8px 14px;
-                    border-radius:8px;margin-bottom:8px;">
-          <span style="font-size:.85rem;font-weight:600;color:#555">⏱️ Sisa: </span>
+        <div style="background:rgba(239,68,68,0.08);border-left:4px solid #ef4444;
+                    padding:8px 14px;border-radius:8px;margin-bottom:8px;">
+          <span style="font-size:.85rem;font-weight:600;">⏱️ Sisa: </span>
           <span id="clk" style="font-size:1rem;font-weight:700;color:#ef4444">--:--</span>
         </div>
         <script>
@@ -844,9 +818,9 @@ with tab_simulasi:
             for rs, row in enumerate(rows):
                 cols = st.columns(cpp)
                 for cp, soal in enumerate(row):
-                    si    = rs * cpp + cp
-                    djwb  = str(soal['id']) in st.session_state.simulasi_answers
-                    lbl   = f"{'✓' if djwb else '○'}{si+1}"
+                    si   = rs * cpp + cp
+                    djwb = str(soal['id']) in st.session_state.simulasi_answers
+                    lbl  = f"{'✓' if djwb else '○'}{si+1}"
                     with cols[cp]:
                         if st.button(lbl, key=f"pt_{si}", use_container_width=True):
                             st.session_state.current_q = si
