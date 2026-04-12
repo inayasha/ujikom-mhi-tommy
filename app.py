@@ -24,15 +24,20 @@ except FileNotFoundError:
     st.stop()
 
 # ==========================================
-# 3. STATE MANAGEMENT
+# 3. STATE MANAGEMENT (DIPERBARUI)
 # ==========================================
 if 'mode' not in st.session_state:
     st.session_state.mode = 'Beranda'
 if 'current_q' not in st.session_state:
     st.session_state.current_q = 0
+# Variabel baru untuk mode simulasi
+if 'simulasi_answers' not in st.session_state:
+    st.session_state.simulasi_answers = {}
+if 'simulasi_submitted' not in st.session_state:
+    st.session_state.simulasi_submitted = False
 
 # ==========================================
-# 4. SIDEBAR (NAVIGASI)
+# 4. SIDEBAR (NAVIGASI DIPERBARUI)
 # ==========================================
 with st.sidebar:
     st.title("Navigasi")
@@ -44,6 +49,15 @@ with st.sidebar:
     if st.button("✍️ Latihan Essay", use_container_width=True):
         st.session_state.mode = 'Essay'
         st.session_state.current_q = 0
+    
+    st.divider()
+    
+    # Tombol baru untuk mode simulasi
+    if st.button("⏱️ Simulasi Ujian (PG)", use_container_width=True, type="primary"):
+        st.session_state.mode = 'Simulasi'
+        # Reset ulang jawaban jika menekan tombol ini lagi
+        st.session_state.simulasi_answers = {}
+        st.session_state.simulasi_submitted = False
 
 # ==========================================
 # 5. HALAMAN BERANDA
@@ -54,7 +68,7 @@ if st.session_state.mode == 'Beranda':
     st.info("Pilih mode latihan di panel sebelah kiri.")
 
 # ==========================================
-# 6. HALAMAN LATIHAN PILIHAN GANDA
+# 6. HALAMAN LATIHAN PILIHAN GANDA (DRILL)
 # ==========================================
 elif st.session_state.mode == 'PG':
     st.title("Latihan Pilihan Ganda")
@@ -123,3 +137,65 @@ elif st.session_state.mode == 'Essay':
             if st.button("Selanjutnya ➡️", use_container_width=True):
                 st.session_state.current_q += 1
                 st.rerun()
+
+# ==========================================
+# 8. HALAMAN SIMULASI UJIAN (FITUR BARU)
+# ==========================================
+elif st.session_state.mode == 'Simulasi':
+    st.title("Mode Simulasi Ujian")
+    st.warning("Kerjakan seluruh soal di bawah ini. Nilai akhir akan muncul setelah Anda mengklik 'Kumpulkan'.")
+    
+    total_q = len(soal_pg)
+    
+    # Render semua soal ke bawah
+    for i, q in enumerate(soal_pg):
+        st.write(f"**{i + 1}. {q['pertanyaan']}**")
+        
+        opsi_keys = list(q['opsi'].keys())
+        
+        # Ambil state jawaban sebelumnya (berguna jika user tidak sengaja klik menu lain lalu kembali)
+        saved_answer = st.session_state.simulasi_answers.get(str(q['id']))
+        default_index = opsi_keys.index(saved_answer) if saved_answer in opsi_keys else None
+        
+        # Radio button untuk memilih opsi
+        pilihan = st.radio(
+            label=f"Opsi Soal {q['id']}", 
+            options=opsi_keys, 
+            format_func=lambda x: q['opsi'][x], 
+            key=f"sim_radio_{q['id']}",
+            index=default_index,
+            label_visibility="collapsed",
+            disabled=st.session_state.simulasi_submitted # Kunci radio button jika sudah disubmit
+        )
+        
+        # Simpan ke state setiap kali user memilih
+        if pilihan:
+            st.session_state.simulasi_answers[str(q['id'])] = pilihan
+            
+        st.write("") # Spacing antar soal
+    
+    st.divider()
+    
+    # Logika Penilaian
+    if not st.session_state.simulasi_submitted:
+        if st.button("Kumpulkan & Lihat Hasil", type="primary", use_container_width=True):
+            st.session_state.simulasi_submitted = True
+            st.rerun()
+    else:
+        # Menghitung skor
+        benar = 0
+        for q in soal_pg:
+            jawaban_user = st.session_state.simulasi_answers.get(str(q['id']))
+            if jawaban_user == q['kunci_jawaban']:
+                benar += 1
+                
+        skor_akhir = (benar / total_q) * 100
+        
+        st.success(f"### 🎉 Simulasi Selesai! Skor Akhir Anda: {skor_akhir:.2f}")
+        st.write(f"**Anda menjawab benar {benar} dari {total_q} soal.**")
+        
+        # Tombol Ulangi
+        if st.button("Ulangi Simulasi", use_container_width=True):
+            st.session_state.simulasi_answers = {}
+            st.session_state.simulasi_submitted = False
+            st.rerun()
