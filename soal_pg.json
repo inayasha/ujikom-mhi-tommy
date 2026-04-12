@@ -1069,7 +1069,7 @@
         "id": 84,
         "pertanyaan": "Perselisihan hubungan industrial sebagaimana diatur didalam pasal 3 ayat (1) UU nomor 2 Tahun 2004 wajib diupayakan terlebih dahulu melalui :",
         "opsi": {
-            "A": "perundingan bipartit secara musyawarah untuk mufakat",
+            "A": "Perundingan bipartit secara musyawarah untuk mufakat",
             "B": "Pengaduan",
             "C": "Mediasi",
             "D": "Anjuran"
@@ -1259,7 +1259,7 @@
     },
     {
         "id": 100,
-        "pertanyaan": "Upah tidak dibayar apabila pekerja atau buruh tidak melakukan ::. ?",
+        "pertanyaan": "Upah tidak dibayar apabila pekerja atau buruh tidak melakukan : ?",
         "opsi": {
             "A": "Pekerjaan",
             "B": "Kegiatan",
@@ -1271,7 +1271,7 @@
     },
     {
         "id": 101,
-        "pertanyaan": "Segala hal dan atau biaya yang diperlukan bagi pelaksanaan pembuatan Perjanjian Kerja dilaksanakan oleh dan menjadi tanggung jawab dari ::..?",
+        "pertanyaan": "Segala hal dan atau biaya yang diperlukan bagi pelaksanaan pembuatan Perjanjian Kerja dilaksanakan oleh dan menjadi tanggung jawab dari :?",
         "opsi": {
             "A": "Pengusaha",
             "B": "Pemberi Kerja",
@@ -1427,7 +1427,7 @@
     },
     {
         "id": 114,
-        "pertanyaan": "Perjanjian Kerja tidak dapat ditarik kembali dan atau diubah kecuali atas persetujuan :.?",
+        "pertanyaan": "Perjanjian Kerja tidak dapat ditarik kembali dan atau diubah kecuali atas persetujuan :?",
         "opsi": {
             "A": "Para Pihak",
             "B": "Satu pihak",
@@ -1439,7 +1439,7 @@
     },
     {
         "id": 115,
-        "pertanyaan": "Perusahaan dapat menyerahkan sebagian pelaksanaan pekerjaan kepada perusahaan lainnya melalui perjanjian pemborongan pekerjaan atau penyediaan jasa pekerja/buruh yang dibuat secara :.. ?",
+        "pertanyaan": "Perusahaan dapat menyerahkan sebagian pelaksanaan pekerjaan kepada perusahaan lainnya melalui perjanjian pemborongan pekerjaan atau penyediaan jasa pekerja/buruh yang dibuat secara : ?",
         "opsi": {
             "A": "Tertulis",
             "B": "Lisan",
@@ -1451,7 +1451,7 @@
     },
     {
         "id": 116,
-        "pertanyaan": "Pengusaha melakukan peninjauan upah secara berkala dengan memperhatikan kemampuan perusahaan dan :::. ?",
+        "pertanyaan": "Pengusaha melakukan peninjauan upah secara berkala dengan memperhatikan kemampuan perusahaan dan... ?",
         "opsi": {
             "A": "Produktivitas",
             "B": "Keahlian",
@@ -1463,7 +1463,7 @@
     },
     {
         "id": 117,
-        "pertanyaan": "Setiap pekerja/buruh berhak membentuk dan menjadi anggota ::.. ?",
+        "pertanyaan": "Setiap pekerja/buruh berhak membentuk dan menjadi anggota?",
         "opsi": {
             "A": "Serikat Pekerja/Serikat Buruh",
             "B": "Pengusaha",
@@ -1487,7 +1487,7 @@
     },
     {
         "id": 119,
-        "pertanyaan": "Peraturan Perusahaan wajib dibuat oleh Pengusaha yang mempekerjakan pekerja/buruh sekurang-kurangnya :.",
+        "pertanyaan": "Peraturan Perusahaan wajib dibuat oleh Pengusaha yang mempekerjakan pekerja/buruh sekurang-kurangnya :",
         "opsi": {
             "A": "9 (sembilan) orang",
             "B": "8 (delapan) orang",
@@ -1499,7 +1499,7 @@
     },
     {
         "id": 120,
-        "pertanyaan": "Peraturan yang dibuat secara tertulis oleh pengusaha yang memuat syarat syarat kerja dan tata tertib perusahaan disebut :.",
+        "pertanyaan": "Peraturan yang dibuat secara tertulis oleh pengusaha yang memuat syarat syarat kerja dan tata tertib perusahaan disebut :",
         "opsi": {
             "A": "Peraturan Perusahaan",
             "B": "Perjanjian Kerja Bersama",
@@ -1511,7 +1511,7 @@
     },
     {
         "id": 121,
-        "pertanyaan": "Masa berlaku peraturan perusahaan paling lama :. dan wajib diperbaharui setelah habis masa berlakunya",
+        "pertanyaan": "Masa berlaku peraturan perusahaan paling lama : dan wajib diperbaharui setelah habis masa berlakunya",
         "opsi": {
             "A": "3 (tiga) tahun",
             "B": "2 (dua) tahun",
@@ -1535,7 +1535,7 @@
     },
     {
         "id": 123,
-        "pertanyaan": "Manfaat Peraturan Perusahaan adalah sebagai berikut, kecuali :.",
+        "pertanyaan": "Manfaat Peraturan Perusahaan adalah sebagai berikut,kecuali",
         "opsi": {
             "A": "Memberikan kepastian dan kejelasan kepada pekerja/buruh maupun pengusaha tentang hak dan kewajiban masing-masing",
             "B": "Mencegah dan mengurangi timbulnya perselisihan hubungan industrial",
@@ -1547,7 +1547,7 @@
     },
     {
         "id": 124,
-        "pertanyaan": "perusahaan Instansi yang berwenang mengesahkan peraturan perusahaan untuk perusahaan yang terdapat di lebih dari satu propinsi adalah :.",
+        "pertanyaan": "perusahaan Instansi yang berwenang mengesahkan peraturan perusahaan untuk perusahaan yang terdapat di lebih dari satu propinsi adalah :",
         "opsi": {
             "A": "Direktur Jenderal Pembinaan Hubungan Industrial",
             "B": "Kepala SKPD bidang ketenagakerjaan provinsi,",
@@ -1559,7 +1559,7 @@
     },
     {
         "id": 125,
-        "pertanyaan": "Perjanjian antara pekerja/buruh dengan pengusaha atau pemberi kerja yang memuat syarat-syarat kerja, hak, dan kewajiban para pihak, disebut ::.",
+        "pertanyaan": "Perjanjian antara pekerja/buruh dengan pengusaha atau pemberi kerja yang memuat syarat-syarat kerja, hak, dan kewajiban para pihak, disebut :",
         "opsi": {
             "A": "Perjanjian kerja Bersama",
             "B": "Perjanjian Pekerja Pengusaha",
@@ -1571,7 +1571,7 @@
     },
     {
         "id": 126,
-        "pertanyaan": "Hubungan kerja adalah hubungan antara pengusaha dengan pekerja/buruh berdasarkan perjanjian kerja yang mempunyai unsur::.",
+        "pertanyaan": "Hubungan kerja adalah hubungan antara pengusaha dengan pekerja/buruh berdasarkan perjanjian kerja yang mempunyai unsur:",
         "opsi": {
             "A": "Pekerjaan, upah dan perintah",
             "B": "Pekerjaan, upah dan peraturan perusahaan",
@@ -1583,7 +1583,7 @@
     },
     {
         "id": 127,
-        "pertanyaan": "Perjanjian kerja dapat ditulis secara :::",
+        "pertanyaan": "Perjanjian kerja dapat ditulis secara :",
         "opsi": {
             "A": "Tertulis saja",
             "B": "Lisan saja",
@@ -1595,11 +1595,11 @@
     },
     {
         "id": 128,
-        "pertanyaan": "Beberapa dasar perjanjian kerja di buat, kecuali ::",
+        "pertanyaan": "Beberapa dasar perjanjian kerja di buat, kecuali :",
         "opsi": {
             "A": "Kesepakatan kedua belah pihak",
             "B": "Adanya pekerjaan yang harus dilaksanakan para pekerja",
-            "C": "Kemampuan atau kecakapan melakukan perbuatan hokum",
+            "C": "Kemampuan atau kecakapan melakukan perbuatan hukum",
             "D": "Pekerjaan yang diperjanjikan tidak bertentangan dengan ketertiban umum, kesusilaan dan peraturan perundang-undangan yang berlaku"
         },
         "kunci_jawaban": "B",
@@ -1607,7 +1607,7 @@
     },
     {
         "id": 129,
-        "pertanyaan": "Segala hal dan/atau yang diperlukan bagi pelaksanaan pembuatan perjanjian kerja dilaksanakan oleh dan menjadi tanggung jawab ::::..",
+        "pertanyaan": "Segala hal dan/atau yang diperlukan bagi pelaksanaan pembuatan perjanjian kerja dilaksanakan oleh dan menjadi tanggung jawab :",
         "opsi": {
             "A": "Pengusaha dan pekerja",
             "B": "Pengusaha dan stakeholder",
@@ -1619,7 +1619,7 @@
     },
     {
         "id": 130,
-        "pertanyaan": "Peraturan yang mengatur tentang Peraturan Perusahaan adalah :.",
+        "pertanyaan": "Peraturan yang mengatur tentang Peraturan Perusahaan adalah :",
         "opsi": {
             "A": "Permenaker No 28 Tahun 2014",
             "B": "Permenaker No 40 Tahun 2015",
@@ -1631,7 +1631,7 @@
     },
     {
         "id": 131,
-        "pertanyaan": "Perjanjian kerja berakhir apabila:., kecuali :::::.",
+        "pertanyaan": "Perjanjian kerja berakhir apabila:, kecuali :",
         "opsi": {
             "A": "Pekerja meninggal dunia",
             "B": "Pengusaha meninggal dunia",
@@ -1643,7 +1643,7 @@
     },
     {
         "id": 132,
-        "pertanyaan": "Perjanjian Kerja Waktu Tertentu yang pekerjaannya bersifat musiman pelaksanaannya tergantung pada :::.",
+        "pertanyaan": "Perjanjian Kerja Waktu Tertentu yang pekerjaannya bersifat musiman pelaksanaannya tergantung pada:",
         "opsi": {
             "A": "Musim atau cuaca",
             "B": "Keadaan perekonomian perusahaan",
@@ -1655,7 +1655,7 @@
     },
     {
         "id": 133,
-        "pertanyaan": "setiap orang berhak untuk bekerja serta mendapat imbalan dan perlakukan yang adil dan layak dalam hubungan kerja  ini adalah pasal dari UUD 1945 nomer :.",
+        "pertanyaan": "setiap orang berhak untuk bekerja serta mendapat imbalan dan perlakukan yang adil dan layak dalam hubungan kerja  ini adalah pasal dari UUD 1945 nomor :",
         "opsi": {
             "A": "Pasal 27 ayat 2",
             "B": "Pasal 25 D ayat 2",
@@ -1691,7 +1691,7 @@
     },
     {
         "id": 136,
-        "pertanyaan": "Perjanjian Kerja berakhir apabila .",
+        "pertanyaan": "Perjanjian Kerja berakhir apabila...",
         "opsi": {
             "A": "Pemilik perusahaan meninggal dunia",
             "B": "Pekerja melakukan pelanggaran yang diatur dalam PP/PKB",
@@ -1703,19 +1703,19 @@
     },
     {
         "id": 137,
-        "pertanyaan": "Lembaga Kerjasama Bipartit dibentuk oleh unsur :.",
+        "pertanyaan": "Lembaga Kerjasama Bipartit dibentuk oleh unsur :",
         "opsi": {
             "A": "Pengusaha dan unsur pekerja/buruh dan/atau serikat pekerja/serikat buruh.",
             "B": "Pemerintah",
             "C": "Pengusaha",
             "D": "Pekerja"
         },
-        "kunci_jawaban": "B",
+        "kunci_jawaban": "A",
         "kategori": "Hubungan Industrial & PHK"
     },
     {
         "id": 138,
-        "pertanyaan": "Tugas Lembaga Kerjasama Bipartit adalah sebagai berikut, kecuali :.",
+        "pertanyaan": "Tugas Lembaga Kerjasama Bipartit adalah sebagai berikut,sosial",
         "opsi": {
             "A": "Melakukan pertemuan secara periodik dan/atau sewaktu-waktu apabila diperlukan",
             "B": "Mengkomunikasikan kebijakan pengusaha dan aspirasi pekerja/buruh dalam rangka mencegah terjadinya permasalahan hubungan industrial di perusahaan",
@@ -1727,7 +1727,7 @@
     },
     {
         "id": 139,
-        "pertanyaan": "Tugas Lembaga Kerjasama Bipartit adalah sebagai berikut, kecuali :.",
+        "pertanyaan": "Tugas Lembaga Kerjasama Bipartit adalah sebagai berikut,sosial",
         "opsi": {
             "A": "Melakukan pertemuan secara periodik dan/atau sewaktu-waktu apabila diperlukan",
             "B": "Mengkomunikasikan kebijakan pengusaha dan aspirasi pekerja/buruh dalam rangka mencegah terjadinya permasalahan hubungan industrial di perusahaan",
@@ -1739,7 +1739,7 @@
     },
     {
         "id": 140,
-        "pertanyaan": "Hubungan Kerja (PHK) Lembaga Kerjasama Bipartit yang sudah terbentuk harus diberitahukan untuk dicatat kepada instansi yang bertanggungjawab di bidang ketenagakerjaan selambat-lambatnya :. setelah pembentukan",
+        "pertanyaan": "Hubungan Kerja (PHK) Lembaga Kerjasama Bipartit yang sudah terbentuk harus diberitahukan untuk dicatat kepada instansi yang bertanggungjawab di bidang ketenagakerjaan selambat-lambatnya : setelah pembentukan",
         "opsi": {
             "A": "14 (empat belas) hari",
             "B": "10 (sepuluh) hari",
@@ -1751,7 +1751,7 @@
     },
     {
         "id": 141,
-        "pertanyaan": "Jumlah keanggotaan Lembaga Kerjasama Bipartit ditetapkan dengan komposisi :.",
+        "pertanyaan": "Jumlah keanggotaan Lembaga Kerjasama Bipartit ditetapkan dengan komposisi :",
         "opsi": {
             "A": "1: 2 yaitu 1 (satu) unsur pekerja banding 2 (dua) unsur pengusaha",
             "B": "2: 1 yaitu 2 (dua) unsur pekerja banding 1 (satu) unsur pengusaha",
@@ -1763,7 +1763,7 @@
     },
     {
         "id": 142,
-        "pertanyaan": "Kedudukan LKS Bipartit berada di perusahaan dan wajib dibentuk di setiap perusahaan yang mempekerjakan :., dan dapat di bentuk di setiap cabang",
+        "pertanyaan": "Kedudukan LKS Bipartit berada di perusahaan dan wajib dibentuk di setiap perusahaan yang mempekerjakan :, dan dapat di bentuk di setiap cabang",
         "opsi": {
             "A": "20 (dua puluh) orang pekerja/buruh atau lebih",
             "B": "50 (lima puluh) orang pekerja/buruh atau lebih",
@@ -1775,7 +1775,7 @@
     },
     {
         "id": 143,
-        "pertanyaan": "Masa kerja kepengurusan LKS Bipartit adalah :.",
+        "pertanyaan": "Masa kerja kepengurusan LKS Bipartit adalah :",
         "opsi": {
             "A": "1 (satu) tahun",
             "B": "2 (dua) tahun",
@@ -1787,7 +1787,7 @@
     },
     {
         "id": 144,
-        "pertanyaan": "Hal-hal yang dibahas dalam pertemuan Lembaga Kerja Bipartit adalah sebagai berikut :.",
+        "pertanyaan": "Hal-hal yang dibahas dalam pertemuan Lembaga Kerja Bipartit adalah sebagai berikut :",
         "opsi": {
             "A": "Berupaya memelihara dan meningkatkan kondisi yang baik di tempat kerja dalam rangka menuju ketenangan bekerja dan ketenteraman berusaha maupun kelangsungan",
             "B": "Menciptakan iklim yang tidak kondusif di tempat kerja yang mengarah kepada suatu keadaan yang lebih baik dari sebelumnya",
@@ -1799,7 +1799,7 @@
     },
     {
         "id": 145,
-        "pertanyaan": "Hal-hal yang dibahas dalam pertemuan Lembaga Kerja Bipartit adalah sebagai berikut :.",
+        "pertanyaan": "Hal-hal yang dibahas dalam pertemuan Lembaga Kerja Bipartit adalah sebagai berikut :",
         "opsi": {
             "A": "Berupaya memelihara dan meningkatkan kondisi yang baik di tempat kerja dalam rangka menuju ketenangan bekerja dan ketenteraman berusaha maupun kelangsungan",
             "B": "Menciptakan iklim yang tidak kondusif di tempat kerja yang mengarah kepada suatu keadaan yang lebih baik dari sebelumnya",
@@ -1811,7 +1811,7 @@
     },
     {
         "id": 146,
-        "pertanyaan": "Tujuan pembinaan Lembaga Kerjasama Bipartit adalah :.",
+        "pertanyaan": "Tujuan pembinaan Lembaga Kerjasama Bipartit adalah :",
         "opsi": {
             "A": "Mewujudkan kesatuan pola pikir dan bahasan serta untuk menciptakan hubungan kerja yang serasi guna terwujudnya ketenangan kerja dan kelangsungan usaha.",
             "B": "Menurunkan kesejahteraan pekerja, kelangsungan hidup perusahaan dan produktivitas perusahaan.",
@@ -1967,7 +1967,7 @@
     },
     {
         "id": 159,
-        "pertanyaan": "Kepesertaan program JKP terrdiri atas",
+        "pertanyaan": "Kepesertaan program JKP terdiri atas",
         "opsi": {
             "A": "Pekerja/buruh yang baru didaftarkan dan yang telah diikutsertakan oleh pengusaha dalam program jaminan sosial",
             "B": "Pekerja/buruh yang baru didaftarkan dan yang telah diikutsertakan oleh pengusaha dalam program JKK,JHT, JP dan JKM",
@@ -2074,7 +2074,7 @@
     },
     {
         "id": 168,
-        "pertanyaan": "Prinsip non diskriminasi sebagai hak dasar pekerja di tempat kerja dalam hubungan industrial ditujukan untuk memberikan kenyamanan bekerja yang mengatur tentang Pengupahan yang Sama bagi Laki-Laki dan Wanita untuk Pekerjaan yang Sama Nilainya diatur dalam :.",
+        "pertanyaan": "Prinsip non diskriminasi sebagai hak dasar pekerja di tempat kerja dalam hubungan industrial ditujukan untuk memberikan kenyamanan bekerja yang mengatur tentang Pengupahan yang Sama bagi Laki-Laki dan Wanita untuk Pekerjaan yang Sama Nilainya diatur dalam :",
         "opsi": {
             "A": "Konvensi ILO No. 100",
             "B": "Konvensi ILO No. 111",
@@ -2086,7 +2086,7 @@
     },
     {
         "id": 169,
-        "pertanyaan": "Prinsip non diskriminasi sebagai hak dasar pekerja di tempat kerja dalam hubungan industrial ditujukan untuk memberikan kenyamanan bekerja yang mengatur tentang Diskriminasi dalam Pekerjaan dan Jabatan diatur dalam :..",
+        "pertanyaan": "Prinsip non diskriminasi sebagai hak dasar pekerja di tempat kerja dalam hubungan industrial ditujukan untuk memberikan kenyamanan bekerja yang mengatur tentang Diskriminasi dalam Pekerjaan dan Jabatan diatur dalam :",
         "opsi": {
             "A": "Konvensi ILO No. 100",
             "B": "Konvensi ILO No. 111",
@@ -2098,7 +2098,7 @@
     },
     {
         "id": 170,
-        "pertanyaan": "Pada Undang-Undang No 13 Tahun 2003 tentag Ketenagakerjaan menyebutkan bahwa setiap tenaga kerja memiliki kesempatan yang sama tanpa diskriminasi untuk memperoleh pekerjaan  terdapat pada pasal ::..",
+        "pertanyaan": "Pada Undang-Undang No 13 Tahun 2003 tentag Ketenagakerjaan menyebutkan bahwa setiap tenaga kerja memiliki kesempatan yang sama tanpa diskriminasi untuk memperoleh pekerjaan  terdapat pada pasal :",
         "opsi": {
             "A": "4",
             "B": "5",
@@ -2110,7 +2110,7 @@
     },
     {
         "id": 171,
-        "pertanyaan": "Diskriminasi adalah :..",
+        "pertanyaan": "Diskriminasi adalah :",
         "opsi": {
             "A": "perlakuan yang sifatnya membeda-bedakan antara sesama warga Negara karena pengaruh keturunan, suku, warna kulit dan agama",
             "B": "segala jenis tindakkan yang tidak diinginkan berulang-ulang yang ditujukan kepada pekerja atau kelompok kerja yang mengakibatkan terganggunya dalam pelaksanaan tugas",
@@ -2122,7 +2122,7 @@
     },
     {
         "id": 172,
-        "pertanyaan": "Diskriminasi adalah :..",
+        "pertanyaan": "Diskriminasi adalah :",
         "opsi": {
             "A": "perlakuan yang sifatnya membeda-bedakan antara sesama warga Negara karena pengaruh keturunan, suku, warna kulit dan agama",
             "B": "segala jenis tindakkan yang tidak diinginkan berulang-ulang yang ditujukan kepada pekerja atau kelompok kerja yang mengakibatkan terganggunya dalam pelaksanaan tugas",
@@ -2146,7 +2146,7 @@
     },
     {
         "id": 174,
-        "pertanyaan": "Hal-hal yang dapat menyebabkan mogok kerja antara lain :.",
+        "pertanyaan": "Hal-hal yang dapat menyebabkan mogok kerja antara lain :",
         "opsi": {
             "A": "Tuntutan yang bersifat non-normatif (perbedaan kepentingan antara pekerja dan pengusaha);",
             "B": "Pelaksanaan outsourcing;",
@@ -2158,7 +2158,7 @@
     },
     {
         "id": 175,
-        "pertanyaan": "organisasi pengusaha yang ditunjuk oleh Kamar Dagang dan Industri untuk menangani masalah ketenagakerjaan. Ini adalah pengeretian dari :..",
+        "pertanyaan": "organisasi pengusaha yang ditunjuk oleh Kamar Dagang dan Industri untuk menangani masalah ketenagakerjaan. Ini adalah pengeretian dari :",
         "opsi": {
             "A": "Organisasi ketenagakerjaan",
             "B": "KADIN",
@@ -2194,7 +2194,7 @@
     },
     {
         "id": 178,
-        "pertanyaan": "Struktur Organisasi organisasi perusahaan yaitu :. (kecuali)",
+        "pertanyaan": "Struktur Organisasi organisasi perusahaan yaitu : (kecuali)",
         "opsi": {
             "A": "Pusat",
             "B": "Daearah",
@@ -2211,14 +2211,14 @@
             "A": "bagian organisasi yang mempunyai wilayah kerja seluas propinsi dan daerah-daerah lainnya yang kedudukannya disamakan dengan propinsi.",
             "B": "induk organisasi yang mempunyai wilayah kerja rneliputi seluruh wilayah Negara RI.",
             "C": "bagian organisasi yang mempunyai wilayah kerja seluas Kabupaten/ Kota.",
-            "D": "A, b dan c salah semua"
+            "D": "a, b dan c salah semua"
         },
         "kunci_jawaban": "A",
         "kategori": "Hubungan Industrial & PHK"
     },
     {
         "id": 180,
-        "pertanyaan": "anggota Pengurus Organisasi Pengusaha daerah yang bertugas untuk mengkoordinir beberapa Kabupaten/ Kota yang berada dalam suatu wilayah yang belum terbentuk Kabupaten/ Kota organisasi disebut sebagai :.",
+        "pertanyaan": "anggota Pengurus Organisasi Pengusaha daerah yang bertugas untuk mengkoordinir beberapa Kabupaten/ Kota yang berada dalam suatu wilayah yang belum terbentuk Kabupaten/ Kota organisasi disebut sebagai :",
         "opsi": {
             "A": "Dewan kehormatan",
             "B": "Koordinator",
@@ -2258,8 +2258,8 @@
         "opsi": {
             "A": "Perbedaan pendapat yang mengakibatkan pertentangan antara pengusaha dengan pekerja/buruh karena adanya perselisihan pendapat mengenai hak dan kewajiban kedua",
             "B": "Perbedaan pendapat yang mengakibatkan pertentangan antara pengusaha dengan serikat pekerja/ buruh karena adanya perselisihan mengenai hak serikat pekerja/buruh",
-            "C": "Perbedaan pendapat yang mengakibatkan pertentangan antara pengusaha, gabungan pengusaha dengan serikat pekerja karena adanya perselisihan pendapat dalam",
-            "D": "Perbedaan pendapat yang mengakibatkan pertentangan antara pengusahaatau gabungan pengusaha denagn pekerja/buruh atau serikat pekerja/buruh karena adanya"
+            "C": "Perbedaan pendapat yang mengakibatkan pertentangan antara pengusaha, gabungan pengusaha dengan serikat pekerja karena adanya perselisihan pendapat dalam mengartikan undang undang ketenagakerjaan",
+            "D": "Perbedaan pendapat yang mengakibatkan pertentangan antara pengusahaatau gabungan pengusaha denagn pekerja/buruh atau serikat pekerja/buruh karena adanya perselisihan mengenai hak, kepentingan, PHK dan antar serikat pekerja dalam satu perusahaan"
         },
         "kunci_jawaban": "D",
         "kategori": "Hubungan Industrial & PHK"
@@ -2270,8 +2270,8 @@
         "opsi": {
             "A": "Perbedaan pendapat yang mengakibatkan pertentangan antara pengusaha dengan pekerja/buruh karena adanya perselisihan pendapat mengenai hak dan kewajiban kedua",
             "B": "Perbedaan pendapat yang mengakibatkan pertentangan antara pengusaha dengan serikat pekerja/ buruh karena adanya perselisihan mengenai hak serikat pekerja/buruh",
-            "C": "Perbedaan pendapat yang mengakibatkan pertentangan antara pengusaha, gabungan pengusaha dengan serikat pekerja karena adanya perselisihan pendapat dalam",
-            "D": "Perbedaan pendapat yang mengakibatkan pertentangan antara pengusahaatau gabungan pengusaha denagn pekerja/buruh atau serikat pekerja/buruh karena adanya"
+            "C": "Perbedaan pendapat yang mengakibatkan pertentangan antara pengusaha, gabungan pengusaha dengan serikat pekerja karena adanya perselisihan pendapat dalam mengartikan undang undang ketenagakerjaan",
+            "D": "Perbedaan pendapat yang mengakibatkan pertentangan antara pengusahaatau gabungan pengusaha denagn pekerja/buruh atau serikat pekerja/buruh karena adanya perselisihan mengenai hak, kepentingan, PHK dan antar serikat pekerja dalam satu perusahaan"
         },
         "kunci_jawaban": "D",
         "kategori": "Hubungan Industrial & PHK"
@@ -2282,8 +2282,8 @@
         "opsi": {
             "A": "Perbedaan pendapat yang mengakibatkan pertentangan antara pengusaha dengan pekerja/buruh karena adanya perselisihan pendapat mengenai hak dan kewajiban kedua",
             "B": "Perbedaan pendapat yang mengakibatkan pertentangan antara pengusaha dengan serikat pekerja/ buruh karena adanya perselisihan mengenai hak serikat pekerja/buruh",
-            "C": "Perbedaan pendapat yang mengakibatkan pertentangan antara pengusaha, gabungan pengusaha dengan serikat pekerja karena adanya perselisihan pendapat dalam",
-            "D": "Perbedaan pendapat yang mengakibatkan pertentangan antara pengusahaatau gabungan pengusaha denagn pekerja/buruh atau serikat pekerja/buruh karena adanya"
+            "C": "Perbedaan pendapat yang mengakibatkan pertentangan antara pengusaha, gabungan pengusaha dengan serikat pekerja karena adanya perselisihan pendapat dalam mengartikan undang undang ketenagakerjaan",
+            "D": "Perbedaan pendapat yang mengakibatkan pertentangan antara pengusahaatau gabungan pengusaha denagn pekerja/buruh atau serikat pekerja/buruh karena adanya perselisihan mengenai hak, kepentingan, PHK dan antar serikat pekerja dalam satu perusahaan"
         },
         "kunci_jawaban": "D",
         "kategori": "Hubungan Industrial & PHK"
@@ -2319,7 +2319,7 @@
             "A": "Bedoman berpikir dan perilaku dalam aspek hubungan industrial yang mampu mempengaruhi seorang atau masyarakat dalam bersikap",
             "B": "Tata cara pelaksanaan dalam hubungan industrial di perusahaan",
             "C": "Cara berpikir para pengusaha dalam melaksanakan hubungan industrial",
-            "D": "A,b,c benar semua"
+            "D": "a,b,c benar semua"
         },
         "kunci_jawaban": "D",
         "kategori": "Ketenagakerjaan Umum"
@@ -2328,10 +2328,10 @@
         "id": 189,
         "pertanyaan": "Peran dan fungsi dasar Lembaga Lembaga hubungan industrial adalah",
         "opsi": {
-            "A": "Keberadaan Lembaga Lembaga hubungan industrial memiliki fungsi untuk melindungi kepentingan anggota yang diwakilinya termasuk kepentingan masyarakat yang dalam hal",
+            "A": "Keberadaan Lembaga Lembaga hubungan industrial memiliki fungsi untuk melindungi kepentingan anggota yang diwakilinya termasuk kepentingan masyarakat yang dalam hal ini diwakili oleh pemerintah",
             "B": "Lembaga lembaga hubungan industrial harus mempunyai tujuan yang jelas, aplikatif, mampu dilaksanakan secara terus menerus dan berencana.",
-            "C": "Lembaga Lembaga Hubungan Industrial harus terus menerus dibina dan dikembangkan guna menumbuhkan semangat kebersamaan, demokratis dan partisipatif dalam",
-            "D": "A,b,c betul semua"
+            "C": "Lembaga Lembaga Hubungan Industrial harus terus menerus dibina dan dikembangkan guna menumbuhkan semangat kebersamaan, demokratis dan partisipatif dalam mengambil keputusan / kebijakan menegani ketenagakerjaan.",
+            "D": "a,b,c betul semua"
         },
         "kunci_jawaban": "D",
         "kategori": "Hubungan Industrial & PHK"
@@ -2340,10 +2340,10 @@
         "id": 190,
         "pertanyaan": "Peran dan fungsi dasar Lembaga Lembaga hubungan industrial adalah",
         "opsi": {
-            "A": "Keberadaan Lembaga Lembaga hubungan industrial memiliki fungsi untuk melindungi kepentingan anggota yang diwakilinya termasuk kepentingan masyarakat yang dalam hal",
+            "A": "Keberadaan Lembaga Lembaga hubungan industrial memiliki fungsi untuk melindungi kepentingan anggota yang diwakilinya termasuk kepentingan masyarakat yang dalam hal ini diwakili oleh pemerintah",
             "B": "Lembaga lembaga hubungan industrial harus mempunyai tujuan yang jelas, aplikatif, mampu dilaksanakan secara terus menerus dan berencana.",
-            "C": "Lembaga Lembaga Hubungan Industrial harus terus menerus dibina dan dikembangkan guna menumbuhkan semangat kebersamaan, demokratis dan partisipatif dalam",
-            "D": "A,b,c betul semua"
+            "C": "Lembaga Lembaga Hubungan Industrial harus terus menerus dibina dan dikembangkan guna menumbuhkan semangat kebersamaan, demokratis dan partisipatif dalam mengambil keputusan / kebijakan menegani ketenagakerjaan.",
+            "D": "a,b,c betul semua"
         },
         "kunci_jawaban": "D",
         "kategori": "Hubungan Industrial & PHK"
@@ -2352,10 +2352,10 @@
         "id": 191,
         "pertanyaan": "Peran dan fungsi dasar Lembaga Lembaga hubungan industrial adalah",
         "opsi": {
-            "A": "Keberadaan Lembaga Lembaga hubungan industrial memiliki fungsi untuk melindungi kepentingan anggota yang diwakilinya termasuk kepentingan masyarakat yang dalam hal",
+            "A": "Keberadaan Lembaga Lembaga hubungan industrial memiliki fungsi untuk melindungi kepentingan anggota yang diwakilinya termasuk kepentingan masyarakat yang dalam hal ini diwakili oleh pemerintah",
             "B": "Lembaga lembaga hubungan industrial harus mempunyai tujuan yang jelas, aplikatif, mampu dilaksanakan secara terus menerus dan berencana.",
-            "C": "Lembaga Lembaga Hubungan Industrial harus terus menerus dibina dan dikembangkan guna menumbuhkan semangat kebersamaan, demokratis dan partisipatif dalam",
-            "D": "A,b,c betul semua"
+            "C": "Lembaga Lembaga Hubungan Industrial harus terus menerus dibina dan dikembangkan guna menumbuhkan semangat kebersamaan, demokratis dan partisipatif dalam mengambil keputusan / kebijakan menegani ketenagakerjaan.",
+            "D": "a,b,c betul semua"
         },
         "kunci_jawaban": "D",
         "kategori": "Hubungan Industrial & PHK"
@@ -2367,7 +2367,7 @@
             "A": "Kurang kepedulian dari pihak pekerja dan pengusaha untuk mengikuti sosialisasi tentang HI",
             "B": "Kurang peduli dari pihak Apindo untuk mengkuti bintek tentang HI",
             "C": "Kurang peduli dari pihak serikat pekerja/ serikat buruh dalam mengikuti pelatihan hubungan industrial",
-            "D": "A,b,c benar semua"
+            "D": "a,b,c benar semua"
         },
         "kunci_jawaban": "D",
         "kategori": "Hubungan Industrial & PHK"
@@ -2379,7 +2379,7 @@
             "A": "Supaya mengerti bagaimana membuat perjanjian kerja dalam mengatur syarat syarat kerja",
             "B": "Mengerti tentang dampak setelah menanda tangani perjanjian kerja kedua belah pihak",
             "C": "Mengerti tentang hak dan kewajiban selama menjadi pekerja",
-            "D": "A,b,c benar semua"
+            "D": "a,b,c benar semua"
         },
         "kunci_jawaban": "D",
         "kategori": "Hubungan Industrial & PHK"
@@ -2391,7 +2391,7 @@
             "A": "Potensi dan kualitas hidup pekerja",
             "B": "Produktivitas perusahaan kurang kompetitif",
             "C": "Kurang disiplin pekerja",
-            "D": "A,b,c benar semua"
+            "D": "a,b,c benar semua"
         },
         "kunci_jawaban": "A",
         "kategori": "Hubungan Industrial & PHK"
@@ -2403,7 +2403,7 @@
             "A": "Gerakan perbaikan Bersama sama oleh semua unsur terkait",
             "B": "Penggerakan system yang ada untuk hasil yang lebih produktif",
             "C": "Pengembangan kegiatan hubungan industrial yang lebih produktif",
-            "D": "A,b,c benar semua"
+            "D": "a,b,c benar semua"
         },
         "kunci_jawaban": "D",
         "kategori": "Hubungan Industrial & PHK"
@@ -2414,15 +2414,15 @@
         "opsi": {
             "A": "Pekerja dapat berpikir secara rasional dan obyektif",
             "B": "Pengusaha dapat menempatkan dirinya sebagai mitra dengan pekerja",
-            "C": "Pekerja dan pengusaha perlu memiliki sikap mental dan social beserta rasa kesadaran yang positif bagi kegiatan produktif.",
-            "D": "A,b,c benar semua"
+            "C": "Pekerja dan pengusaha perlu memiliki sikap mental dan sosial beserta rasa kesadaran yang positif bagi kegiatan produktif.",
+            "D": "a,b,c benar semua"
         },
         "kunci_jawaban": "D",
         "kategori": "Hubungan Industrial & PHK"
     },
     {
         "id": 197,
-        "pertanyaan": "Peraturan yang mengatur tentang Serikat Pekerja/Serikat Buruh adalah ::::",
+        "pertanyaan": "Peraturan yang mengatur tentang Serikat Pekerja/Serikat Buruh adalah...",
         "opsi": {
             "A": "Undang-Undang No 101 Tahun 2000",
             "B": "Undang-Undang No 21 Tahun 2000",
@@ -2434,7 +2434,7 @@
     },
     {
         "id": 198,
-        "pertanyaan": "Peraturan tentang Tata Cara Pencatatan Serikat Pekerja/Serikat Buruh adalah :..",
+        "pertanyaan": "Peraturan tentang Tata Cara Pencatatan Serikat Pekerja/Serikat Buruh adalah :",
         "opsi": {
             "A": "Kepmenakertrans No. 16 Tahun 2001",
             "B": "Permenaker No. 28 Tahun 2014",
@@ -2446,7 +2446,7 @@
     },
     {
         "id": 199,
-        "pertanyaan": "Peraturan tentang pedoman verifikasi keanggotaan serikat pekerja/serikat buruh adalah :::..",
+        "pertanyaan": "Peraturan tentang pedoman verifikasi keanggotaan serikat pekerja/serikat buruh adalah :",
         "opsi": {
             "A": "Permenakertrans No. 6 Tahun 2005",
             "B": "PP No 8 Tahun 2005",
@@ -2458,43 +2458,43 @@
     },
     {
         "id": 200,
-        "pertanyaan": "pemerintah.",
+        "pertanyaan": "Serikat Pekerja/Serikat Buruh adalah...",
         "opsi": {
-            "A": "Forum komunikasi dan konsultasi mengenai hal-hal yang berkaitan dengan hubungan industrial di satu perusahaan yang anggotanya terdiri dari pengusaha dan serikat pekerja/",
-            "B": "Forum komunikasi, konsultasi dan musyawarah tentang masalah ketenagakerjaan yang anggotanya terdiri dari unsur organisasi pengusaha, serikat pekerja/serikat buruh, dan",
+            "A": "Forum komunikasi dan konsultasi mengenai hal-hal yang berkaitan dengan hubungan industrial di satu perusahaan yang anggotanya terdiri dari pengusaha dan serikat pekerja/serikat buruh yang sudah tercatat instansi yang bertanggung jawab di bidang ketenagakerjaan atau unsur pekerja/buruh",
+            "B": "Forum komunikasi, konsultasi dan musyawarah tentang masalah ketenagakerjaan yang anggotanya terdiri dari unsur organisasi pengusaha, serikat pekerja/serikat buruh, dan pemerintah",
             "C": "Wadah persatuan dan kesatuan bagi pengusaha dan pekerja yang didirikan secara syah atas dasar kesamaan tujuan, aspirasi serta kepercayaan",
-            "D": "Organisasi yang dibentuk dari, oleh, dan untuk pekerja/buruh baik di perusahaan maupun di luar perusahaan, yang bersifat bebas, terbuka, mandiri, demokratis, dan"
+            "D": "Organisasi yang dibentuk dari, oleh, dan untuk pekerja/buruh baik di perusahaan maupun di luar perusahaan, yang bersifat bebas, terbuka, mandiri, demokratis, dan bertanggung jawab guna memperjuangkan, membela serta melindungi hak dan kepentingan pekerja/buruh serta meningkatkan kesejahteraan pekerja/buruh dan keluarganya"
         },
         "kunci_jawaban": "D",
         "kategori": "Umum"
     },
     {
         "id": 201,
-        "pertanyaan": "pemerintah.",
+        "pertanyaan": "Serikat Pekerja/Serikat Buruh adalah...",
         "opsi": {
-            "A": "Forum komunikasi dan konsultasi mengenai hal-hal yang berkaitan dengan hubungan industrial di satu perusahaan yang anggotanya terdiri dari pengusaha dan serikat pekerja/",
-            "B": "Forum komunikasi, konsultasi dan musyawarah tentang masalah ketenagakerjaan yang anggotanya terdiri dari unsur organisasi pengusaha, serikat pekerja/serikat buruh, dan",
+            "A": "Forum komunikasi dan konsultasi mengenai hal-hal yang berkaitan dengan hubungan industrial di satu perusahaan yang anggotanya terdiri dari pengusaha dan serikat pekerja/serikat buruh yang sudah tercatat instansi yang bertanggung jawab di bidang ketenagakerjaan atau unsur pekerja/buruh",
+            "B": "Forum komunikasi, konsultasi dan musyawarah tentang masalah ketenagakerjaan yang anggotanya terdiri dari unsur organisasi pengusaha, serikat pekerja/serikat buruh, dan pemerintah",
             "C": "Wadah persatuan dan kesatuan bagi pengusaha dan pekerja yang didirikan secara syah atas dasar kesamaan tujuan, aspirasi serta kepercayaan",
-            "D": "Organisasi yang dibentuk dari, oleh, dan untuk pekerja/buruh baik di perusahaan maupun di luar perusahaan, yang bersifat bebas, terbuka, mandiri, demokratis, dan"
+            "D": "Organisasi yang dibentuk dari, oleh, dan untuk pekerja/buruh baik di perusahaan maupun di luar perusahaan, yang bersifat bebas, terbuka, mandiri, demokratis, dan bertanggung jawab guna memperjuangkan, membela serta melindungi hak dan kepentingan pekerja/buruh serta meningkatkan kesejahteraan pekerja/buruh dan keluarganya"
         },
         "kunci_jawaban": "D",
         "kategori": "Umum"
     },
     {
         "id": 202,
-        "pertanyaan": "pemerintah.",
+        "pertanyaan": "Serikat Pekerja/Serikat Buruh adalah...",
         "opsi": {
-            "A": "Forum komunikasi dan konsultasi mengenai hal-hal yang berkaitan dengan hubungan industrial di satu perusahaan yang anggotanya terdiri dari pengusaha dan serikat pekerja/",
-            "B": "Forum komunikasi, konsultasi dan musyawarah tentang masalah ketenagakerjaan yang anggotanya terdiri dari unsur organisasi pengusaha, serikat pekerja/serikat buruh, dan",
+            "A": "Forum komunikasi dan konsultasi mengenai hal-hal yang berkaitan dengan hubungan industrial di satu perusahaan yang anggotanya terdiri dari pengusaha dan serikat pekerja/serikat buruh yang sudah tercatat instansi yang bertanggung jawab di bidang ketenagakerjaan atau unsur pekerja/buruh",
+            "B": "Forum komunikasi, konsultasi dan musyawarah tentang masalah ketenagakerjaan yang anggotanya terdiri dari unsur organisasi pengusaha, serikat pekerja/serikat buruh, dan pemerintah",
             "C": "Wadah persatuan dan kesatuan bagi pengusaha dan pekerja yang didirikan secara syah atas dasar kesamaan tujuan, aspirasi serta kepercayaan",
-            "D": "Organisasi yang dibentuk dari, oleh, dan untuk pekerja/buruh baik di perusahaan maupun di luar perusahaan, yang bersifat bebas, terbuka, mandiri, demokratis, dan"
+            "D": "Organisasi yang dibentuk dari, oleh, dan untuk pekerja/buruh baik di perusahaan maupun di luar perusahaan, yang bersifat bebas, terbuka, mandiri, demokratis, dan bertanggung jawab guna memperjuangkan, membela serta melindungi hak dan kepentingan pekerja/buruh serta meningkatkan kesejahteraan pekerja/buruh dan keluarganya"
         },
         "kunci_jawaban": "D",
         "kategori": "Umum"
     },
     {
         "id": 203,
-        "pertanyaan": "bertanggung jawab guna memperjuangkan, membela serta melindungi hak dan kepentingan pekerja/buruh serta meningkatkan kesejahteraan pekerja/buruh dan keluarganya Federasi Serikat Pekerja/Serikat Buruh adalah :::",
+        "pertanyaan": "Federasi Serikat Pekerja/Serikat Buruh adalah...",
         "opsi": {
             "A": "Gabungan serikat pekerja/serikat buruh",
             "B": "Gabungan konfederasi serikat pekerja/serikat buruh",
@@ -2506,7 +2506,7 @@
     },
     {
         "id": 204,
-        "pertanyaan": "Konfederasi Serikat Pekerja/Serikat Buruh adalah :::.",
+        "pertanyaan": "Konfederasi Serikat Pekerja/Serikat Buruh adalah...",
         "opsi": {
             "A": "Gabungan serikat pekerja/serikat buruh",
             "B": "Gabungan federasi serikat pekerja/serikat buruh",
@@ -2530,7 +2530,7 @@
     },
     {
         "id": 206,
-        "pertanyaan": "Perselisihan hubungan industrial wajib diupayakan penyelesaiannya terlebih dahulu melalui perundingan bipartit secara musyawarah untuk mencapai mufakat, hal ini mengamalkan nilai Pancasila sila .......",
+        "pertanyaan": "Perselisihan hubungan industrial wajib diupayakan penyelesaiannya terlebih dahulu melalui perundingan bipartit secara musyawarah untuk mencapai mufakat, hal ini mengamalkan nilai Pancasila sila ke...",
         "opsi": {
             "A": "1.",
             "B": "2",
@@ -2578,7 +2578,7 @@
     },
     {
         "id": 210,
-        "pertanyaan": "Prinsip-prinsip untuk mencegah diskriminasi dalam pekerjaan dan jabatan antara lain, : kecuali ::.",
+        "pertanyaan": "Prinsip-prinsip untuk mencegah diskriminasi dalam pekerjaan dan jabatan antara lain, : kecuali :",
         "opsi": {
             "A": "Akses terhadap penyusunan pengaturan syarat kerja dalam bentuk Perjanjian Kerja, Peraturan Perusahaan, atau Perjanjian Kerja Bersama",
             "B": "Upah kerja yang sama untuk nilai pekerjaan yang berbeda",
@@ -3040,7 +3040,7 @@
     },
     {
         "id": 246,
-        "pertanyaan": "Pekerja Migran Indonesia wajib terdaftar dalam kepesertaan jaminan social Ketenagakerjaan pada program:",
+        "pertanyaan": "Pekerja Migran Indonesia wajib terdaftar dalam kepesertaan jaminan sosial Ketenagakerjaan pada program:",
         "opsi": {
             "A": "JKK dan JKM",
             "B": "JKN dan JKK",
@@ -3052,7 +3052,7 @@
     },
     {
         "id": 247,
-        "pertanyaan": "Sesuai Peraturan Menteri PAN & RB nomor 6 Tahun 2023, perlindungan jaminan social ketenagakerjaan bagi pegawai non PNS diberikan berupa:",
+        "pertanyaan": "Sesuai Peraturan Menteri PAN & RB nomor 6 Tahun 2023, perlindungan jaminan sosial ketenagakerjaan bagi pegawai non PNS diberikan berupa:",
         "opsi": {
             "A": "JKK dan JKM",
             "B": "JKK, JKM dan JHT",
@@ -3196,7 +3196,7 @@
     },
     {
         "id": 259,
-        "pertanyaan": "Dalam rangka pelaksanaan Pemilu 2024, petugas penyelenggara Pemilu wajib diberikan perlindungan jaminan social ketenagakerjaan. Program apa yang wajib diikuti oleh petugas penyelenggara Pemilu:",
+        "pertanyaan": "Dalam rangka pelaksanaan Pemilu 2024, petugas penyelenggara Pemilu wajib diberikan perlindungan jaminan sosial ketenagakerjaan. Program apa yang wajib diikuti oleh petugas penyelenggara Pemilu:",
         "opsi": {
             "A": "JKK dan JKM",
             "B": "JKN, JKK dan JKM",
@@ -3592,7 +3592,7 @@
     },
     {
         "id": 292,
-        "pertanyaan": "kata sepakat manfaat Jaminan Keilangan Pekerjaan (JKP) dapat berupa ...",
+        "pertanyaan": "Manfaat Jaminan Keilangan Pekerjaan (JKP) dapat berupa ...",
         "opsi": {
             "A": "Semua Benar",
             "B": "uang tunai",
@@ -3796,7 +3796,7 @@
     },
     {
         "id": 309,
-        "pertanyaan": "mempertimbangkan keluhan pekerja. Manfaat Peraturan Perusahaan adalah sebagai berikut, kecuali :.",
+        "pertanyaan": "mempertimbangkan keluhan pekerja. Manfaat Peraturan Perusahaan adalah sebagai berikut,sosial",
         "opsi": {
             "A": "Memberikan kepastian dan kejelasan kepada pekerja/buruh maupun pengusaha tentang hak dan kewajiban masing-masing",
             "B": "Mencegah dan mengurangi timbulnya perselisihan hubungan industrial",
@@ -3808,7 +3808,7 @@
     },
     {
         "id": 310,
-        "pertanyaan": "perusahaan Fungsi dari Peraturan Perusahaan adalah :.",
+        "pertanyaan": "perusahaan Fungsi dari Peraturan Perusahaan adalah :",
         "opsi": {
             "A": "Sebagai pedoman induk mengenai hak dan kewajiban bagi pekerja/buruh dan pengusaha dalam hubungan kerja.",
             "B": "Sebagai acuan untuk menyelesaikan perbedaan pendapat mengenai syarat-syarat kerja antara pihak pekerja dan pengusaha dalam hubungan kerja.",
@@ -3820,7 +3820,7 @@
     },
     {
         "id": 311,
-        "pertanyaan": "Kewajiban Pengusaha terkait dengan peraturan perusahaan adalah sebagai berikut :.",
+        "pertanyaan": "Kewajiban Pengusaha terkait dengan peraturan perusahaan adalah sebagai berikut :",
         "opsi": {
             "A": "Memberitahukan dan menjelaskan isi peraturan perusahaan kepada semua pekerja",
             "B": "Membagikan buku peraturan perusahaan kepada semua pekerja",
@@ -3832,7 +3832,7 @@
     },
     {
         "id": 312,
-        "pertanyaan": "Instansi yang berwenang mengesahkan peraturan perusahaan untuk perusahaan yang terdapat di lebih dari satu propinsi adalah :.",
+        "pertanyaan": "Instansi yang berwenang mengesahkan peraturan perusahaan untuk perusahaan yang terdapat di lebih dari satu propinsi adalah :",
         "opsi": {
             "A": "Direktur Jenderal Pembinaan Hubungan Industrial",
             "B": "Kepala SKPD bidang ketenagakerjaan provinsi,",
@@ -3844,7 +3844,7 @@
     },
     {
         "id": 313,
-        "pertanyaan": "Perjanjian Kerja Waktu Tertentu yang didasarkan atas jangka waktu dapat diadakan untuk paling lama :.. tahun dan boleh diperpanjang ::: kali untuk jangka waktu paling lama :::: tahun.",
+        "pertanyaan": "Perjanjian Kerja Waktu Tertentu yang didasarkan atas jangka waktu dapat diadakan untuk paling lama : tahun dan boleh diperpanjang : kali untuk jangka waktu paling lama : tahun.",
         "opsi": {
             "A": "2 tahun; 2 kali; 1 tahun",
             "B": "2 tahun; 1 kali; 2 tahun",
@@ -3856,7 +3856,7 @@
     },
     {
         "id": 314,
-        "pertanyaan": "Untuk pekerjaan-pekerjaan tertentu yang berubah-ubah dalam waktu dan volume pekerjaan serta upah didasarkan pada kehadiran, dapat dilakukan dengan :::",
+        "pertanyaan": "Untuk pekerjaan-pekerjaan tertentu yang berubah-ubah dalam waktu dan volume pekerjaan serta upah didasarkan pada kehadiran, dapat dilakukan dengan :",
         "opsi": {
             "A": "Perjanjian Kerja Pemborongan",
             "B": "Perjanjian Kerja Waktu Tertentu",
@@ -3868,7 +3868,7 @@
     },
     {
         "id": 315,
-        "pertanyaan": "Perusahaan dapat menyerahkan sebagian pelaksanaan pekerjaan kepada perusahaan melalui perjanjian :::.",
+        "pertanyaan": "Perusahaan dapat menyerahkan sebagian pelaksanaan pekerjaan kepada perusahaan melalui perjanjian :",
         "opsi": {
             "A": "Harian lepas dan Pemborongan Pekerjaan",
             "B": "Pemborongan pekerjaan dan penyediaan jasa pekerja/buruh",
@@ -3880,7 +3880,7 @@
     },
     {
         "id": 316,
-        "pertanyaan": "Perjanjian Kerja Waktu Tertentu (PKWT) untuk pekerjaan yang sekali selesai atau sementara sifatnya, penyelesaiannya paling lama ::.. tahun",
+        "pertanyaan": "Perjanjian Kerja Waktu Tertentu (PKWT) untuk pekerjaan yang sekali selesai atau sementara sifatnya, penyelesaiannya paling lama : tahun",
         "opsi": {
             "A": "2",
             "B": "3",
@@ -3892,7 +3892,7 @@
     },
     {
         "id": 317,
-        "pertanyaan": "Pekerjaan yang dapat diserahkan kepada perusahaan lain harus memenuhi syarat-syarat sebagai berikut, antara lain; kecuali :.",
+        "pertanyaan": "Pekerjaan yang dapat diserahkan kepada perusahaan lain harus memenuhi syarat-syarat sebagai berikut, antara lain;sosial",
         "opsi": {
             "A": "Dilakukan secara Bersama-sama dengan kegiatan utama",
             "B": "Dilakukan dengan perintah langsung atau tidak langsung dari pemberi pekerjaan",
@@ -3904,7 +3904,7 @@
     },
     {
         "id": 318,
-        "pertanyaan": "Penyedia jasa pekerja/buruh untuk kegiatan jasa penunjang atau kegiatan yang tidak berhubungan langsung dengan proses produksi harus memenuhi syarat sebagai berikut; kecuali ::..",
+        "pertanyaan": "Penyedia jasa pekerja/buruh untuk kegiatan jasa penunjang atau kegiatan yang tidak berhubungan langsung dengan proses produksi harus memenuhi syarat sebagai berikut; kecuali :",
         "opsi": {
             "A": "Adanya hubungan kerja antara pekerja/buruh dan perusahaan penyedia jasa pekerja/buruh;",
             "B": "Perjanjian kerja yang berlaku dalam hubungan kerja adalah perjanjian kerja waktu tertentu yang dibuat secara tertulis dan ditandatangani oleh kedua belah pihak;",
@@ -3952,7 +3952,7 @@
     },
     {
         "id": 322,
-        "pertanyaan": "PKWT dicatatkan pengusaha kepada instansi yang bertanggung jawab di bidang ketenagakerjaan setempat secara daring paling lama :: hari kerja sejak penandatanganan PKWT",
+        "pertanyaan": "PKWT dicatatkan pengusaha kepada instansi yang bertanggung jawab di bidang ketenagakerjaan setempat secara daring paling lama ... hari kerja sejak penandatanganan PKWT",
         "opsi": {
             "A": "7 hari",
             "B": "3 hari",
@@ -3976,7 +3976,7 @@
     },
     {
         "id": 324,
-        "pertanyaan": "Dalam hal perpanjangan PKWT harus dilakukan pemberitahuan kepada pekerja :.",
+        "pertanyaan": "Dalam hal perpanjangan PKWT harus dilakukan pemberitahuan kepada pekerja :",
         "opsi": {
             "A": "7 hari sebelum berakhir PKWT",
             "B": "7 hari setelah berakhir PKWT",
@@ -3999,7 +3999,7 @@
     },
     {
         "id": 326,
-        "pertanyaan": "Mekanisme Kerja LKS Bipartit adalah :.",
+        "pertanyaan": "Mekanisme Kerja LKS Bipartit adalah :",
         "opsi": {
             "A": "Mencegah Terjadinya Permasalahan Hubungan Industrial",
             "B": "Kelangsungan hidup, pertumbuhan, dan perkembangan perusahaan termasuk kesejahteraan pekerja/buruh",
@@ -4011,7 +4011,7 @@
     },
     {
         "id": 327,
-        "pertanyaan": "kesejahteraan para pekerja/buruh Pembinaan Lembaga Kerjasama Bipartit yang dilakukan meliputi :.",
+        "pertanyaan": "kesejahteraan para pekerja/buruh Pembinaan Lembaga Kerjasama Bipartit yang dilakukan meliputi :",
         "opsi": {
             "A": "Penyuluhan",
             "B": "Demonstrasi",
@@ -4023,7 +4023,7 @@
     },
     {
         "id": 328,
-        "pertanyaan": "Pimpinan perusahaan secara berkala setiap :. melaporkan kepada instansi yang bertanggung jawab di bidang ketenagakerjaan kabupaten/kota",
+        "pertanyaan": "Pimpinan perusahaan secara berkala setiap : melaporkan kepada instansi yang bertanggung jawab di bidang ketenagakerjaan kabupaten/kota",
         "opsi": {
             "A": "4 (empat) bulan sekali",
             "B": "6 (enam) bulan sekali",
@@ -4143,7 +4143,7 @@
     },
     {
         "id": 338,
-        "pertanyaan": "jawab di bidang ketenagakerjaan Gubernur melalui dinas yang membidangi Ketenagakerjaan melakukan pembinaan umum dan teknis pada LKS Tripartit Kabupaten/Kota. Pembinaan umum tersebut dilakukan dengan ....",
+        "pertanyaan": "Gubernur melalui dinas yang membidangi Ketenagakerjaan melakukan pembinaan umum dan teknis pada LKS Tripartit Kabupaten/Kota. Pembinaan umum tersebut dilakukan dengan ....",
         "opsi": {
             "A": "Mendorong pembentukan LKS Tripartit Propinsi;",
             "B": "Memberikan bimbingan dan konsultasi pembentukan LKS Tripartit Nasional",
@@ -4263,7 +4263,7 @@
     },
     {
         "id": 348,
-        "pertanyaan": "Perjanjian Versailes tahun 1919, terdapat 3 tujuan khusus untuk promosi kesetaraan bagi pekerja, yaitu: kecuali :.",
+        "pertanyaan": "Perjanjian Versailes tahun 1919, terdapat 3 tujuan khusus untuk promosi kesetaraan bagi pekerja, yaitu:sosial",
         "opsi": {
             "A": "Perempuan dan laki-laki wajib menerima upah yang setara untuk pekerjaan yang sama nilainya.",
             "B": "Masing-masing negara supaya mengatur dalam peraturannya sesuai dengan kondisi",
@@ -4299,7 +4299,7 @@
     },
     {
         "id": 351,
-        "pertanyaan": "Equal Employment Opportunity (EEO) meliputi :.",
+        "pertanyaan": "Equal Employment Opportunity (EEO) meliputi :",
         "opsi": {
             "A": "Instrumen untuk mencapai disefisiensi",
             "B": "Perlakuan yang adil",
@@ -4347,7 +4347,7 @@
     },
     {
         "id": 355,
-        "pertanyaan": "Pengusaha dapat melakukan penutupan perusahaan tanpa pemberitahuan terlebih dahulu apabila :.",
+        "pertanyaan": "Pengusaha dapat melakukan penutupan perusahaan tanpa pemberitahuan terlebih dahulu apabila :",
         "opsi": {
             "A": "Pekerja/buruh melaksanakan ketentuan normatif yang telah ditentukan dalam perjanjian kerja (PK)",
             "B": "Pekerja/buruh melaksanakan ketentuan normatif yang telah ditentukan dalam peraturan perusahaan",
@@ -4359,7 +4359,7 @@
     },
     {
         "id": 356,
-        "pertanyaan": "Mogok kerja tidak sah apabila dilakukan :.",
+        "pertanyaan": "Mogok kerja tidak sah apabila dilakukan :",
         "opsi": {
             "A": "Sebagai akibat gagalnya perundingan",
             "B": "Tanpa pemberitahuan kepada pengusaha dan instansi yang bertanggung jawab di bidang ketenagakerjaan",
@@ -4371,7 +4371,7 @@
     },
     {
         "id": 357,
-        "pertanyaan": "kerja; dan tanda tangan ketua dan sekretaris SP/SB sebagai penanggung jawab mogok kerja Yang disebut gagalnya perundingan adalah tidak tercapainya kesepakatan penyelesaian perselisihan hubungan industrial yang dapat disebabkan Pengusaha tidak bersedia melakukan perundingan walaupun serikat pekerja/serikat buruh atau pekerja/buruh telah meminta secara tertulis kepada pengusaha 2 kali dalam tenggang waktu :.",
+        "pertanyaan": "kerja; dan tanda tangan ketua dan sekretaris SP/SB sebagai penanggung jawab mogok kerja Yang disebut gagalnya perundingan adalah tidak tercapainya kesepakatan penyelesaian perselisihan hubungan industrial yang dapat disebabkan Pengusaha tidak bersedia melakukan perundingan walaupun serikat pekerja/serikat buruh atau pekerja/buruh telah meminta secara tertulis kepada pengusaha 2 kali dalam tenggang waktu :",
         "opsi": {
             "A": "14 hari kerja",
             "B": "13 hari kerja",
@@ -4383,7 +4383,7 @@
     },
     {
         "id": 358,
-        "pertanyaan": "Pengusaha tidak dibenarkan melakukan penutupan perusahaan (lock out) karena hal-hal sebagai berikut :.",
+        "pertanyaan": "Pengusaha tidak dibenarkan melakukan penutupan perusahaan (lock out) karena hal-hal sebagai berikut :",
         "opsi": {
             "A": "Akibat gagalnya perundingan",
             "B": "Tindakan balasan sehubungan adanya tuntutan normatif dari pekerja/buruh dan/atau serikat pekerja/serikat buruh",
@@ -4395,7 +4395,7 @@
     },
     {
         "id": 359,
-        "pertanyaan": "Pengusaha tidak dibenarkan melakukan penutupan perusahaan (lock out) karena hal-hal sebagai berikut :.",
+        "pertanyaan": "Pengusaha tidak dibenarkan melakukan penutupan perusahaan (lock out) karena hal-hal sebagai berikut :",
         "opsi": {
             "A": "Akibat gagalnya perundingan",
             "B": "Tindakan balasan sehubungan adanya tuntutan normatif dari pekerja/buruh dan/atau serikat pekerja/serikat buruh",
@@ -4407,7 +4407,7 @@
     },
     {
         "id": 360,
-        "pertanyaan": "Perusahaan-perusahaan, pengusaha - pengusaha dan asosiasi perusahaan sejenis misalnya; Asosiasi Pertextilan Indonesia (API), Indonesia Tobacco Association (ITA), Asosiasi Kontraktor Listrik Indonesia (AKU) dan sebagainya. Ini adalah Keanggotaan Organisasi Pengusaha yang disebut :.",
+        "pertanyaan": "Perusahaan-perusahaan, pengusaha - pengusaha dan asosiasi perusahaan sejenis misalnya; Asosiasi Pertextilan Indonesia (API), Indonesia Tobacco Association (ITA), Asosiasi Kontraktor Listrik Indonesia (AKU) dan sebagainya. Ini adalah Keanggotaan Organisasi Pengusaha yang disebut :",
         "opsi": {
             "A": "Anggota biasa",
             "B": "Anggota luar biasa",
@@ -4431,7 +4431,7 @@
     },
     {
         "id": 362,
-        "pertanyaan": "Jumlah seluruh anggota dalam susunan keanggotaan LKS Tripartit Nasional sebanyakbanyaknya ::::. orang yang penetapannya dilakukan dengan memperhatikan komposisi keterwakilan unsur Pemerintah, organisasi pengusaha, dan serikat pekerja/serikat buruh. (pasal 6 Peraturan Pemerintah Nomor 8 Tahun 2005 Tentang Tata Kerja Dan Susunan Organisasi Lembaga Kerja Sama Tripartit)",
+        "pertanyaan": "Jumlah seluruh anggota dalam susunan keanggotaan LKS Tripartit Nasional sebanyakbanyaknya : orang yang penetapannya dilakukan dengan memperhatikan komposisi keterwakilan unsur Pemerintah, organisasi pengusaha, dan serikat pekerja/serikat buruh. (pasal 6 Peraturan Pemerintah Nomor 8 Tahun 2005 Tentang Tata Kerja Dan Susunan Organisasi Lembaga Kerja Sama Tripartit)",
         "opsi": {
             "A": "24",
             "B": "20",
@@ -4479,7 +4479,7 @@
     },
     {
         "id": 366,
-        "pertanyaan": "Sebagai wadah/forum komunikasi pengusaha untuk saling bertukar pikiran guna menyusun langkah dan tindakan dalam mengatasi masalah hubungan industrial untuk kepentingan::.",
+        "pertanyaan": "Sebagai wadah/forum komunikasi pengusaha untuk saling bertukar pikiran guna menyusun langkah dan tindakan dalam mengatasi masalah hubungan industrial untuk kepentingan:",
         "opsi": {
             "A": "Pengusaha",
             "B": "Pemerintah",
@@ -4683,7 +4683,7 @@
     },
     {
         "id": 383,
-        "pertanyaan": "Berapa lama Masa berlaku PKB baru (PKB yang dibuat pertama kali) :.",
+        "pertanyaan": "Berapa lama Masa berlaku PKB baru (PKB yang dibuat pertama kali) :",
         "opsi": {
             "A": "2 tahun",
             "B": "3 tahun",
@@ -4695,7 +4695,7 @@
     },
     {
         "id": 384,
-        "pertanyaan": "Dalam hal di perusahaan terdapat lebih dari 1 (satu) serikat pekerja/serikat buruh, maka serikat pekerja/serikat buruh yang berhak mewakili pekerja/buruh dalam melakukan perundingan dengan pengusaha adalah maksimal :: serikat pekerja/serikat buruh yang masing-masing anggotanya minimal 10% (sepuluh perseratus) dari jumlah seluruh pekerja/buruh di perusahaan. Untuk mengisi yang titik-titik Pada kalimat diatas adalah",
+        "pertanyaan": "Dalam hal di perusahaan terdapat lebih dari 1 (satu) serikat pekerja/serikat buruh, maka serikat pekerja/serikat buruh yang berhak mewakili pekerja/buruh dalam melakukan perundingan dengan pengusaha adalah maksimal : serikat pekerja/serikat buruh yang masing-masing anggotanya minimal 10% (sepuluh perseratus) dari jumlah seluruh pekerja/buruh di perusahaan. Untuk mengisi yang titik-titik Pada kalimat diatas adalah",
         "opsi": {
             "A": "1",
             "B": "2",
@@ -4719,7 +4719,7 @@
     },
     {
         "id": 386,
-        "pertanyaan": "Dalam pembuatan PKB ada verifikasi SP/SB. Jangka waktu verifikasi keanggotaan serikat pekerja/serikat buruh paling lama dilaksanakan :.",
+        "pertanyaan": "Dalam pembuatan PKB ada verifikasi SP/SB. Jangka waktu verifikasi keanggotaan serikat pekerja/serikat buruh paling lama dilaksanakan :",
         "opsi": {
             "A": "7 (tujuh) hari kerja sejak permintaan verifikasi dari pengusaha.",
             "B": "14 (empat belas hari) hari kerja sejak permintaan verifikasi dari pengusaha.",
@@ -4731,7 +4731,7 @@
     },
     {
         "id": 387,
-        "pertanyaan": "Pihak pengusaha dan pihak serikat pekerja/serikat buruh menunjuk tim perunding sesuai kebutuhan dengan ketentuan masing-masing paling banyak :::: orang dengan kuasa penuh.",
+        "pertanyaan": "Pihak pengusaha dan pihak serikat pekerja/serikat buruh menunjuk tim perunding sesuai kebutuhan dengan ketentuan masing-masing paling banyak : orang dengan kuasa penuh.",
         "opsi": {
             "A": "10 orang",
             "B": "9 orang",
@@ -4743,7 +4743,7 @@
     },
     {
         "id": 388,
-        "pertanyaan": "Dalam hal perundingan pembuatan PKB tidak selesai dalam waktu yang disepakati dalam tata tertib, maka kedua belah pihak dapat menjadwal kembali perundingan dengan waktu paling lama :::.. hari setelah perundingan gagal.",
+        "pertanyaan": "Dalam hal perundingan pembuatan PKB tidak selesai dalam waktu yang disepakati dalam tata tertib, maka kedua belah pihak dapat menjadwal kembali perundingan dengan waktu paling lama ... hari setelah perundingan gagal.",
         "opsi": {
             "A": "30 (tiga puluh)",
             "B": "14 (empa belas)",
@@ -4755,7 +4755,7 @@
     },
     {
         "id": 389,
-        "pertanyaan": "PKB dapat diperpanjang ::",
+        "pertanyaan": "PKB dapat diperpanjang :",
         "opsi": {
             "A": "1 (satu) kali paling lama 1 (satu) tahun dengan kesepakatan para pihak",
             "B": "1 (satu) kali paling lama 2 (dua) tahun dengan kesepakatan para pihak",
@@ -4830,7 +4830,7 @@
         "pertanyaan": "Apa yang dimaksud dengan perselisihan :",
         "opsi": {
             "A": "Perbedaan pendapat oleh kedua belah pihak",
-            "B": "Tidak adanya kesepakatan oleh kedua belah phak",
+            "B": "Tidak adanya kesepakatan oleh kedua belah pihak",
             "C": "Saling bertentangan kedua belah pihak",
             "D": "a,b,c benar semua"
         },
@@ -4851,7 +4851,7 @@
     },
     {
         "id": 397,
-        "pertanyaan": "Sesuai dengan Undang-undang Nomor 2 Tahun 2004 tentang Penyelesaian Perselisihan Hubungan Industrial terdapat : jenis perselisihan",
+        "pertanyaan": "Sesuai dengan Undang-undang Nomor 2 Tahun 2004 tentang Penyelesaian Perselisihan Hubungan Industrial terdapat ... jenis perselisihan",
         "opsi": {
             "A": "1",
             "B": "2",
@@ -4863,7 +4863,7 @@
     },
     {
         "id": 398,
-        "pertanyaan": "bertanggung jawab guna memperjuangkan, membela serta melindungi hak dan kepentingan pekerja/buruh serta meningkatkan kesejahteraan pekerja/buruh dan keluarganya Konfederasi Serikat Pekerja/Serikat Buruh adalah :::.",
+        "pertanyaan": "Konfederasi Serikat Pekerja/Serikat Buruh adalah...",
         "opsi": {
             "A": "Gabungan serikat pekerja/serikat buruh",
             "B": "Gabungan federasi serikat pekerja/serikat buruh",
@@ -4875,7 +4875,7 @@
     },
     {
         "id": 399,
-        "pertanyaan": "Salah satu sifat Serikat Pekerja/Serikat Buruh adalah, kecuali :::..",
+        "pertanyaan": "Salah satu sifat Serikat Pekerja/Serikat Buruh adalah, kecuali :",
         "opsi": {
             "A": "Bebas, terbuka, mandiri, demokratis, dan bertanggungjawab",
             "B": "Bebas, terbuka, jujur, demokratis dan bertanggungjawab",
@@ -4887,7 +4887,7 @@
     },
     {
         "id": 400,
-        "pertanyaan": "Tujuan adanya Serikat Pekerja/Serikat Buruh adalah ::::",
+        "pertanyaan": "Tujuan adanya Serikat Pekerja/Serikat Buruh adalah :",
         "opsi": {
             "A": "Meningkatkan kapasitas kemampuan pekerja agar dapat memperjuangkan kesejahteraan pekerja",
             "B": "Meningkatkan kesejahteraan anggota serikat pekerja/serikat buruh",
@@ -4899,7 +4899,7 @@
     },
     {
         "id": 401,
-        "pertanyaan": "Fungsi dari Serikat Pekerja/Serikat Buruh adalah, kecuali :::..",
+        "pertanyaan": "Fungsi dari Serikat Pekerja/Serikat Buruh adalah, kecuali :",
         "opsi": {
             "A": "Sebagai pihak dalam pembuatan perjanjian kerja Bersama dan penyelesaian perselisihan industrial",
             "B": "Sebagai wakil pekerja/buruh dalam Lembaga kerja sama di bidang ketenagakerjaan sesuai dengan tingkatannya",
@@ -4923,7 +4923,7 @@
     },
     {
         "id": 403,
-        "pertanyaan": "Federasi Serikat Pekerja/Serikat Buruh dibentuk sekurang-kurangnya :::..",
+        "pertanyaan": "Federasi Serikat Pekerja/Serikat Buruh dibentuk sekurang-kurangnya :",
         "opsi": {
             "A": "5 konfederasi serikat pekerja/serikat buruh",
             "B": "50 konfederasi serikat pekerja/serikat buruh",
@@ -4935,7 +4935,7 @@
     },
     {
         "id": 404,
-        "pertanyaan": "Nama dan lambang; dasar negara, asas dan tujuan; tanggal pendirian; tempat kedudukan; keanggotaan dan kepengurusan; sumber dan pertanggungjawaban keuangan; dan ketentuan perubahan; sekurang-kurangnya tercantum dalam :::: Serikat Pekerja/Serikat Buruh.",
+        "pertanyaan": "Nama dan lambang; dasar negara, asas dan tujuan; tanggal pendirian; tempat kedudukan; keanggotaan dan kepengurusan; sumber dan pertanggungjawaban keuangan; dan ketentuan perubahan; sekurang-kurangnya tercantum dalam : Serikat Pekerja/Serikat Buruh.",
         "opsi": {
             "A": "Anggaran perusahaan",
             "B": "Anggaran dasar",
@@ -4947,7 +4947,7 @@
     },
     {
         "id": 405,
-        "pertanyaan": "Serikat Pekerja/Serikat Buruh yang telah terbentuk harus memberitahukan secara tertulis kepada :::..",
+        "pertanyaan": "Serikat Pekerja/Serikat Buruh yang telah terbentuk harus memberitahukan secara tertulis kepada :",
         "opsi": {
             "A": "Instansi pemerintah yang bertanggungjawab di bidang serikat pekerja",
             "B": "Instansi pemerintah yang bertanggungjawab di bidang ketenagakerjaan",
@@ -4959,7 +4959,7 @@
     },
     {
         "id": 406,
-        "pertanyaan": "Instansi pemerintah wajib mencatat dan memberikan nomor bukti pencatatan terhadap serikat pekerja/serikat buruh yang telah sesuai dengan ketentuan selambat-lambatnya :: hari kerja terhitung sejak tanggal diterimanya pemberitahuan.",
+        "pertanyaan": "Instansi pemerintah wajib mencatat dan memberikan nomor bukti pencatatan terhadap serikat pekerja/serikat buruh yang telah sesuai dengan ketentuan selambat-lambatnya : hari kerja terhitung sejak tanggal diterimanya pemberitahuan.",
         "opsi": {
             "A": "14",
             "B": "15",
@@ -4971,7 +4971,7 @@
     },
     {
         "id": 407,
-        "pertanyaan": "Salah satu hak serikat pekerja/serikat buruh yang telah memiliki nomor bukti pencatatan adalah :..",
+        "pertanyaan": "Salah satu hak serikat pekerja/serikat buruh yang telah memiliki nomor bukti pencatatan adalah :",
         "opsi": {
             "A": "Mewakili sebagian pekerja/buruh dalam menyelesaikan perselisihan hubungan industrial",
             "B": "Membentuk Lembaga atau melakukan kegiatan yang berkaitan dengan usaha peningkatan kesejahteraan pekerja/buruh",
@@ -4983,7 +4983,7 @@
     },
     {
         "id": 408,
-        "pertanyaan": "Salah satu kewajiban serikat pekerja/serikat buruh yang telah memiliki nomor bukti pencatatan adalah ::.",
+        "pertanyaan": "Salah satu kewajiban serikat pekerja/serikat buruh yang telah memiliki nomor bukti pencatatan adalah:",
         "opsi": {
             "A": "Melindungi dan membela pekerja dan pengusaha dari pelanggaran hak-hak",
             "B": "Mempertanggungjawabkan kegiatan organisasi kepada seluruh pekerja/buruh di perusahaan dan pengusaha sesuai dengan anggaran dasar dan anggaran rumah tangga",
@@ -4995,7 +4995,7 @@
     },
     {
         "id": 409,
-        "pertanyaan": "Siapapun dilarang menghalang-halangi atau memaksa pekerja/buruh untuk membentuk, menjadi pengurus atau tidak menjadi pengurus, menjadi anggota atau tidak menjadi anggota dan/atau menjalankan atau tidak menjalankan kegiatan serikat pekerja/serikat buruh, dengan cara:. Kecuali : :::.",
+        "pertanyaan": "Siapapun dilarang menghalang-halangi atau memaksa pekerja/buruh untuk membentuk, menjadi pengurus atau tidak menjadi pengurus, menjadi anggota atau tidak menjadi anggota dan/atau menjalankan atau tidak menjalankan kegiatan serikat pekerja/serikat buruh, dengan cara: Kecuali : :",
         "opsi": {
             "A": "Melakukan kampanye anti pembentukan serikat pekerja/serikat buruh",
             "B": "Tidak melakukan intimidasi dalam bentuk apapun terhadap pekerja/buruh",
@@ -5007,7 +5007,7 @@
     },
     {
         "id": 410,
-        "pertanyaan": "Serikat pekerja/serikat buruh bubar dalam hal, kecuali ::..",
+        "pertanyaan": "Serikat pekerja/serikat buruh bubar dalam hal, kecuali :",
         "opsi": {
             "A": "Dinyatakan oleh anggotanya menurut anggaran dasar dan anggaran rumah tangga",
             "B": "Perusahaan tutup atau menghentikan kegiatannya untuk selama-lamanya yang mengakibatkan putusnya hubungan kerja bagi seluruh pekerja/buruh di perusahaan setelah",
@@ -5019,7 +5019,7 @@
     },
     {
         "id": 411,
-        "pertanyaan": "Serikat pekerja/serikat buruh bubar dalam hal, kecuali ::..",
+        "pertanyaan": "Serikat pekerja/serikat buruh bubar dalam hal, kecuali :",
         "opsi": {
             "A": "Dinyatakan oleh anggotanya menurut anggaran dasar dan anggaran rumah tangga",
             "B": "Perusahaan tutup atau menghentikan kegiatannya untuk selama-lamanya yang mengakibatkan putusnya hubungan kerja bagi seluruh pekerja/buruh di perusahaan setelah",
@@ -5031,7 +5031,7 @@
     },
     {
         "id": 412,
-        "pertanyaan": "Salah satu sifat serikat pekerja adalah Bebas, yang artinya :::",
+        "pertanyaan": "Salah satu sifat serikat pekerja adalah Bebas, yang artinya :",
         "opsi": {
             "A": "Bahwa sebagai organisasi dalam melaksanakan hak dan kewajibannya, serikat pekerja tidak di bawah pengaruh dan tekanan dari pihak lain",
             "B": "Bahwa sebagai organisasi dalam menerima anggotanya harus memperjuangkan kepentingan pekerja/buruh",
@@ -5043,7 +5043,7 @@
     },
     {
         "id": 413,
-        "pertanyaan": "Salah satu sifat serikat pekerja adalah Bebas, yang artinya :::",
+        "pertanyaan": "Salah satu sifat serikat pekerja adalah Bebas, yang artinya :",
         "opsi": {
             "A": "Bahwa sebagai organisasi dalam melaksanakan hak dan kewajibannya, serikat pekerja tidak di bawah pengaruh dan tekanan dari pihak lain",
             "B": "Bahwa sebagai organisasi dalam menerima anggotanya harus memperjuangkan kepentingan pekerja/buruh",
@@ -5527,7 +5527,7 @@
             "A": "Mengajukan gugatan ke Pengadilan Hubungan Industrial untuk mendapatkan penyelesaian selanjutnya",
             "B": "Mendaftarkan perselisihan hubungan industrial kepada instansi yang bertanggung jawab di bidnag ketenagakerjaan",
             "C": "Memberitahukan mogok kerja kepada perusahaan dan instansi yang bertanggungjawab di bidang Ketenagakerjaan",
-            "D": "Mencatatkan perselisihan ke Instansi yang bertanggung jawab di dibidang ketenaga kerjaan atau memberiahukan mogok kerja kepada perusahaan dan instansi yang",
+            "D": "Mencatatkan perselisihan ke Instansi yang bertanggung jawab di dibidang ketenaga kerjaan atau memberiahukan mogok kerja kepada perusahaan dan instansi yang bertanggung jawab di bidang ketenagakerjaan",
             "E": "Melakukan perundingan Kembali sampai dicapai kesepakatan"
         },
         "kunci_jawaban": "D",
@@ -5540,7 +5540,7 @@
             "A": "Mengajukan gugatan ke Pengadilan Hubungan Industrial untuk mendapatkan penyelesaian selanjutnya",
             "B": "Mendaftarkan perselisihan hubungan industrial kepada instansi yang bertanggung jawab di bidnag ketenagakerjaan",
             "C": "Memberitahukan mogok kerja kepada perusahaan dan instansi yang bertanggungjawab di bidang Ketenagakerjaan",
-            "D": "Mencatatkan perselisihan ke Instansi yang bertanggung jawab di dibidang ketenaga kerjaan atau memberiahukan mogok kerja kepada perusahaan dan instansi yang",
+            "D": "Mencatatkan perselisihan ke Instansi yang bertanggung jawab di dibidang ketenaga kerjaan atau memberiahukan mogok kerja kepada perusahaan dan instansi yang bertanggung jawab di bidang ketenagakerjaan",
             "E": "Melakukan perundingan Kembali sampai dicapai kesepakatan"
         },
         "kunci_jawaban": "D",
@@ -5604,7 +5604,7 @@
         "opsi": {
             "A": "Kemanusiaan, manfaat, nirlaba",
             "B": "Kegotong-royongan, akuntabilitas, kehati-hatian",
-            "C": "Keadilan social, dana amanat, saling percaya",
+            "C": "Keadilan sosial, dana amanat, saling percaya",
             "D": "Terpenuhinya kebutuhan dasar, portabilitas"
         },
         "kunci_jawaban": "B",
@@ -5696,7 +5696,7 @@
     },
     {
         "id": 465,
-        "pertanyaan": "Sesuai Peraturan Menteri PAN & RB nomor 6 Tahun 2023, iuran program perlindungan jaminan social bagi pegawai non PNS dibayarkan oleh:",
+        "pertanyaan": "Sesuai Peraturan Menteri PAN & RB nomor 6 Tahun 2023, iuran program perlindungan jaminan sosial bagi pegawai non PNS dibayarkan oleh:",
         "opsi": {
             "A": "Pemerintah",
             "B": "Pegawai non PNS secara mandiri",
@@ -5720,7 +5720,7 @@
     },
     {
         "id": 467,
-        "pertanyaan": "Peserta program JKP harus memenuhi syarat kepesertaan pada program jaminan social :",
+        "pertanyaan": "Peserta program JKP harus memenuhi syarat kepesertaan pada program jaminan sosial :",
         "opsi": {
             "A": "Pekerja pada perusahaan besar wajib mengikuti program JKK, JKM, JHT dan JP.",
             "B": "Pekerja pada perusahaan menengah dan kecil wajib mengikuti program JKN, JKK, JKM dan JHT.",
@@ -5756,12 +5756,12 @@
     },
     {
         "id": 470,
-        "pertanyaan": "Sesuai UU Nomor 24 Tahun 2011 BPJS mengelola asset BPJS dan asset Dana Jaminan Social. Sebutkan sumber dari asset BPJS:",
+        "pertanyaan": "Sesuai UU Nomor 24 Tahun 2011 BPJS mengelola asset BPJS dan asset Dana Jaminan sosial. Sebutkan sumber dari asset BPJS:",
         "opsi": {
             "A": "Modal awal dari pemerintah, iuran peserta, dan hasil pengembangan asset BPJS.",
             "B": "Iuran peserta, sumber lain yang sesuai dengan peraturan perundang-undangan.",
             "C": "Penanaman modal dari direksi/lembaga lain.",
-            "D": "Modal awal dari pemerintah, hasil pengembangan asset BPJS, dan hasil pengalihan asset BUMN yang menyelenggarakan program jaminan social."
+            "D": "Modal awal dari pemerintah, hasil pengembangan asset BPJS, dan hasil pengalihan asset BUMN yang menyelenggarakan program jaminan sosial."
         },
         "kunci_jawaban": "D",
         "kategori": "Jaminan Sosial (BPJS)"
@@ -5782,10 +5782,10 @@
         "id": 472,
         "pertanyaan": "Apa yang dimaksud dengan Dana Jaminan Sosial Program:",
         "opsi": {
-            "A": "Dana jaminan social yang bersumber dari modal awal pemerintah dan iuran peserta.",
-            "B": "Dana program jaminan social yang bersumber dari iuran peserta dan hasil pengembangan.",
+            "A": "Dana jaminan sosial yang bersumber dari modal awal pemerintah dan iuran peserta.",
+            "B": "Dana program jaminan sosial yang bersumber dari iuran peserta dan hasil pengembangan.",
             "C": "Dana program yang bersumber dari sumber lain yang sah dan digunakan untuk membayar manfaat program.",
-            "D": "Dana program jaminan social yang digunakan untuk membiayai operasional BPJS."
+            "D": "Dana program jaminan sosial yang digunakan untuk membiayai operasional BPJS."
         },
         "kunci_jawaban": "B",
         "kategori": "Jaminan Sosial (BPJS)"
@@ -5816,7 +5816,7 @@
     },
     {
         "id": 475,
-        "pertanyaan": "Yang termasuk manfaat jaminan social bagi pekerja migran Indonesia selama bekerja, yaitu:",
+        "pertanyaan": "Yang termasuk manfaat jaminan sosial bagi pekerja migran Indonesia selama bekerja, yaitu:",
         "opsi": {
             "A": "biaya perawatan dan pengobatan akibat Kecelakaan Kerja di negara tujuan penempatan sesuai kebutuhan medis, paling lama 1 (satu) tahun.",
             "B": "bantuan biaya perawatan dan pengobatan akibat Kecelakaan Kerja di negara penempatan sesuai dengan biaya yang dikeluarkan maksimal sebesar Rp50.000.000,00 (lima",
@@ -5828,7 +5828,7 @@
     },
     {
         "id": 475,
-        "pertanyaan": "Yang termasuk manfaat jaminan social bagi pekerja migran Indonesia selama bekerja, yaitu:",
+        "pertanyaan": "Yang termasuk manfaat jaminan sosial bagi pekerja migran Indonesia selama bekerja, yaitu:",
         "opsi": {
             "A": "biaya perawatan dan pengobatan akibat Kecelakaan Kerja di negara tujuan penempatan sesuai kebutuhan medis, paling lama 1 (satu) tahun.",
             "B": "bantuan biaya perawatan dan pengobatan akibat Kecelakaan Kerja di negara penempatan sesuai dengan biaya yang dikeluarkan maksimal sebesar Rp50.000.000,00 (lima",
@@ -5888,7 +5888,7 @@
     },
     {
         "id": 481,
-        "pertanyaan": "memasuki usia pensiun, mengalami cacat total tetap atau meninggal dunia. Program JKP diselenggarakan oleh:",
+        "pertanyaan": "Program JKP diselenggarakan oleh:",
         "opsi": {
             "A": "Pemerintah dan BPJS Ketenagakerjaan",
             "B": "SiapKerja dan Aplikasi BPJS Ketenagakerjaan",
