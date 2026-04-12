@@ -160,7 +160,7 @@ elif st.session_state.mode == 'PG':
     pilihan = st.radio(
         "Pilih jawaban:",
         opsi_keys,
-        format_func=lambda x: f"**{x}.** {q['opsi'][x]}",
+        format_func=lambda x: f"{x}. {q['opsi'][x]}",
         key=f"pg_radio_{idx}",
         index=default_idx,
     )
@@ -414,7 +414,7 @@ elif st.session_state.mode == 'Simulasi':
         pilihan = st.radio(
             label="Pilih jawaban:",
             options=opsi_keys,
-            format_func=lambda x: f"**{x}.** {q['opsi'][x]}",
+            format_func=lambda x: f"{x}. {q['opsi'][x]}",
             key=f"sim_radio_{idx}_{q['id']}",
             index=default_idx,
         )
