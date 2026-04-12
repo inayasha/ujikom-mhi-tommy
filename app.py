@@ -2,6 +2,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 import json
 import time
+import random
 
 # ==========================================
 # 1. KONFIGURASI HALAMAN
@@ -33,34 +34,54 @@ if 'mode' not in st.session_state:
 if 'current_q' not in st.session_state:
     st.session_state.current_q = 0
 
+# State untuk Simulasi Ujian
 if 'simulasi_answers' not in st.session_state:
     st.session_state.simulasi_answers = {}
 if 'simulasi_submitted' not in st.session_state:
     st.session_state.simulasi_submitted = False
 if 'simulasi_start_time' not in st.session_state:
     st.session_state.simulasi_start_time = None
+if 'simulasi_questions' not in st.session_state:
+    st.session_state.simulasi_questions = []
+
+# State baru untuk mengacak soal di Mode Latihan
+if 'latihan_pg_questions' not in st.session_state:
+    st.session_state.latihan_pg_questions = []
+if 'latihan_essay_questions' not in st.session_state:
+    st.session_state.latihan_essay_questions = []
 
 # ==========================================
 # 4. SIDEBAR (NAVIGASI)
 # ==========================================
 with st.sidebar:
     st.title("Navigasi")
-    if st.button("🏠 Beranda", use_container_width=True):
+    if st.button("Beranda", use_container_width=True):
         st.session_state.mode = 'Beranda'
-    if st.button("📝 Latihan Pilihan Ganda", use_container_width=True):
+        
+    if st.button("Latihan Pilihan Ganda", use_container_width=True):
         st.session_state.mode = 'PG'
         st.session_state.current_q = 0
-    if st.button("✍️ Latihan Essay", use_container_width=True):
+        # Acak seluruh soal PG saat tombol ditekan
+        st.session_state.latihan_pg_questions = random.sample(soal_pg, len(soal_pg))
+        
+    if st.button("Latihan Essay", use_container_width=True):
         st.session_state.mode = 'Essay'
         st.session_state.current_q = 0
+        # Acak seluruh soal Essay saat tombol ditekan
+        st.session_state.latihan_essay_questions = random.sample(soal_essay, len(soal_essay))
     
     st.divider()
     
-    if st.button("⏱️ Simulasi Ujian (PG)", use_container_width=True, type="primary"):
+    if st.button("Simulasi Ujian (PG)", use_container_width=True, type="primary"):
         st.session_state.mode = 'Simulasi'
         st.session_state.simulasi_answers = {}
         st.session_state.simulasi_submitted = False
-        st.session_state.simulasi_start_time = time.time() # Mencatat waktu mulai
+        st.session_state.simulasi_start_time = time.time()
+        
+        if len(soal_pg) >= 200:
+            st.session_state.simulasi_questions = random.sample(soal_pg, 200)
+        else:
+            st.session_state.simulasi_questions = random.sample(soal_pg, len(soal_pg))
 
 # ==========================================
 # 5. HALAMAN BERANDA
@@ -68,24 +89,29 @@ with st.sidebar:
 if st.session_state.mode == 'Beranda':
     st.title("Simulasi Ujikom MHI")
     st.write("Aplikasi latihan soal Pilihan Ganda dan Essay untuk persiapan Uji Kompetensi.")
-    st.info("Pilih mode latihan di panel sebelah kiri.")
+    st.info("Pilih mode latihan di panel sebelah kiri. Setiap kali Anda memilih mode, urutan soal akan diacak secara otomatis.")
 
 # ==========================================
 # 6. HALAMAN LATIHAN PILIHAN GANDA
 # ==========================================
 elif st.session_state.mode == 'PG':
-    st.title("Latihan Pilihan Ganda")
+    st.title("Latihan Pilihan Ganda (Mode Acak)")
     
-    total_q = len(soal_pg)
+    # Keamanan: Jika state kosong (misal karena refresh browser), isi ulang dengan acakan baru
+    if not st.session_state.latihan_pg_questions:
+        st.session_state.latihan_pg_questions = random.sample(soal_pg, len(soal_pg))
+    
+    total_q = len(st.session_state.latihan_pg_questions)
     idx = st.session_state.current_q
     
     st.progress((idx + 1) / total_q)
     st.write(f"**Soal {idx + 1} dari {total_q}**")
     
-    q = soal_pg[idx]
+    # Panggil soal dari memori yang sudah diacak
+    q = st.session_state.latihan_pg_questions[idx]
     st.write("### " + q['pertanyaan'])
     
-    pilihan = st.radio("Pilih jawaban:", list(q['opsi'].keys()), format_func=lambda x: q['opsi'][x], key=f"radio_{idx}")
+    pilihan = st.radio("Pilih jawaban:", list(q['opsi'].keys()), format_func=lambda x: q['opsi'][x], key=f"radio_{q['id']}_{idx}")
     
     if st.button("Cek Jawaban", type="primary"):
         if pilihan == q['kunci_jawaban']:
@@ -98,12 +124,12 @@ elif st.session_state.mode == 'PG':
     col1, col2 = st.columns(2)
     with col1:
         if idx > 0:
-            if st.button("⬅️ Sebelumnya", use_container_width=True):
+            if st.button("Sebelumnya", use_container_width=True):
                 st.session_state.current_q -= 1
                 st.rerun()
     with col2:
         if idx < total_q - 1:
-            if st.button("Selanjutnya ➡️", use_container_width=True):
+            if st.button("Selanjutnya", use_container_width=True):
                 st.session_state.current_q += 1
                 st.rerun()
 
@@ -111,15 +137,20 @@ elif st.session_state.mode == 'PG':
 # 7. HALAMAN LATIHAN ESSAY
 # ==========================================
 elif st.session_state.mode == 'Essay':
-    st.title("Latihan Essay")
+    st.title("Latihan Essay (Mode Acak)")
     
-    total_q = len(soal_essay)
+    # Keamanan: Jika state kosong (misal karena refresh browser), isi ulang dengan acakan baru
+    if not st.session_state.latihan_essay_questions:
+        st.session_state.latihan_essay_questions = random.sample(soal_essay, len(soal_essay))
+        
+    total_q = len(st.session_state.latihan_essay_questions)
     idx = st.session_state.current_q
     
     st.progress((idx + 1) / total_q)
     st.write(f"**Soal {idx + 1} dari {total_q}**")
     
-    q = soal_essay[idx]
+    # Panggil soal dari memori yang sudah diacak
+    q = st.session_state.latihan_essay_questions[idx]
     st.write("### " + q['pertanyaan'])
     
     st.text_area("Ketik jawaban Anda:", height=150)
@@ -132,29 +163,27 @@ elif st.session_state.mode == 'Essay':
     col1, col2 = st.columns(2)
     with col1:
         if idx > 0:
-            if st.button("⬅️ Sebelumnya", use_container_width=True):
+            if st.button("Sebelumnya", use_container_width=True):
                 st.session_state.current_q -= 1
                 st.rerun()
     with col2:
         if idx < total_q - 1:
-            if st.button("Selanjutnya ➡️", use_container_width=True):
+            if st.button("Selanjutnya", use_container_width=True):
                 st.session_state.current_q += 1
                 st.rerun()
 
 # ==========================================
-# 8. HALAMAN SIMULASI UJIAN (DENGAN TIMER)
+# 8. HALAMAN SIMULASI UJIAN (DENGAN TIMER & PENGACAK)
 # ==========================================
 elif st.session_state.mode == 'Simulasi':
     st.title("Mode Simulasi Ujian")
     
-    # Logika Timer (90 Menit)
-    WAKTU_UJIAN_DETIK = 5400 
+    WAKTU_UJIAN_DETIK = 7200 
     
     if not st.session_state.simulasi_submitted:
         elapsed_time = int(time.time() - st.session_state.simulasi_start_time)
         sisa_waktu = max(0, WAKTU_UJIAN_DETIK - elapsed_time)
         
-        # Injeksi HTML/JS untuk Countdown yang responsif tanpa merefresh server
         timer_html = f"""
         <div style="background-color: #f8f9fa; border-left: 5px solid #ff4b4b; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
             <h3 style="margin: 0; color: #333;">⏱️ Sisa Waktu: <span id="clock" style="color: #ff4b4b;">Memuat...</span></h3>
@@ -179,11 +208,11 @@ elif st.session_state.mode == 'Simulasi':
         </script>
         """
         components.html(timer_html, height=80)
-        st.warning("Kerjakan seluruh soal di bawah ini. Nilai akhir akan muncul setelah Anda mengklik 'Kumpulkan'.")
+        st.warning(f"Menampilkan {len(st.session_state.simulasi_questions)} soal secara acak. Nilai akhir akan muncul setelah Anda mengklik 'Kumpulkan'.")
     
-    total_q = len(soal_pg)
+    total_q = len(st.session_state.simulasi_questions)
     
-    for i, q in enumerate(soal_pg):
+    for i, q in enumerate(st.session_state.simulasi_questions):
         st.write(f"**{i + 1}. {q['pertanyaan']}**")
         opsi_keys = list(q['opsi'].keys())
         
@@ -213,7 +242,7 @@ elif st.session_state.mode == 'Simulasi':
             st.rerun()
     else:
         benar = 0
-        for q in soal_pg:
+        for q in st.session_state.simulasi_questions:
             jawaban_user = st.session_state.simulasi_answers.get(str(q['id']))
             if jawaban_user == q['kunci_jawaban']:
                 benar += 1
@@ -227,8 +256,6 @@ elif st.session_state.mode == 'Simulasi':
         st.write(f"**Anda menjawab benar {benar} dari {total_q} soal.**")
         st.info(f"⏱️ Waktu yang Anda habiskan: **{menit_selesai} menit {detik_selesai} detik**.")
         
-        if st.button("Ulangi Simulasi", use_container_width=True):
-            st.session_state.simulasi_answers = {}
-            st.session_state.simulasi_submitted = False
-            st.session_state.simulasi_start_time = time.time()
+        if st.button("Ulangi Simulasi (Acak Soal Baru)", use_container_width=True):
+            st.session_state.mode = 'Beranda' 
             st.rerun()
