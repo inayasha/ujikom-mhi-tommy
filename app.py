@@ -30,13 +30,13 @@ except FileNotFoundError:
 SEMUA_KATEGORI  = sorted(set(q.get('kategori', 'Umum') for q in soal_pg))
 JUMLAH_OPSI_SIM = [50, 75, 100]
 DURASI_OPSI     = {"60 menit": 3600, "90 menit": 5400, "120 menit": 7200}
-# PASSING_SCORE dihapus dari sini, dipindah ke session_state via sidebar
+PASSING_SCORE   = 70.0          # default; bisa diubah user di tab Simulasi
+AMBANG_OPSI     = [70, 75, 80, 85]
 
 # ══════════════════════════════════════════════════════════════════
 # 3. CSS  — ikut tema Streamlit (light/dark diatur dari Settings)
 # ══════════════════════════════════════════════════════════════════
 st.markdown("""
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 <style>
 /* ── Sidebar rata tengah ── */
 [data-testid="stSidebar"] > div:first-child {
@@ -53,21 +53,49 @@ st.markdown("""
     justify-content: center !important;
 }
 
-/* ── Font responsive (DIPERBESAR) ── */
-h1 { font-size: clamp(1.6rem, 5vw, 2.2rem) !important; }
-h2 { font-size: clamp(1.4rem, 4vw, 1.8rem) !important; }
-
-/* Font Tab Menu */
+/* ── Font responsive (mobile) ── */
+h1 { font-size: clamp(1.3rem, 4vw, 2rem) !important; }
+h2 { font-size: clamp(1.15rem, 3.5vw, 1.65rem) !important; }
+/* ── Tab labels — lebih besar & proporsional ── */
 [data-testid="stTabs"] button p {
-    font-size: clamp(1rem, 2.8vw, 1.25rem) !important;
+    font-size: clamp(0.9rem, 2.5vw, 1.05rem) !important;
     font-weight: 600 !important;
     white-space: nowrap;
 }
+[data-testid="stTabs"] button {
+    padding: 0.55rem 0.9rem !important;
+}
 
-/* Font Semua Tombol (Button) */
-.stButton button p {
-    font-size: clamp(1rem, 2.5vw, 1.15rem) !important;
-    font-weight: 500;
+/* ── Semua tombol Streamlit — perbesar font ── */
+.stButton > button {
+    font-size: clamp(0.9rem, 2.4vw, 1.05rem) !important;
+    font-weight: 600 !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 10px !important;
+}
+.stButton > button[kind="primary"] {
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem) !important;
+}
+
+/* ── Selectbox, radio, textarea label ── */
+.stSelectbox label, .stSelectbox > div,
+.stRadio label, .stTextArea label {
+    font-size: clamp(0.88rem, 2.3vw, 1rem) !important;
+}
+.stRadio > div > label > div > p {
+    font-size: clamp(0.88rem, 2.3vw, 1rem) !important;
+}
+
+/* ── Caption — lebih besar sedikit ── */
+.stCaption, [data-testid="stCaptionContainer"] {
+    font-size: clamp(0.8rem, 2vw, 0.92rem) !important;
+}
+
+/* ── Sidebar: perbesar semua teks ── */
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] span,
+[data-testid="stSidebar"] div {
+    font-size: clamp(0.85rem, 2.1vw, 0.98rem);
 }
 
 /* ── Progress bar animasi ── */
@@ -89,10 +117,10 @@ h2 { font-size: clamp(1.4rem, 4vw, 1.8rem) !important; }
 .q-card {
     border: 1px solid rgba(128,128,128,0.25);
     border-radius: 14px;
-    padding: 1.2rem 1.4rem;
+    padding: 1.1rem 1.3rem;
     margin-bottom: 0.9rem;
     box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-    font-size: clamp(1.05rem, 3vw, 1.15rem); /* Diperbesar proporsional */
+    font-size: clamp(0.95rem, 2.6vw, 1.08rem);
     line-height: 1.6;
 }
 
@@ -107,22 +135,22 @@ h2 { font-size: clamp(1.4rem, 4vw, 1.8rem) !important; }
 .metric-box {
     border: 1px solid rgba(128,128,128,0.25);
     border-radius: 12px;
-    padding: 0.8rem 1rem;
+    padding: 0.7rem 1rem;
     text-align: center;
     flex: 1 1 80px;
     min-width: 75px;
     box-shadow: 0 1px 5px rgba(0,0,0,0.05);
 }
 .metric-box .mval {
-    font-size: clamp(1.4rem, 4vw, 1.7rem); /* Diperbesar */
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
     font-weight: 700;
     color: #3b82f6;
     line-height: 1.1;
 }
 .metric-box .mlbl {
-    font-size: 0.85rem; /* Diperbesar */
-    opacity: 0.75;
-    margin-top: 0.2rem;
+    font-size: 0.78rem;
+    opacity: 0.65;
+    margin-top: 0.15rem;
 }
 
 /* ── Tag kategori ── */
@@ -131,20 +159,20 @@ h2 { font-size: clamp(1.4rem, 4vw, 1.8rem) !important; }
     background: rgba(59,130,246,0.12);
     color: #3b82f6;
     border-radius: 99px;
-    font-size: 0.85rem; /* Diperbesar */
+    font-size: 0.78rem;
     font-weight: 600;
-    padding: 0.2rem 0.6rem;
-    margin-bottom: 0.45rem;
+    padding: 0.12rem 0.6rem;
+    margin-bottom: 0.5rem;
 }
 
 /* ── Opsi jawaban ── */
 .opsi-item {
     display: block;
-    padding: 0.6rem 0.9rem;
+    padding: 0.55rem 0.85rem;
     border-radius: 9px;
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.32rem;
     border: 1.5px solid rgba(128,128,128,0.25);
-    font-size: clamp(0.95rem, 2.6vw, 1.1rem); /* Diperbesar */
+    font-size: clamp(0.9rem, 2.4vw, 1.02rem);
 }
 .opsi-benar {
     border-color: #16a34a !important;
@@ -171,9 +199,9 @@ h2 { font-size: clamp(1.4rem, 4vw, 1.8rem) !important; }
     border-radius: 8px;
     border: 1px solid rgba(128,128,128,0.2);
     margin-bottom: 0.35rem;
-    font-size: 0.82rem;
+    font-size: 0.9rem;
 }
-.skor-badge { font-weight: 700; font-size: 0.9rem; min-width: 48px; text-align: right; }
+.skor-badge { font-weight: 700; font-size: 1rem; min-width: 52px; text-align: right; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -183,7 +211,6 @@ h2 { font-size: clamp(1.4rem, 4vw, 1.8rem) !important; }
 def init_state():
     defaults = {
         'current_q': 0,
-        'passing_score': 70.0, # Nilai default awal
         # Simulasi
         'simulasi_started': False,
         'simulasi_answers': {},
@@ -198,6 +225,7 @@ def init_state():
         'simulasi_histori': [],
         'sim_confirm_kumpul': False,
         '_hist_saved': False,
+        'passing_score': PASSING_SCORE,
         # Latihan PG
         'latihan_pg_questions': [],
         'latihan_pg_answers': {},
@@ -277,26 +305,13 @@ def konfetti_js():
 with st.sidebar:
     st.markdown("""
     <div style="text-align:center;padding:0.3rem 0 0.5rem">
-      <div style="color:#3b82f6;">
-        <span class="material-symbols-outlined" style="font-size:3.5rem;">school</span>
-      </div>
-      <div style="font-weight:800;font-size:1.6rem;margin-top:0.25rem">CAT MHI</div>
-      <div style="font-size:0.95rem;opacity:.8;margin-top:0.15rem;line-height:1.5">
+      <div style="font-size:2rem">🎓</div>
+      <div style="font-weight:700;font-size:1.05rem;margin-top:0.25rem">CAT MHI</div>
+      <div style="font-size:0.7rem;opacity:.6;margin-top:0.1rem;line-height:1.5">
         Mediator Hubungan Industrial<br>Ahli Madya
       </div>
     </div>
     """, unsafe_allow_html=True)
-
-    st.divider()
-    
-    # -- Input Ambang Batas Lulus --
-    st.markdown("<div style='font-size:1rem;font-weight:600;margin-bottom:0.5rem;text-align:center;'>Pengaturan Umum</div>", unsafe_allow_html=True)
-    ps_opsi = [70, 75, 80, 85]
-    curr_ps = int(st.session_state.passing_score)
-    idx_ps  = ps_opsi.index(curr_ps) if curr_ps in ps_opsi else 0
-    
-    PASSING_SCORE = st.selectbox("Ambang Batas Lulus (%)", ps_opsi, index=idx_ps, key="sim_pass_score")
-    st.session_state.passing_score = float(PASSING_SCORE)
 
     st.divider()
 
@@ -308,34 +323,30 @@ with st.sidebar:
 
     bm_count = len(st.session_state.bookmarks)
     if bm_count:
-        st.markdown(f'<div style="text-align:center;font-size:0.9rem;opacity:.7;'
-                    f'margin-top:0.8rem"><span class="material-symbols-outlined" style="font-size:1rem;vertical-align:middle;">bookmark</span> {bm_count} soal bookmark</div>',
+        st.markdown(f'<div style="text-align:center;font-size:0.75rem;opacity:.6;'
+                    f'margin-top:0.5rem">🔖 {bm_count} soal bookmark</div>',
                     unsafe_allow_html=True)
 
     if st.session_state.simulasi_histori:
         st.divider()
-        st.markdown('<div style="text-align:center;font-size:0.95rem;font-weight:600;opacity:.7;margin-bottom:0.5rem;">Histori Terakhir</div>',
+        st.markdown('<div style="text-align:center;font-size:0.73rem;font-weight:600;opacity:.6">Histori Terakhir</div>',
                     unsafe_allow_html=True)
         for h in st.session_state.simulasi_histori[-3:]:
-            lulus = h['skor'] >= PASSING_SCORE
+            lulus = h["skor"] >= st.session_state.passing_score
             warna = "#16a34a" if lulus else "#dc2626"
-            icon  = "<span class='material-symbols-outlined' style='color:#16a34a; font-size:1.1rem; vertical-align:middle;'>check_circle</span>" if lulus else "<span class='material-symbols-outlined' style='color:#dc2626; font-size:1.1rem; vertical-align:middle;'>cancel</span>"
+            icon  = "✅" if lulus else "❌"
             st.markdown(f"""
-            <div class="skor-item" style="font-size: 0.95rem;">
+            <div class="skor-item">
               <span>{icon}</span>
-              <span style="flex:1;opacity:.7;font-size:.85rem">{h.get('label','')}</span>
-              <span class="skor-badge" style="color:{warna}; font-size:1.05rem;">{h['skor']:.0f}%</span>
+              <span style="flex:1;opacity:.6;font-size:.72rem">{h.get('label','')}</span>
+              <span class="skor-badge" style="color:{warna}">{h['skor']:.0f}%</span>
             </div>""", unsafe_allow_html=True)
 
 # ══════════════════════════════════════════════════════════════════
 # 6. TABS
 # ══════════════════════════════════════════════════════════════════
 tab_beranda, tab_pg, tab_essay, tab_simulasi, tab_bm = st.tabs([
-    ":material/home: Beranda", 
-    ":material/edit_document: Latihan PG", 
-    ":material/draw: Essay", 
-    ":material/rocket_launch: Simulasi", 
-    ":material/bookmarks: Bookmark",
+    "🏠 Beranda", "📝 Latihan PG", "✏️ Essay", "🚀 Simulasi", "🔖 Bookmark",
 ])
 
 # ══════════════════════════════════════════════════════════════════
@@ -352,7 +363,7 @@ with tab_beranda:
     ), unsafe_allow_html=True)
 
     st.divider()
-    st.markdown("#### :material/analytics: Distribusi per Kategori")
+    st.markdown("#### 📊 Distribusi per Kategori")
     kat_counts = Counter(q.get('kategori', 'Umum') for q in soal_pg)
     for kat, cnt in sorted(kat_counts.items(), key=lambda x: -x[1]):
         pct = cnt / len(soal_pg)
@@ -364,21 +375,21 @@ with tab_beranda:
 - **Latihan PG** — soal per soal, filter kategori, ⭐ bookmark, cek jawaban
 - **Latihan Essay** — tulis jawaban lalu tampilkan referensi
 - **Simulasi** — pilih jumlah soal & durasi, timer otomatis, konfirmasi sebelum kumpul
-- Ambang batas lulus: **{int(PASSING_SCORE)}%**
+- Ambang batas lulus: **{int(st.session_state.passing_score)}%**
     """)
 
 # ══════════════════════════════════════════════════════════════════
 # TAB 2 — LATIHAN PILIHAN GANDA
 # ══════════════════════════════════════════════════════════════════
 with tab_pg:
-    st.markdown("## :material/edit_document: Latihan Pilihan Ganda")
+    st.markdown("## 📝 Latihan Pilihan Ganda")
 
     c_kat, c_rst = st.columns([3, 1])
     with c_kat:
         kat_pg = st.selectbox("Kategori", ["Semua Kategori"] + SEMUA_KATEGORI,
                               key="pg_sel_kat", label_visibility="collapsed")
     with c_rst:
-        if st.button(":material/shuffle: Acak", use_container_width=True, key="pg_reset"):
+        if st.button("🔀 Acak", use_container_width=True, key="pg_reset"):
             pool = filter_pg(kat_pg)
             st.session_state.latihan_pg_questions  = random.sample(pool, len(pool))
             st.session_state.latihan_pg_answers    = {}
@@ -395,7 +406,7 @@ with tab_pg:
     if st.session_state.latihan_pg_salah_mode and st.session_state.latihan_pg_salah_list:
         questions = st.session_state.latihan_pg_salah_list
         st.info(f"🔁 Mode Soal Salah — {len(questions)} soal")
-        if st.button(":material/arrow_back: Kembali ke Semua Soal", key="pg_back"):
+        if st.button("← Kembali ke Semua Soal", key="pg_back"):
             st.session_state.latihan_pg_salah_mode = False
             st.session_state.current_q = 0
             st.rerun()
@@ -430,7 +441,7 @@ with tab_pg:
     is_bm = bm_id in st.session_state.bookmarks
     c_q, c_bm = st.columns([11, 1])
     with c_bm:
-        if st.button(":material/star:" if is_bm else ":material/star_border:", key=f"bm_pg_{idx}_{bm_id}", help="Bookmark"):
+        if st.button("⭐" if is_bm else "☆", key=f"bm_pg_{idx}_{bm_id}", help="Bookmark"):
             if is_bm:
                 st.session_state.bookmarks.discard(bm_id)
             else:
@@ -450,16 +461,13 @@ with tab_pg:
 
     if sudah_dicek:
         kunci = q['kunci_jawaban']
-        icon_benar = "<span class='material-symbols-outlined' style='font-size:1.2rem;vertical-align:middle;margin-right:6px;'>check_circle</span>"
-        icon_salah = "<span class='material-symbols-outlined' style='font-size:1.2rem;vertical-align:middle;margin-right:6px;'>cancel</span>"
-        
         for k, v in q['opsi'].items():
             if k == kunci and k == saved:
-                cls, icon = "opsi-item opsi-benar", icon_benar
+                cls, icon = "opsi-item opsi-benar", "✅ "
             elif k == kunci:
-                cls, icon = "opsi-item opsi-benar", icon_benar
+                cls, icon = "opsi-item opsi-benar", "✅ "
             elif k == saved:
-                cls, icon = "opsi-item opsi-salah", icon_salah
+                cls, icon = "opsi-item opsi-salah", "❌ "
             else:
                 cls, icon = "opsi-item", ""
             st.markdown(f'<div class="{cls}">{icon}{k}. {v}</div>', unsafe_allow_html=True)
@@ -473,7 +481,7 @@ with tab_pg:
                            key=f"pg_r_{idx}_{q['id']}", index=default_idx,
                            label_visibility="collapsed")
         st.session_state.latihan_pg_answers[idx] = pilihan
-        if st.button(":material/check_circle: Cek Jawaban", type="primary", key=f"pg_cek_{idx}"):
+        if st.button("✅ Cek Jawaban", type="primary", key=f"pg_cek_{idx}"):
             st.session_state.latihan_pg_checked[idx] = True
             st.rerun()
 
@@ -481,12 +489,12 @@ with tab_pg:
     c1, c2 = st.columns(2)
     with c1:
         if idx > 0:
-            if st.button(":material/arrow_back: Sebelumnya", use_container_width=True, key="pg_prev"):
+            if st.button("◀ Sebelumnya", use_container_width=True, key="pg_prev"):
                 st.session_state.current_q -= 1
                 st.rerun()
     with c2:
         if idx < total_q - 1:
-            if st.button("Selanjutnya :material/arrow_forward:", use_container_width=True, key="pg_next"):
+            if st.button("Selanjutnya ▶", use_container_width=True, key="pg_next"):
                 st.session_state.current_q += 1
                 st.rerun()
 
@@ -494,7 +502,7 @@ with tab_pg:
     n_salah = n_checked - n_benar
     if n_salah > 0 and not st.session_state.latihan_pg_salah_mode:
         st.divider()
-        if st.button(f":material/replay: Latihan Ulang {n_salah} Soal Salah",
+        if st.button(f"🔁 Latihan Ulang {n_salah} Soal Salah",
                      use_container_width=True, key="pg_salah_btn"):
             salah_q = [
                 all_q_ref[i] for i in st.session_state.latihan_pg_checked
@@ -512,11 +520,11 @@ with tab_pg:
 # TAB 3 — LATIHAN ESSAY
 # ══════════════════════════════════════════════════════════════════
 with tab_essay:
-    st.markdown("## :material/draw: Latihan Essay")
+    st.markdown("## ✏️ Latihan Essay")
 
     c_ie, c_re = st.columns([3, 1])
     with c_re:
-        if st.button(":material/shuffle: Acak", use_container_width=True, key="essay_reset"):
+        if st.button("🔀 Acak", use_container_width=True, key="essay_reset"):
             st.session_state.latihan_essay_questions = random.sample(soal_essay, len(soal_essay))
             st.session_state.latihan_essay_shown     = {}
             st.session_state.current_q               = 0
@@ -542,7 +550,7 @@ with tab_essay:
                  label_visibility="collapsed",
                  placeholder="Tulis jawaban Anda di sini...")
 
-    if st.button(":material/menu_book: Tampilkan Referensi", type="primary", key=f"essay_ref_{idx_e}"):
+    if st.button("📖 Tampilkan Referensi", type="primary", key=f"essay_ref_{idx_e}"):
         st.session_state.latihan_essay_shown[idx_e] = True
 
     if st.session_state.latihan_essay_shown.get(idx_e):
@@ -552,12 +560,12 @@ with tab_essay:
     c1e, c2e = st.columns(2)
     with c1e:
         if idx_e > 0:
-            if st.button(":material/arrow_back: Sebelumnya", use_container_width=True, key="essay_prev"):
+            if st.button("◀ Sebelumnya", use_container_width=True, key="essay_prev"):
                 st.session_state.current_q -= 1
                 st.rerun()
     with c2e:
         if idx_e < tot_e - 1:
-            if st.button("Selanjutnya :material/arrow_forward:", use_container_width=True, key="essay_next"):
+            if st.button("Selanjutnya ▶", use_container_width=True, key="essay_next"):
                 st.session_state.current_q += 1
                 st.rerun()
 
@@ -569,7 +577,7 @@ with tab_simulasi:
 
     # ── Belum mulai ───────────────────────────────────────────────
     if not st.session_state.simulasi_started:
-        st.markdown("## :material/rocket_launch: Simulasi Ujian")
+        st.markdown("## 🚀 Simulasi Ujian")
 
         c_jml, c_dur = st.columns(2)
         with c_jml:
@@ -584,9 +592,21 @@ with tab_simulasi:
                                    key="sim_dur")
             st.session_state.simulasi_durasi_label = dur_lbl
 
-        kat_sim = st.selectbox("Kategori Soal", ["Semua Kategori"] + SEMUA_KATEGORI,
-                               key="sim_kat")
-        st.session_state.simulasi_kategori = kat_sim
+        c_kat_sim, c_ambang = st.columns(2)
+        with c_kat_sim:
+            kat_sim = st.selectbox("Kategori Soal", ["Semua Kategori"] + SEMUA_KATEGORI,
+                                   key="sim_kat")
+            st.session_state.simulasi_kategori = kat_sim
+        with c_ambang:
+            ambang = st.selectbox(
+                "🎯 Ambang Batas Lulus",
+                AMBANG_OPSI,
+                index=AMBANG_OPSI.index(int(st.session_state.passing_score))
+                      if int(st.session_state.passing_score) in AMBANG_OPSI else 0,
+                format_func=lambda x: f"{x}%",
+                key="sim_ambang",
+            )
+            st.session_state.passing_score = float(ambang)
 
         pool_sim = filter_pg(kat_sim)
         n_sim    = min(jml, len(pool_sim))
@@ -595,12 +615,12 @@ with tab_simulasi:
             (len(pool_sim), "Tersedia"),
             (n_sim,         "Diambil"),
             (dur_lbl.replace(" menit", "m"), "Durasi"),
-            (f"{int(PASSING_SCORE)}%", "Min. Lulus"),
+            (f"{int(st.session_state.passing_score)}%", "Min. Lulus"),
         ), unsafe_allow_html=True)
 
         st.warning("⚠️ Timer langsung berjalan setelah klik Mulai.")
 
-        if st.button(":material/play_arrow: Mulai Simulasi", type="primary",
+        if st.button("▶️ Mulai Simulasi", type="primary",
                      use_container_width=True, key="sim_mulai"):
             st.session_state.simulasi_started     = True
             st.session_state.simulasi_answers     = {}
@@ -617,18 +637,18 @@ with tab_simulasi:
         # Histori lengkap
         if st.session_state.simulasi_histori:
             st.divider()
-            st.markdown("#### :material/show_chart: Histori Skor")
+            st.markdown("#### 📈 Histori Skor")
             for h in reversed(st.session_state.simulasi_histori):
-                lulus = h['skor'] >= PASSING_SCORE
-                icon  = "<span class='material-symbols-outlined' style='color:#16a34a; font-size:1.1rem; vertical-align:middle;'>check_circle</span>" if lulus else "<span class='material-symbols-outlined' style='color:#dc2626; font-size:1.1rem; vertical-align:middle;'>cancel</span>"
+                lulus = h["skor"] >= st.session_state.passing_score
+                icon  = "✅" if lulus else "❌"
                 warna = "#16a34a" if lulus else "#dc2626"
                 mnt   = h['waktu'] // 60; dtk = h['waktu'] % 60
                 st.markdown(f"""
-                <div class="skor-item" style="font-size:0.95rem;">
+                <div class="skor-item">
                   <span>{icon}</span>
                   <span style="flex:1">{h.get('label','')}</span>
-                  <span style="opacity:.7;font-size:.85rem">{h['benar']}/{h['total']} &nbsp;{mnt}m{dtk}s</span>
-                  <span class="skor-badge" style="color:{warna}; font-size:1.05rem;">{h['skor']:.1f}%</span>
+                  <span style="opacity:.6;font-size:.75rem">{h['benar']}/{h['total']} &nbsp;{mnt}m{dtk}s</span>
+                  <span class="skor-badge" style="color:{warna}">{h['skor']:.1f}%</span>
                 </div>""", unsafe_allow_html=True)
 
     # ── Hasil ─────────────────────────────────────────────────────
@@ -636,13 +656,13 @@ with tab_simulasi:
         total_q = len(sim_q)
 
         if not st.session_state.simulasi_show_review:
-            st.markdown("## :material/celebration: Hasil Simulasi")
+            st.markdown("## 🎉 Hasil Simulasi")
 
             benar      = sum(1 for q in sim_q
                              if st.session_state.simulasi_answers.get(str(q['id'])) == q['kunci_jawaban'])
             salah      = total_q - benar
             skor_akhir = benar / total_q * 100 if total_q else 0
-            lulus      = skor_akhir >= PASSING_SCORE
+            lulus      = skor_akhir >= st.session_state.passing_score
             wkt        = int(time.time() - st.session_state.simulasi_start_time)
             mnt        = wkt // 60; dtk = wkt % 60
 
@@ -659,7 +679,7 @@ with tab_simulasi:
                 st.success("### ✅ LULUS")
                 components.html(konfetti_js(), height=0)
             else:
-                st.error(f"### ❌ BELUM LULUS (min. {int(PASSING_SCORE)}%)")
+                st.error(f"### ❌ BELUM LULUS (min. {int(st.session_state.passing_score)}%)")
 
             st.markdown(donut_html(benar, total_q), unsafe_allow_html=True)
             st.markdown(metrics_html(
@@ -672,12 +692,12 @@ with tab_simulasi:
             st.divider()
             ca, cb = st.columns(2)
             with ca:
-                if st.button(":material/search: Review Jawaban", use_container_width=True, type="primary"):
+                if st.button("🔍 Review Jawaban", use_container_width=True, type="primary"):
                     st.session_state.simulasi_show_review = True
                     st.session_state.simulasi_review_idx  = 0
                     st.rerun()
             with cb:
-                if st.button(":material/refresh: Simulasi Baru", use_container_width=True):
+                if st.button("🔄 Simulasi Baru", use_container_width=True):
                     st.session_state.simulasi_started     = False
                     st.session_state.simulasi_submitted   = False
                     st.session_state.simulasi_show_review = False
@@ -686,7 +706,7 @@ with tab_simulasi:
 
             if salah > 0:
                 st.divider()
-                if st.button(f":material/replay: Latihan {salah} Soal Salah di Tab PG",
+                if st.button(f"🔁 Latihan {salah} Soal Salah di Tab PG",
                              use_container_width=True):
                     salah_q = [q for q in sim_q
                                if st.session_state.simulasi_answers.get(str(q['id'])) != q['kunci_jawaban']]
@@ -699,7 +719,7 @@ with tab_simulasi:
 
         else:
             # Review per soal
-            st.markdown("## :material/search: Review Jawaban")
+            st.markdown("## 🔍 Review Jawaban")
             ridx  = st.session_state.simulasi_review_idx
             q     = sim_q[ridx]
             n_bt  = sum(1 for qq in sim_q
@@ -721,18 +741,15 @@ with tab_simulasi:
             st.markdown(f'<div class="q-card"><strong>{q["pertanyaan"]}</strong></div>',
                         unsafe_allow_html=True)
 
-            icon_benar = "<span class='material-symbols-outlined' style='font-size:1.2rem;vertical-align:middle;margin-right:6px;'>check_circle</span>"
-            icon_salah = "<span class='material-symbols-outlined' style='font-size:1.2rem;vertical-align:middle;margin-right:6px;'>cancel</span>"
-
             for key, teks in q['opsi'].items():
                 if key == kunci and key == jaw:
-                    st.markdown(f'<div class="opsi-item opsi-benar">{icon_benar} {key}. {teks} ← Jawaban Anda (Benar)</div>',
+                    st.markdown(f'<div class="opsi-item opsi-benar">✅ {key}. {teks} ← Jawaban Anda (Benar)</div>',
                                 unsafe_allow_html=True)
                 elif key == kunci:
-                    st.markdown(f'<div class="opsi-item opsi-benar">{icon_benar} {key}. {teks} ← Kunci Jawaban</div>',
+                    st.markdown(f'<div class="opsi-item opsi-benar">✅ {key}. {teks} ← Kunci Jawaban</div>',
                                 unsafe_allow_html=True)
                 elif key == jaw:
-                    st.markdown(f'<div class="opsi-item opsi-salah">{icon_salah} {key}. {teks} ← Jawaban Anda</div>',
+                    st.markdown(f'<div class="opsi-item opsi-salah">❌ {key}. {teks} ← Jawaban Anda</div>',
                                 unsafe_allow_html=True)
                 else:
                     st.markdown(f'<div class="opsi-item">{key}. {teks}</div>',
@@ -742,16 +759,16 @@ with tab_simulasi:
             r1, r2, r3 = st.columns([1, 2, 1])
             with r1:
                 if ridx > 0:
-                    if st.button(":material/arrow_back:", use_container_width=True, key="rv_p"):
+                    if st.button("◀", use_container_width=True, key="rv_p"):
                         st.session_state.simulasi_review_idx -= 1
                         st.rerun()
             with r2:
-                if st.button(":material/arrow_back: Kembali ke Hasil", use_container_width=True, key="rv_b"):
+                if st.button("◀ Kembali ke Hasil", use_container_width=True, key="rv_b"):
                     st.session_state.simulasi_show_review = False
                     st.rerun()
             with r3:
                 if ridx < total_q - 1:
-                    if st.button(":material/arrow_forward:", use_container_width=True, key="rv_n"):
+                    if st.button("▶", use_container_width=True, key="rv_n"):
                         st.session_state.simulasi_review_idx += 1
                         st.rerun()
 
@@ -774,10 +791,9 @@ with tab_simulasi:
 
         timer_html = f"""
         <div style="background:rgba(239,68,68,0.08);border-left:4px solid #ef4444;
-                    padding:10px 16px;border-radius:8px;margin-bottom:8px;display:flex;align-items:center;">
-          <span class="material-symbols-outlined" style="color:#ef4444;margin-right:8px;">timer</span>
-          <span style="font-size:1rem;font-weight:600;margin-right:8px;">Sisa: </span>
-          <span id="clk" style="font-size:1.1rem;font-weight:700;color:#ef4444">--:--</span>
+                    padding:8px 14px;border-radius:8px;margin-bottom:8px;">
+          <span style="font-size:.85rem;font-weight:600;">⏱️ Sisa: </span>
+          <span id="clk" style="font-size:1rem;font-weight:700;color:#ef4444">--:--</span>
         </div>
         <script>
         var tL={sisa_waktu},el=document.getElementById('clk');
@@ -788,7 +804,7 @@ with tab_simulasi:
           tL--;
         }},1000);
         </script>"""
-        components.html(timer_html, height=60)
+        components.html(timer_html, height=50)
 
         kat_label = q.get('kategori', 'Umum')
         st.markdown(f'<span class="tag">{kat_label}</span>', unsafe_allow_html=True)
@@ -814,11 +830,11 @@ with tab_simulasi:
         s1, s2, s3 = st.columns([1, 2, 1])
         with s1:
             if idx > 0:
-                if st.button(":material/arrow_back:", use_container_width=True, key="sim_p"):
+                if st.button("◀", use_container_width=True, key="sim_p"):
                     st.session_state.current_q -= 1
                     st.rerun()
         with s2:
-            if st.button(f":material/inbox: Kumpulkan ({n_dijawab}/{total_q})",
+            if st.button(f"📥 Kumpulkan ({n_dijawab}/{total_q})",
                          use_container_width=True, type="primary", key="sim_k"):
                 if n_belum > 0:
                     st.session_state.sim_confirm_kumpul = True
@@ -827,7 +843,7 @@ with tab_simulasi:
                     st.rerun()
         with s3:
             if idx < total_q - 1:
-                if st.button(":material/arrow_forward:", use_container_width=True, key="sim_n"):
+                if st.button("▶", use_container_width=True, key="sim_n"):
                     st.session_state.current_q += 1
                     st.rerun()
 
@@ -836,13 +852,13 @@ with tab_simulasi:
             st.warning(f"⚠️ **{n_belum} soal** belum dijawab. Yakin ingin mengumpulkan?")
             ck1, ck2 = st.columns(2)
             with ck1:
-                if st.button(":material/check: Ya, Kumpulkan", type="primary",
+                if st.button("✅ Ya, Kumpulkan", type="primary",
                              use_container_width=True, key="sim_ya"):
                     st.session_state.simulasi_submitted   = True
                     st.session_state.sim_confirm_kumpul   = False
                     st.rerun()
             with ck2:
-                if st.button(":material/arrow_back: Kembali", use_container_width=True, key="sim_batal"):
+                if st.button("← Kembali", use_container_width=True, key="sim_batal"):
                     st.session_state.sim_confirm_kumpul = False
                     st.rerun()
 
@@ -855,7 +871,7 @@ with tab_simulasi:
                 for cp, soal in enumerate(row):
                     si   = rs * cpp + cp
                     djwb = str(soal['id']) in st.session_state.simulasi_answers
-                    lbl  = f":material/check_circle: {si+1}" if djwb else f":material/radio_button_unchecked: {si+1}"
+                    lbl  = f"{'✓' if djwb else '○'}{si+1}"
                     with cols[cp]:
                         if st.button(lbl, key=f"pt_{si}", use_container_width=True):
                             st.session_state.current_q = si
@@ -865,31 +881,30 @@ with tab_simulasi:
 # TAB 5 — BOOKMARK
 # ══════════════════════════════════════════════════════════════════
 with tab_bm:
-    st.markdown("## :material/bookmarks: Soal Bookmark")
+    st.markdown("## 🔖 Soal Bookmark")
 
     bm_ids = st.session_state.bookmarks
     if not bm_ids:
-        st.info("Belum ada soal yang di-bookmark.\nKlik ikon Bintang pada soal di Tab Latihan PG.")
+        st.info("Belum ada soal yang di-bookmark.\nKlik ☆ pada soal di Tab Latihan PG.")
     else:
         bm_soal = [q for q in soal_pg if q['id'] in bm_ids]
         st.caption(f"{len(bm_soal)} soal di-bookmark")
 
-        if st.button(":material/delete: Hapus Semua", key="bm_clear_all"):
+        if st.button("🗑️ Hapus Semua", key="bm_clear_all"):
             st.session_state.bookmarks = set()
             st.rerun()
 
-        icon_benar = "<span class='material-symbols-outlined' style='font-size:1.2rem;vertical-align:middle;margin-right:6px;'>check_circle</span>"
         for q in bm_soal:
             kat_label = q.get('kategori', 'Umum')
             with st.expander(f"[{kat_label}] {q['pertanyaan'][:75]}..."):
                 for k, v in q['opsi'].items():
                     if k == q['kunci_jawaban']:
-                        st.markdown(f'<div class="opsi-item opsi-benar">{icon_benar} {k}. {v}</div>',
+                        st.markdown(f'<div class="opsi-item opsi-benar">✅ {k}. {v}</div>',
                                     unsafe_allow_html=True)
                     else:
                         st.markdown(f'<div class="opsi-item">{k}. {v}</div>',
                                     unsafe_allow_html=True)
                 st.caption(f"Kunci: **{q['kunci_jawaban']}**")
-                if st.button(":material/delete: Hapus Bookmark", key=f"bm_del_{q['id']}"):
+                if st.button("🗑️ Hapus Bookmark", key=f"bm_del_{q['id']}"):
                     st.session_state.bookmarks.discard(q['id'])
                     st.rerun()
