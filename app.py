@@ -132,11 +132,6 @@ def login_page():
                 st.session_state.bookmarks = load_bookmarks(auth_data["uid"])
                 st.rerun()
 
-if st.session_state.user is None:
-    login_page(); st.stop()
-
-user=st.session_state.user
-
 # ── HELPERS ──────────────────────────────────────────────────────
 def filter_pg(kat):
     if kat=="Semua Kategori": return soal_pg
