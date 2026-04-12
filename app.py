@@ -111,8 +111,6 @@ def login_page():
     cfg_json = json.dumps(cfg)
 
     login_html = """
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
 <script>
 // ── Init Constants ─────────────────────────────────────────────
 var firebaseConfig = CFG_JSON;
