@@ -334,7 +334,7 @@ with st.sidebar:
         for h in st.session_state.simulasi_histori[-3:]:
             lulus = h["skor"] >= st.session_state.passing_score
             warna = "#16a34a" if lulus else "#dc2626"
-            icon  = "✅" if lulus else "❌"
+            icon  = "✔️" if lulus else "❌"
             st.markdown(f"""
             <div class="skor-item">
               <span>{icon}</span>
@@ -389,7 +389,7 @@ with tab_pg:
         kat_pg = st.selectbox("Kategori", ["Semua Kategori"] + SEMUA_KATEGORI,
                               key="pg_sel_kat", label_visibility="collapsed")
     with c_rst:
-        if st.button("🔀 Acak", use_container_width=True, key="pg_reset"):
+        if st.button("♻️ Acak", use_container_width=True, key="pg_reset"):
             pool = filter_pg(kat_pg)
             st.session_state.latihan_pg_questions  = random.sample(pool, len(pool))
             st.session_state.latihan_pg_answers    = {}
@@ -405,7 +405,7 @@ with tab_pg:
     # Mode soal salah
     if st.session_state.latihan_pg_salah_mode and st.session_state.latihan_pg_salah_list:
         questions = st.session_state.latihan_pg_salah_list
-        st.info(f"🔁 Mode Soal Salah — {len(questions)} soal")
+        st.info(f"🚨 Mode Soal Salah — {len(questions)} soal")
         if st.button("← Kembali ke Semua Soal", key="pg_back"):
             st.session_state.latihan_pg_salah_mode = False
             st.session_state.current_q = 0
@@ -463,9 +463,9 @@ with tab_pg:
         kunci = q['kunci_jawaban']
         for k, v in q['opsi'].items():
             if k == kunci and k == saved:
-                cls, icon = "opsi-item opsi-benar", "✅ "
+                cls, icon = "opsi-item opsi-benar", "✔️ "
             elif k == kunci:
-                cls, icon = "opsi-item opsi-benar", "✅ "
+                cls, icon = "opsi-item opsi-benar", "✔️ "
             elif k == saved:
                 cls, icon = "opsi-item opsi-salah", "❌ "
             else:
@@ -481,7 +481,7 @@ with tab_pg:
                            key=f"pg_r_{idx}_{q['id']}", index=default_idx,
                            label_visibility="collapsed")
         st.session_state.latihan_pg_answers[idx] = pilihan
-        if st.button("✅ Cek Jawaban", type="primary", key=f"pg_cek_{idx}"):
+        if st.button("✔️ Cek Jawaban", type="primary", key=f"pg_cek_{idx}"):
             st.session_state.latihan_pg_checked[idx] = True
             st.rerun()
 
@@ -502,7 +502,7 @@ with tab_pg:
     n_salah = n_checked - n_benar
     if n_salah > 0 and not st.session_state.latihan_pg_salah_mode:
         st.divider()
-        if st.button(f"🔁 Latihan Ulang {n_salah} Soal Salah",
+        if st.button(f"🚨 Latihan Ulang {n_salah} Soal Salah",
                      use_container_width=True, key="pg_salah_btn"):
             salah_q = [
                 all_q_ref[i] for i in st.session_state.latihan_pg_checked
@@ -524,7 +524,7 @@ with tab_essay:
 
     c_ie, c_re = st.columns([3, 1])
     with c_re:
-        if st.button("🔀 Acak", use_container_width=True, key="essay_reset"):
+        if st.button("♻️ Acak", use_container_width=True, key="essay_reset"):
             st.session_state.latihan_essay_questions = random.sample(soal_essay, len(soal_essay))
             st.session_state.latihan_essay_shown     = {}
             st.session_state.current_q               = 0
@@ -637,10 +637,10 @@ with tab_simulasi:
         # Histori lengkap
         if st.session_state.simulasi_histori:
             st.divider()
-            st.markdown("#### 📈 Histori Skor")
+            st.markdown("#### 🔎 Histori Skor")
             for h in reversed(st.session_state.simulasi_histori):
                 lulus = h["skor"] >= st.session_state.passing_score
-                icon  = "✅" if lulus else "❌"
+                icon  = "✔️" if lulus else "❌"
                 warna = "#16a34a" if lulus else "#dc2626"
                 mnt   = h['waktu'] // 60; dtk = h['waktu'] % 60
                 st.markdown(f"""
@@ -676,7 +676,7 @@ with tab_simulasi:
                 st.session_state._hist_saved = True
 
             if lulus:
-                st.success("### ✅ LULUS")
+                st.success("### ✔️ LULUS")
                 components.html(konfetti_js(), height=0)
             else:
                 st.error(f"### ❌ BELUM LULUS (min. {int(st.session_state.passing_score)}%)")
@@ -697,7 +697,7 @@ with tab_simulasi:
                     st.session_state.simulasi_review_idx  = 0
                     st.rerun()
             with cb:
-                if st.button("🔄 Simulasi Baru", use_container_width=True):
+                if st.button("♻️ Simulasi Baru", use_container_width=True):
                     st.session_state.simulasi_started     = False
                     st.session_state.simulasi_submitted   = False
                     st.session_state.simulasi_show_review = False
@@ -706,7 +706,7 @@ with tab_simulasi:
 
             if salah > 0:
                 st.divider()
-                if st.button(f"🔁 Latihan {salah} Soal Salah di Tab PG",
+                if st.button(f"🚨 Latihan {salah} Soal Salah di Tab PG",
                              use_container_width=True):
                     salah_q = [q for q in sim_q
                                if st.session_state.simulasi_answers.get(str(q['id'])) != q['kunci_jawaban']]
@@ -732,7 +732,7 @@ with tab_simulasi:
             kunci = q['kunci_jawaban']
 
             if jaw == kunci:
-                st.success(f"Soal {ridx+1} — **Benar ✅**")
+                st.success(f"Soal {ridx+1} — **Benar ✔️**")
             else:
                 st.error(f"Soal {ridx+1} — **Salah ❌**")
 
@@ -743,10 +743,10 @@ with tab_simulasi:
 
             for key, teks in q['opsi'].items():
                 if key == kunci and key == jaw:
-                    st.markdown(f'<div class="opsi-item opsi-benar">✅ {key}. {teks} ← Jawaban Anda (Benar)</div>',
+                    st.markdown(f'<div class="opsi-item opsi-benar">✔️ {key}. {teks} ← Jawaban Anda (Benar)</div>',
                                 unsafe_allow_html=True)
                 elif key == kunci:
-                    st.markdown(f'<div class="opsi-item opsi-benar">✅ {key}. {teks} ← Kunci Jawaban</div>',
+                    st.markdown(f'<div class="opsi-item opsi-benar">✔️ {key}. {teks} ← Kunci Jawaban</div>',
                                 unsafe_allow_html=True)
                 elif key == jaw:
                     st.markdown(f'<div class="opsi-item opsi-salah">❌ {key}. {teks} ← Jawaban Anda</div>',
@@ -852,7 +852,7 @@ with tab_simulasi:
             st.warning(f"⚠️ **{n_belum} soal** belum dijawab. Yakin ingin mengumpulkan?")
             ck1, ck2 = st.columns(2)
             with ck1:
-                if st.button("✅ Ya, Kumpulkan", type="primary",
+                if st.button("✔️ Ya, Kumpulkan", type="primary",
                              use_container_width=True, key="sim_ya"):
                     st.session_state.simulasi_submitted   = True
                     st.session_state.sim_confirm_kumpul   = False
@@ -899,7 +899,7 @@ with tab_bm:
             with st.expander(f"[{kat_label}] {q['pertanyaan'][:75]}..."):
                 for k, v in q['opsi'].items():
                     if k == q['kunci_jawaban']:
-                        st.markdown(f'<div class="opsi-item opsi-benar">✅ {k}. {v}</div>',
+                        st.markdown(f'<div class="opsi-item opsi-benar">✔️ {k}. {v}</div>',
                                     unsafe_allow_html=True)
                     else:
                         st.markdown(f'<div class="opsi-item">{k}. {v}</div>',
