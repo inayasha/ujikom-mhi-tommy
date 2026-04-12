@@ -1,5 +1,7 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import json
+import time
 
 # ==========================================
 # 1. KONFIGURASI HALAMAN
@@ -24,20 +26,22 @@ except FileNotFoundError:
     st.stop()
 
 # ==========================================
-# 3. STATE MANAGEMENT (DIPERBARUI)
+# 3. STATE MANAGEMENT
 # ==========================================
 if 'mode' not in st.session_state:
     st.session_state.mode = 'Beranda'
 if 'current_q' not in st.session_state:
     st.session_state.current_q = 0
-# Variabel baru untuk mode simulasi
+
 if 'simulasi_answers' not in st.session_state:
     st.session_state.simulasi_answers = {}
 if 'simulasi_submitted' not in st.session_state:
     st.session_state.simulasi_submitted = False
+if 'simulasi_start_time' not in st.session_state:
+    st.session_state.simulasi_start_time = None
 
 # ==========================================
-# 4. SIDEBAR (NAVIGASI DIPERBARUI)
+# 4. SIDEBAR (NAVIGASI)
 # ==========================================
 with st.sidebar:
     st.title("Navigasi")
@@ -52,12 +56,11 @@ with st.sidebar:
     
     st.divider()
     
-    # Tombol baru untuk mode simulasi
     if st.button("⏱️ Simulasi Ujian (PG)", use_container_width=True, type="primary"):
         st.session_state.mode = 'Simulasi'
-        # Reset ulang jawaban jika menekan tombol ini lagi
         st.session_state.simulasi_answers = {}
         st.session_state.simulasi_submitted = False
+        st.session_state.simulasi_start_time = time.time() # Mencatat waktu mulai
 
 # ==========================================
 # 5. HALAMAN BERANDA
@@ -68,7 +71,7 @@ if st.session_state.mode == 'Beranda':
     st.info("Pilih mode latihan di panel sebelah kiri.")
 
 # ==========================================
-# 6. HALAMAN LATIHAN PILIHAN GANDA (DRILL)
+# 6. HALAMAN LATIHAN PILIHAN GANDA
 # ==========================================
 elif st.session_state.mode == 'PG':
     st.title("Latihan Pilihan Ganda")
@@ -139,25 +142,54 @@ elif st.session_state.mode == 'Essay':
                 st.rerun()
 
 # ==========================================
-# 8. HALAMAN SIMULASI UJIAN (FITUR BARU)
+# 8. HALAMAN SIMULASI UJIAN (DENGAN TIMER)
 # ==========================================
 elif st.session_state.mode == 'Simulasi':
     st.title("Mode Simulasi Ujian")
-    st.warning("Kerjakan seluruh soal di bawah ini. Nilai akhir akan muncul setelah Anda mengklik 'Kumpulkan'.")
+    
+    # Logika Timer (90 Menit)
+    WAKTU_UJIAN_DETIK = 5400 
+    
+    if not st.session_state.simulasi_submitted:
+        elapsed_time = int(time.time() - st.session_state.simulasi_start_time)
+        sisa_waktu = max(0, WAKTU_UJIAN_DETIK - elapsed_time)
+        
+        # Injeksi HTML/JS untuk Countdown yang responsif tanpa merefresh server
+        timer_html = f"""
+        <div style="background-color: #f8f9fa; border-left: 5px solid #ff4b4b; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+            <h3 style="margin: 0; color: #333;">⏱️ Sisa Waktu: <span id="clock" style="color: #ff4b4b;">Memuat...</span></h3>
+        </div>
+        <script>
+            var timeLeft = {sisa_waktu};
+            var elem = document.getElementById('clock');
+            var timerId = setInterval(countdown, 1000);
+            
+            function countdown() {{
+                if (timeLeft <= 0) {{
+                    clearTimeout(timerId);
+                    elem.innerHTML = "WAKTU HABIS!";
+                    elem.style.color = "red";
+                }} else {{
+                    var m = Math.floor(timeLeft / 60);
+                    var s = timeLeft % 60;
+                    elem.innerHTML = (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;
+                    timeLeft--;
+                }}
+            }}
+        </script>
+        """
+        components.html(timer_html, height=80)
+        st.warning("Kerjakan seluruh soal di bawah ini. Nilai akhir akan muncul setelah Anda mengklik 'Kumpulkan'.")
     
     total_q = len(soal_pg)
     
-    # Render semua soal ke bawah
     for i, q in enumerate(soal_pg):
         st.write(f"**{i + 1}. {q['pertanyaan']}**")
-        
         opsi_keys = list(q['opsi'].keys())
         
-        # Ambil state jawaban sebelumnya (berguna jika user tidak sengaja klik menu lain lalu kembali)
         saved_answer = st.session_state.simulasi_answers.get(str(q['id']))
         default_index = opsi_keys.index(saved_answer) if saved_answer in opsi_keys else None
         
-        # Radio button untuk memilih opsi
         pilihan = st.radio(
             label=f"Opsi Soal {q['id']}", 
             options=opsi_keys, 
@@ -165,24 +197,21 @@ elif st.session_state.mode == 'Simulasi':
             key=f"sim_radio_{q['id']}",
             index=default_index,
             label_visibility="collapsed",
-            disabled=st.session_state.simulasi_submitted # Kunci radio button jika sudah disubmit
+            disabled=st.session_state.simulasi_submitted
         )
         
-        # Simpan ke state setiap kali user memilih
         if pilihan:
             st.session_state.simulasi_answers[str(q['id'])] = pilihan
             
-        st.write("") # Spacing antar soal
+        st.write("")
     
     st.divider()
     
-    # Logika Penilaian
     if not st.session_state.simulasi_submitted:
         if st.button("Kumpulkan & Lihat Hasil", type="primary", use_container_width=True):
             st.session_state.simulasi_submitted = True
             st.rerun()
     else:
-        # Menghitung skor
         benar = 0
         for q in soal_pg:
             jawaban_user = st.session_state.simulasi_answers.get(str(q['id']))
@@ -190,12 +219,16 @@ elif st.session_state.mode == 'Simulasi':
                 benar += 1
                 
         skor_akhir = (benar / total_q) * 100
+        waktu_selesai = int(time.time() - st.session_state.simulasi_start_time)
+        menit_selesai = waktu_selesai // 60
+        detik_selesai = waktu_selesai % 60
         
         st.success(f"### 🎉 Simulasi Selesai! Skor Akhir Anda: {skor_akhir:.2f}")
         st.write(f"**Anda menjawab benar {benar} dari {total_q} soal.**")
+        st.info(f"⏱️ Waktu yang Anda habiskan: **{menit_selesai} menit {detik_selesai} detik**.")
         
-        # Tombol Ulangi
         if st.button("Ulangi Simulasi", use_container_width=True):
             st.session_state.simulasi_answers = {}
             st.session_state.simulasi_submitted = False
+            st.session_state.simulasi_start_time = time.time()
             st.rerun()
