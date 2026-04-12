@@ -1,6 +1,6 @@
 import streamlit as st
 import streamlit.components.v1 as components
-import json, time, random, os
+import json, time, random
 from collections import Counter
 from firebase_helper import verify_token, load_bookmarks, save_bookmarks
 
@@ -47,7 +47,7 @@ p,li,.stMarkdown p{font-size:0.97rem;line-height:1.65}
 .metric-box .mval{font-size:clamp(1.25rem,4vw,1.6rem);font-weight:700;color:#3b82f6;line-height:1.1}
 .metric-box .mlbl{font-size:.75rem;opacity:.65;margin-top:.2rem}
 .tag{display:inline-flex;align-items:center;gap:4px;background:rgba(59,130,246,.12);color:#3b82f6;border-radius:99px;font-size:.75rem;font-weight:600;padding:.15rem .65rem;margin-bottom:.5rem}
-.opsi-item{display:block;padding:.62rem .95rem;border-radius:99px;margin-bottom:.32rem;border:1.5px solid rgba(128,128,128,.25);font-size:.97rem}
+.opsi-item{display:block;padding:.62rem .95rem;border-radius:9px;margin-bottom:.32rem;border:1.5px solid rgba(128,128,128,.25);font-size:.97rem}
 .opsi-benar{border-color:#16a34a!important;background:rgba(22,163,74,.1)!important;color:#15803d!important;font-weight:600}
 .opsi-salah{border-color:#dc2626!important;background:rgba(220,38,38,.08)!important;color:#b91c1c!important;font-weight:600}
 .donut-wrap{display:flex;justify-content:center;margin:.8rem 0}
@@ -76,10 +76,24 @@ init_state()
 
 # ── FIREBASE AUTH ────────────────────────────────────────────────
 def get_web_cfg():
+    """Return Firebase web config. secrets.toml keys must be camelCase."""
     try:
         return dict(st.secrets["firebase_web"])
     except:
         return {}
+
+def handle_callback():
+    p=st.query_params
+    if "fb_token" not in p: return
+    decoded=verify_token(p["fb_token"])
+    if decoded:
+        uid=p.get("fb_uid",decoded.get("uid",""))
+        st.session_state.user={"uid":uid,"email":p.get("fb_email",""),
+                               "name":p.get("fb_name","Pengguna"),"photo":p.get("fb_photo","")}
+        st.session_state.bookmarks=load_bookmarks(uid)
+    st.query_params.clear(); st.rerun()
+
+handle_callback()
 
 def login_page():
     cfg = get_web_cfg()
@@ -93,89 +107,17 @@ def login_page():
         st.error(f"secrets.toml [firebase_web] harus pakai camelCase. Key yang belum ada: {missing}")
         st.stop()
 
-    # Logika Custom Component untuk Bypass Protokol Iframe dan CORS
+    # Mengecek apakah folder fisik sudah dibuat
     comp_dir = "firebase_login_comp"
-    if not os.path.exists(comp_dir):
-        os.makedirs(comp_dir)
-    
-    html_str = f"""<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/streamlit-component-lib@1.3.0/dist/streamlit.js"></script>
-  <style>
-    body {{ margin:0; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; text-align:center; padding-top:2rem; background:transparent; }}
-    .btn {{ display:inline-flex; align-items:center; gap:10px; padding:.8rem 1.8rem;
-            border:1.5px solid #dadce0; border-radius:10px; background:#fff;
-            color:#3c4043; font-size:1rem; font-weight:500; cursor:pointer;
-            box-shadow:0 1px 6px rgba(0,0,0,.1); transition:box-shadow .15s; }}
-    .btn:hover {{ box-shadow:0 2px 12px rgba(0,0,0,.18); }}
-    .btn:disabled {{ opacity:.6; cursor:not-allowed; }}
-    #err {{ color:#dc2626; font-size:.85rem; margin-top:.8rem; min-height:1.4rem; padding:.4rem; border-radius:6px; }}
-  </style>
-</head>
-<body>
-  <div style="font-size:2.8rem;margin-bottom:.5rem">&#127891;</div>
-  <div style="font-size:1.4rem;font-weight:700;margin-bottom:.25rem">CAT MHI</div>
-  <div style="font-size:.82rem;opacity:.5;margin-bottom:1.8rem;line-height:1.5">
-    Mediator Hubungan Industrial<br>Ahli Madya
-  </div>
-  
-  <button id="btn" class="btn" onclick="signIn()">
-    <svg width="20" height="20" viewBox="0 0 24 24">
-      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-    </svg>
-    Masuk dengan Google
-  </button>
-  <div id="err"></div>
-
-  <script>
-    Streamlit.setFrameHeight(350);
-    var firebaseConfig = {json.dumps(cfg)};
-    if (!firebase.apps.length) {{ firebase.initializeApp(firebaseConfig); }}
-
-    function signIn() {{
-      var btn = document.getElementById('btn');
-      var err = document.getElementById('err');
-      btn.disabled = true;
-      btn.innerHTML = 'Menghubungkan...';
-      err.textContent = '';
-
-      var provider = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().signInWithPopup(provider)
-        .then(function(result) {{
-          btn.innerHTML = 'Berhasil! Mengalihkan...';
-          return result.user.getIdToken(true).then(function(token) {{
-            Streamlit.setComponentValue({{
-              token: token,
-              uid: result.user.uid,
-              email: result.user.email || '',
-              name: result.user.displayName || 'Pengguna',
-              photo: result.user.photoURL || ''
-            }});
-          }});
-        }})
-        .catch(function(error) {{
-          err.textContent = "Gagal: " + error.message;
-          btn.disabled = false;
-          btn.innerHTML = 'Masuk dengan Google';
-          Streamlit.setFrameHeight(400);
-        }});
-    }}
-  </script>
-</body>
-</html>"""
-    
-    with open(os.path.join(comp_dir, "index.html"), "w", encoding="utf-8") as f:
-        f.write(html_str)
+    if not os.path.exists(os.path.join(comp_dir, "index.html")):
+        st.error("Folder 'firebase_login_comp' dan file 'index.html' tidak ditemukan. Pastikan Anda sudah membuat dan men-commit file tersebut ke GitHub.")
+        st.stop()
         
+    # Deklarasikan component statis
     firebase_login_widget = components.declare_component("firebase_login", path=comp_dir)
-    auth_data = firebase_login_widget()
+    
+    # Render component DAN lempar firebase config (cfg) ke JavaScript secara real-time
+    auth_data = firebase_login_widget(config=cfg)
     
     if auth_data:
         with st.spinner("Memverifikasi kredensial..."):
