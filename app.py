@@ -123,24 +123,6 @@ h2 { font-size: clamp(1.3rem, 4vw, 1.9rem) !important; }
     font-size: clamp(1rem, 2.6vw, 1.15rem) !important;
 }
 
-/* ── Radio pilihan ganda: bulatan align ke atas + jarak lega ── */
-.stRadio > div {
-    gap: 0.6rem !important;                /* jarak antar opsi */
-}
-.stRadio > div > label {
-    align-items: flex-start !important;    /* bulatan sejajar baris pertama teks */
-    padding: 0.2rem 0 !important;
-}
-/* Bulatan radio tetap di atas, tidak mengecil */
-.stRadio > div > label > div:first-child {
-    margin-top: 0.2rem !important;
-    flex-shrink: 0 !important;
-}
-/* Teks opsi: line-height nyaman, tanpa indentasi paksa */
-.stRadio > div > label > div:last-child p {
-    line-height: 1.55 !important;
-}
-
 /* ── Caption — lebih besar sedikit ── */
 .stCaption, [data-testid="stCaptionContainer"] {
     font-size: clamp(0.92rem, 2.3vw, 1.05rem) !important;
