@@ -142,6 +142,17 @@ h2 { font-size: clamp(1.3rem, 4vw, 1.9rem) !important; }
     justify-content: center;
     margin: 0.75rem 0;
 }
+/* ── Metric vertikal (untuk sidebar) — berjejer ke bawah ── */
+.metric-col {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 0.65rem;
+}
+.metric-col .metric-box {
+    width: 100%;
+    flex: none;
+    padding: 0.85rem 1rem;
+}
 .metric-box {
     border: 1px solid rgba(128,128,128,0.25);
     border-radius: 12px;
@@ -266,11 +277,12 @@ def prog_html(pct, label=""):
     lbl = f'<div style="font-size:.85rem;opacity:.6;margin-bottom:2px">{label}</div>' if label else ""
     return f'{lbl}<div class="prog-wrap"><div class="prog-bar" style="width:{pct*100:.1f}%"></div></div>'
 
-def metrics_html(*items):
+def metrics_html(*items, vertical=False):
     boxes = "".join(
         f'<div class="metric-box"><div class="mval">{v}</div><div class="mlbl">{l}</div></div>'
         for v, l in items)
-    return f'<div class="metric-row">{boxes}</div>'
+    cls = "metric-row metric-col" if vertical else "metric-row"
+    return f'<div class="{cls}">{boxes}</div>'
 
 def donut_html(benar, total):
     pct  = benar / total * 100 if total else 0
@@ -352,6 +364,7 @@ with st.sidebar:
         (len(soal_pg),   "Soal PG"),
         (len(soal_essay),"Essay"),
         (st.session_state.simulasi_jumlah, "Simulasi"),
+        vertical=True,
     ), unsafe_allow_html=True)
 
     bm_count = len(st.session_state.bookmarks)
