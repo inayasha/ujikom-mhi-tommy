@@ -27,7 +27,22 @@ except FileNotFoundError:
     st.error("Gagal memuat database soal. Pastikan soal_pg.json dan soal_essay.json tersedia.")
     st.stop()
 
-SEMUA_KATEGORI  = sorted(set(q.get('kategori', 'Umum') for q in soal_pg))
+# Mapping nilai "paket" di JSON ke label yang enak dibaca
+PAKET_LABEL = {
+    "integritas":  "Integritas",
+    "manajerial":  "Manajerial",
+    "teknis_1":    "Teknis / Hubungan Industrial",
+    "teknis_2":    "Teknis / Hubungan Industrial",
+}
+
+def kategori_soal(q):
+    """Ambil label kategori dari field 'paket' (fallback ke 'kategori' lama, lalu 'Umum')."""
+    p = q.get('paket') or q.get('kategori')
+    if not p:
+        return "Umum"
+    return PAKET_LABEL.get(p, p.replace('_', ' ').title())
+
+SEMUA_KATEGORI  = sorted(set(kategori_soal(q) for q in soal_pg))
 JUMLAH_OPSI_SIM = [50, 75, 100]
 DURASI_OPSI     = {"60 menit": 3600, "90 menit": 5400, "120 menit": 7200}
 PASSING_SCORE   = 70.0          # default; bisa diubah user di tab Simulasi
@@ -47,6 +62,18 @@ st.markdown("""
 /* ── Textarea input (jawaban) lebih besar ── */
 .stTextArea textarea {
     font-size: clamp(1rem, 2.5vw, 1.12rem) !important;
+}
+/* ── Baris kontrol bookmark+acak tetap sejajar di HP ── */
+/* Blok kolom setelah elemen yang memuat penanda .ctrl-row: jangan turun */
+[data-testid="stElementContainer"]:has(.ctrl-row)
+    + [data-testid="stHorizontalBlock"] {
+    flex-wrap: nowrap !important;
+    gap: 0.5rem !important;
+}
+[data-testid="stElementContainer"]:has(.ctrl-row)
+    + [data-testid="stHorizontalBlock"] > [data-testid="column"] {
+    min-width: 0 !important;
+    flex: 1 1 0 !important;
 }
 /* ── Sidebar rata tengah ── */
 [data-testid="stSidebar"] > div:first-child {
@@ -94,6 +121,29 @@ h2 { font-size: clamp(1.3rem, 4vw, 1.9rem) !important; }
 }
 .stRadio > div > label > div > p {
     font-size: clamp(1rem, 2.6vw, 1.15rem) !important;
+}
+
+/* ── Radio pilihan ganda: align atas + hanging indent + jarak lega ── */
+.stRadio > div {
+    gap: 0.55rem !important;             /* jarak antar opsi */
+}
+.stRadio > div > label {
+    align-items: flex-start !important;   /* bulatan sejajar baris pertama teks */
+    padding: 0.15rem 0 !important;
+}
+/* Bulatan radio tidak ikut mengecil & tetap di atas */
+.stRadio > div > label > div:first-child {
+    margin-top: 0.15rem !important;
+    flex-shrink: 0 !important;
+}
+/* Teks opsi: baris ke-2 dst menjorok sejajar huruf pertama (hanging indent) */
+.stRadio > div > label > div:last-child p {
+    line-height: 1.5 !important;
+    padding-left: 1.4em !important;
+    text-indent: -1.4em !important;
+}
+.stRadio > div > label > div:last-child {
+    padding-left: 0.15rem !important;
 }
 
 /* ── Caption — lebih besar sedikit ── */
@@ -272,7 +322,7 @@ init_state()
 def filter_pg(kat):
     if kat == "Semua Kategori":
         return soal_pg
-    return [q for q in soal_pg if q.get('kategori', 'Umum') == kat]
+    return [q for q in soal_pg if kategori_soal(q) == kat]
 
 def prog_html(pct, label=""):
     lbl = f'<div style="font-size:.85rem;opacity:.6;margin-bottom:2px">{label}</div>' if label else ""
@@ -411,7 +461,7 @@ with tab_beranda:
 
     st.divider()
     st.markdown("#### 📊 Distribusi per Kategori")
-    kat_counts = Counter(q.get('kategori', 'Umum') for q in soal_pg)
+    kat_counts = Counter(kategori_soal(q) for q in soal_pg)
     for kat, cnt in sorted(kat_counts.items(), key=lambda x: -x[1]):
         pct = cnt / len(soal_pg)
         st.markdown(prog_html(pct, f"{kat} ({cnt} soal)"), unsafe_allow_html=True)
@@ -471,6 +521,7 @@ with tab_pg:
     # Baris kontrol: bookmark ⭐ + Acak berdampingan
     bm_id = q['id']
     is_bm = bm_id in st.session_state.bookmarks
+    st.markdown('<div class="ctrl-row"></div>', unsafe_allow_html=True)
     c_bm, c_rst = st.columns([1, 4])
     with c_bm:
         if st.button("⭐" if is_bm else "☆", key=f"bm_pg_{idx}_{bm_id}",
@@ -494,7 +545,7 @@ with tab_pg:
     st.markdown(prog_html((idx+1)/total_q, f"Soal {idx+1} dari {total_q}"),
                 unsafe_allow_html=True)
 
-    kat_label = q.get('kategori', 'Umum')
+    kat_label = kategori_soal(q)
     st.markdown(f'<span class="tag">{kat_label}</span>', unsafe_allow_html=True)
     st.markdown(f'<div class="q-card"><strong>{q["pertanyaan"]}</strong></div>',
                 unsafe_allow_html=True)
@@ -581,6 +632,7 @@ with tab_essay:
     # Baris kontrol: bookmark ⭐ + Acak berdampingan
     bm_id_e = qe['id']
     is_bm_e = bm_id_e in st.session_state.bookmarks_essay
+    st.markdown('<div class="ctrl-row"></div>', unsafe_allow_html=True)
     c_bme, c_re = st.columns([1, 4])
     with c_bme:
         if st.button("⭐" if is_bm_e else "☆", key=f"bm_essay_{idx_e}_{bm_id_e}",
@@ -802,7 +854,7 @@ with tab_simulasi:
             else:
                 st.error(f"Soal {ridx+1} — **Salah ❌**")
 
-            kat_label = q.get('kategori', 'Umum')
+            kat_label = kategori_soal(q)
             st.markdown(f'<span class="tag">{kat_label}</span>', unsafe_allow_html=True)
             st.markdown(f'<div class="q-card"><strong>{q["pertanyaan"]}</strong></div>',
                         unsafe_allow_html=True)
@@ -872,7 +924,7 @@ with tab_simulasi:
         </script>"""
         components.html(timer_html, height=50)
 
-        kat_label = q.get('kategori', 'Umum')
+        kat_label = kategori_soal(q)
         st.markdown(f'<span class="tag">{kat_label}</span>', unsafe_allow_html=True)
         st.markdown(f'<div class="q-card"><strong>{q["pertanyaan"]}</strong></div>',
                     unsafe_allow_html=True)
@@ -972,7 +1024,7 @@ with tab_bm:
             st.markdown("### 📝 Pilihan Ganda")
             bm_soal = [q for q in soal_pg if q['id'] in bm_ids]
             for q in bm_soal:
-                kat_label = q.get('kategori', 'Umum')
+                kat_label = kategori_soal(q)
                 with st.expander(f"[{kat_label}] {q['pertanyaan'][:75]}..."):
                     for k, v in q['opsi'].items():
                         if k == q['kunci_jawaban']:
