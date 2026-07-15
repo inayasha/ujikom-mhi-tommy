@@ -431,19 +431,8 @@ with tab_beranda:
 with tab_pg:
     st.markdown("## 📝 Latihan Pilihan Ganda")
 
-    c_kat, c_rst = st.columns([3, 1])
-    with c_kat:
-        kat_pg = st.selectbox("Kategori", ["Semua Kategori"] + SEMUA_KATEGORI,
-                              key="pg_sel_kat", label_visibility="collapsed")
-    with c_rst:
-        if st.button("♻️ Acak", use_container_width=True, key="pg_reset"):
-            pool = filter_pg(kat_pg)
-            st.session_state.latihan_pg_questions  = random.sample(pool, len(pool))
-            st.session_state.latihan_pg_answers    = {}
-            st.session_state.latihan_pg_checked    = {}
-            st.session_state.current_q             = 0
-            st.session_state.latihan_pg_salah_mode = False
-            st.rerun()
+    kat_pg = st.selectbox("Kategori", ["Semua Kategori"] + SEMUA_KATEGORI,
+                          key="pg_sel_kat", label_visibility="collapsed")
 
     if not st.session_state.latihan_pg_questions:
         pool = filter_pg(kat_pg)
@@ -479,21 +468,31 @@ with tab_pg:
             (n_checked - n_benar, "Salah"), (akurasi, "Akurasi"),
         ), unsafe_allow_html=True)
 
-    # Progress
-    st.markdown(prog_html((idx+1)/total_q, f"Soal {idx+1} dari {total_q}"),
-                unsafe_allow_html=True)
-
-    # Bookmark
+    # Baris kontrol: bookmark ⭐ + Acak berdampingan
     bm_id = q['id']
     is_bm = bm_id in st.session_state.bookmarks
-    c_q, c_bm = st.columns([11, 1])
+    c_bm, c_rst = st.columns([1, 4])
     with c_bm:
-        if st.button("⭐" if is_bm else "☆", key=f"bm_pg_{idx}_{bm_id}", help="Bookmark"):
+        if st.button("⭐" if is_bm else "☆", key=f"bm_pg_{idx}_{bm_id}",
+                     help="Bookmark soal ini", use_container_width=True):
             if is_bm:
                 st.session_state.bookmarks.discard(bm_id)
             else:
                 st.session_state.bookmarks.add(bm_id)
             st.rerun()
+    with c_rst:
+        if st.button("♻️ Acak", use_container_width=True, key="pg_reset"):
+            pool = filter_pg(kat_pg)
+            st.session_state.latihan_pg_questions  = random.sample(pool, len(pool))
+            st.session_state.latihan_pg_answers    = {}
+            st.session_state.latihan_pg_checked    = {}
+            st.session_state.current_q             = 0
+            st.session_state.latihan_pg_salah_mode = False
+            st.rerun()
+
+    # Progress
+    st.markdown(prog_html((idx+1)/total_q, f"Soal {idx+1} dari {total_q}"),
+                unsafe_allow_html=True)
 
     kat_label = q.get('kategori', 'Umum')
     st.markdown(f'<span class="tag">{kat_label}</span>', unsafe_allow_html=True)
@@ -569,14 +568,6 @@ with tab_pg:
 with tab_essay:
     st.markdown("## ✏️ Latihan Essay")
 
-    c_ie, c_re = st.columns([3, 1])
-    with c_re:
-        if st.button("♻️ Acak", use_container_width=True, key="essay_reset"):
-            st.session_state.latihan_essay_questions = random.sample(soal_essay, len(soal_essay))
-            st.session_state.latihan_essay_shown     = {}
-            st.session_state.current_q               = 0
-            st.rerun()
-
     if not st.session_state.latihan_essay_questions:
         st.session_state.latihan_essay_questions = random.sample(soal_essay, len(soal_essay))
 
@@ -585,26 +576,32 @@ with tab_essay:
     idx_e = min(st.session_state.current_q, tot_e - 1)
     qe    = qs_e[idx_e]
 
-    with c_ie:
-        st.caption(f"Referensi ditampilkan: {len(st.session_state.latihan_essay_shown)}/{tot_e}")
+    st.caption(f"Referensi ditampilkan: {len(st.session_state.latihan_essay_shown)}/{tot_e}")
 
-    st.markdown(prog_html((idx_e+1)/tot_e, f"Soal {idx_e+1} dari {tot_e}"),
-                unsafe_allow_html=True)
-
-    # Bookmark essay
+    # Baris kontrol: bookmark ⭐ + Acak berdampingan
     bm_id_e = qe['id']
     is_bm_e = bm_id_e in st.session_state.bookmarks_essay
-    c_qe, c_bme = st.columns([11, 1])
+    c_bme, c_re = st.columns([1, 4])
     with c_bme:
-        if st.button("⭐" if is_bm_e else "☆", key=f"bm_essay_{idx_e}_{bm_id_e}", help="Bookmark"):
+        if st.button("⭐" if is_bm_e else "☆", key=f"bm_essay_{idx_e}_{bm_id_e}",
+                     help="Bookmark soal ini", use_container_width=True):
             if is_bm_e:
                 st.session_state.bookmarks_essay.discard(bm_id_e)
             else:
                 st.session_state.bookmarks_essay.add(bm_id_e)
             st.rerun()
-    with c_qe:
-        st.markdown(f'<div class="q-card"><strong>{qe["pertanyaan"]}</strong></div>',
-                    unsafe_allow_html=True)
+    with c_re:
+        if st.button("♻️ Acak", use_container_width=True, key="essay_reset"):
+            st.session_state.latihan_essay_questions = random.sample(soal_essay, len(soal_essay))
+            st.session_state.latihan_essay_shown     = {}
+            st.session_state.current_q               = 0
+            st.rerun()
+
+    st.markdown(prog_html((idx_e+1)/tot_e, f"Soal {idx_e+1} dari {tot_e}"),
+                unsafe_allow_html=True)
+
+    st.markdown(f'<div class="q-card"><strong>{qe["pertanyaan"]}</strong></div>',
+                unsafe_allow_html=True)
 
     st.text_area("Jawaban Anda:", height=130, key=f"essay_in_{idx_e}",
                  label_visibility="collapsed",

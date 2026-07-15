@@ -4356,7 +4356,7 @@
     "id": 314,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Upah tidak dibayar apabila pekerja atau buruh tidak melakukan ”¦”¦.?",
+    "pertanyaan": "Upah tidak dibayar apabila pekerja atau buruh tidak melakukan …?",
     "opsi": {
       "A": "Pekerjaan",
       "B": "Kegiatan",
@@ -4369,7 +4369,7 @@
     "id": 315,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Segala hal dan atau biaya yang diperlukan bagi pelaksanaan pembuatan Perjanjian Kerja dilaksanakan oleh dan menjadi tanggung jawab dari ”¦”¦.?",
+    "pertanyaan": "Segala hal dan atau biaya yang diperlukan bagi pelaksanaan pembuatan Perjanjian Kerja dilaksanakan oleh dan menjadi tanggung jawab dari …?",
     "opsi": {
       "A": "Pengusaha",
       "B": "Pemberi Kerja",
@@ -4525,7 +4525,7 @@
     "id": 327,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Perjanjian Kerja tidak dapat ditarik kembali dan atau diubah kecuali atas persetujuan ”¦.?",
+    "pertanyaan": "Perjanjian Kerja tidak dapat ditarik kembali dan atau diubah kecuali atas persetujuan …?",
     "opsi": {
       "A": "Para Pihak",
       "B": "Satu pihak",
@@ -4538,7 +4538,7 @@
     "id": 328,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Perusahaan dapat menyerahkan sebagian pelaksanaan pekerjaan kepada perusahaan lainnya melalui perjanjian pemborongan pekerjaan atau penyediaan jasa pekerja/buruh yang dibuat secara ”¦.?",
+    "pertanyaan": "Perusahaan dapat menyerahkan sebagian pelaksanaan pekerjaan kepada perusahaan lainnya melalui perjanjian pemborongan pekerjaan atau penyediaan jasa pekerja/buruh yang dibuat secara …?",
     "opsi": {
       "A": "Tertulis",
       "B": "Lisan",
@@ -4551,7 +4551,7 @@
     "id": 329,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Pengusaha melakukan peninjauan upah secara berkala dengan memperhatikan kemampuan perusahaan dan ”¦”¦”¦.?",
+    "pertanyaan": "Pengusaha melakukan peninjauan upah secara berkala dengan memperhatikan kemampuan perusahaan dan …?",
     "opsi": {
       "A": "Produktivitas",
       "B": "Keahlian",
@@ -4564,7 +4564,7 @@
     "id": 330,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Setiap pekerja/buruh berhak membentuk dan menjadi anggota ”¦”¦.?",
+    "pertanyaan": "Setiap pekerja/buruh berhak membentuk dan menjadi anggota …?",
     "opsi": {
       "A": "Serikat Pekerja/Serikat Buruh",
       "B": "Pengusaha",
@@ -4590,7 +4590,7 @@
     "id": 332,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Peraturan Perusahaan wajib dibuat oleh Pengusaha yang mempekerjakan pekerja/buruh sekurang-kurangnya ”¦.",
+    "pertanyaan": "Peraturan Perusahaan wajib dibuat oleh Pengusaha yang mempekerjakan pekerja/buruh sekurang-kurangnya …",
     "opsi": {
       "A": "9 (sembilan) orang",
       "B": "8 (delapan) orang",
@@ -4603,7 +4603,7 @@
     "id": 333,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Peraturan yang dibuat secara tertulis oleh pengusaha yang memuat syarat syarat kerja dan tata tertib perusahaan disebut ”¦.",
+    "pertanyaan": "Peraturan yang dibuat secara tertulis oleh pengusaha yang memuat syarat syarat kerja dan tata tertib perusahaan disebut …",
     "opsi": {
       "A": "Peraturan Perusahaan",
       "B": "Perjanjian Kerja Bersama",
@@ -4616,7 +4616,7 @@
     "id": 334,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Masa berlaku peraturan perusahaan paling lama ”¦. dan wajib diperbaharui setelah habis masa berlakunya",
+    "pertanyaan": "Masa berlaku peraturan perusahaan paling lama … dan wajib diperbaharui setelah habis masa berlakunya",
     "opsi": {
       "A": "3 (tiga) tahun",
       "B": "2 (dua) tahun",
@@ -4642,7 +4642,7 @@
     "id": 336,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Manfaat Peraturan Perusahaan adalah sebagai berikut, kecuali ”¦.",
+    "pertanyaan": "Manfaat Peraturan Perusahaan adalah sebagai berikut, kecuali …",
     "opsi": {
       "A": "Memberikan kepastian dan kejelasan kepada pekerja/buruh maupun pengusaha tentang hak dan kewajiban masing-masing",
       "B": "Mencegah dan mengurangi timbulnya perselisihan hubungan industrial",
@@ -4655,7 +4655,7 @@
     "id": 337,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Instansi yang berwenang mengesahkan peraturan perusahaan untuk perusahaan yang terdapat di lebih dari satu propinsi adalah ”¦.",
+    "pertanyaan": "Instansi yang berwenang mengesahkan peraturan perusahaan untuk perusahaan yang terdapat di lebih dari satu propinsi adalah …",
     "opsi": {
       "A": "Direktur Jenderal Pembinaan Hubungan Industrial",
       "B": "Kepala SKPD bidang ketenagakerjaan provinsi,",
@@ -4668,7 +4668,7 @@
     "id": 338,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Perjanjian antara pekerja/buruh dengan pengusaha atau pemberi kerja yang memuat syarat-syarat kerja, hak, dan kewajiban para pihak, disebut ”¦”¦.",
+    "pertanyaan": "Perjanjian antara pekerja/buruh dengan pengusaha atau pemberi kerja yang memuat syarat-syarat kerja, hak, dan kewajiban para pihak, disebut …",
     "opsi": {
       "A": "Perjanjian kerja Bersama",
       "B": "Perjanjian Pekerja Pengusaha",
@@ -4681,7 +4681,7 @@
     "id": 339,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Hubungan kerja adalah hubungan antara pengusaha dengan pekerja/buruh berdasarkan perjanjian kerja yang mempunyai unsur”¦”¦.",
+    "pertanyaan": "Hubungan kerja adalah hubungan antara pengusaha dengan pekerja/buruh berdasarkan perjanjian kerja yang mempunyai unsur…",
     "opsi": {
       "A": "Pekerjaan, upah dan perintah",
       "B": "Pekerjaan, upah dan peraturan perusahaan",
@@ -4694,7 +4694,7 @@
     "id": 340,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Perjanjian kerja dapat ditulis secara ”¦”¦”¦",
+    "pertanyaan": "Perjanjian kerja dapat ditulis secara …",
     "opsi": {
       "A": "Tertulis saja",
       "B": "Lisan saja",
@@ -4707,7 +4707,7 @@
     "id": 341,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Beberapa dasar perjanjian kerja di buat, kecuali ”¦”¦",
+    "pertanyaan": "Beberapa dasar perjanjian kerja di buat, kecuali …",
     "opsi": {
       "A": "Kesepakatan kedua belah pihak",
       "B": "Adanya pekerjaan yang harus dilaksanakan para pekerja",
@@ -4720,7 +4720,7 @@
     "id": 342,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Segala hal dan/atau yang diperlukan bagi pelaksanaan pembuatan perjanjian kerja dilaksanakan oleh dan menjadi tanggung jawab ”¦”¦”¦”¦.",
+    "pertanyaan": "Segala hal dan/atau yang diperlukan bagi pelaksanaan pembuatan perjanjian kerja dilaksanakan oleh dan menjadi tanggung jawab …",
     "opsi": {
       "A": "Pengusaha dan pekerja",
       "B": "Pengusaha dan stakeholder",
@@ -4733,7 +4733,7 @@
     "id": 343,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Peraturan yang mengatur tentang Peraturan Perusahaan adalah ”¦.",
+    "pertanyaan": "Peraturan yang mengatur tentang Peraturan Perusahaan adalah …",
     "opsi": {
       "A": "Permenaker No 28 Tahun 2014",
       "B": "Permenaker No 40 Tahun 2015",
@@ -4746,7 +4746,7 @@
     "id": 344,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Perjanjian kerja berakhir apabila”¦., kecuali ”¦”¦”¦”¦”¦.",
+    "pertanyaan": "Perjanjian kerja berakhir apabila…, kecuali …",
     "opsi": {
       "A": "Pekerja meninggal dunia",
       "B": "Pengusaha meninggal dunia",
@@ -4759,7 +4759,7 @@
     "id": 345,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Perjanjian Kerja Waktu Tertentu yang pekerjaannya bersifat musiman pelaksanaannya tergantung pada ”¦”¦”¦.",
+    "pertanyaan": "Perjanjian Kerja Waktu Tertentu yang pekerjaannya bersifat musiman pelaksanaannya tergantung pada …",
     "opsi": {
       "A": "Musim atau cuaca",
       "B": "Keadaan perekonomian perusahaan",
@@ -4772,7 +4772,7 @@
     "id": 346,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "“setiap orang berhak untuk bekerja serta mendapat imbalan dan perlakukan yang adil dan layak dalam hubungan kerja” ini adalah pasal dari UUD 1945 nomer ”¦.",
+    "pertanyaan": "“setiap orang berhak untuk bekerja serta mendapat imbalan dan perlakukan yang adil dan layak dalam hubungan kerja” ini adalah pasal dari UUD 1945 nomer …",
     "opsi": {
       "A": "Pasal 27 ayat 2",
       "B": "Pasal 25 D ayat 2",
@@ -4785,7 +4785,7 @@
     "id": 347,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Hubungan kerja dalam UU 13 tahun 2003 tentang Ketenagakerjaan diatur dalam pasal ”¦",
+    "pertanyaan": "Hubungan kerja dalam UU 13 tahun 2003 tentang Ketenagakerjaan diatur dalam pasal …",
     "opsi": {
       "A": "Pasal 50 - 66",
       "B": "Pasal 67 -75",
@@ -4824,7 +4824,7 @@
     "id": 350,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Lembaga Kerjasama Bipartit dibentuk oleh unsur ”¦.",
+    "pertanyaan": "Lembaga Kerjasama Bipartit dibentuk oleh unsur …",
     "opsi": {
       "A": "Pengusaha dan unsur pekerja/buruh dan/atau serikat pekerja/serikat buruh.",
       "B": "Pemerintah",
@@ -4850,7 +4850,7 @@
     "id": 352,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Jumlah keanggotaan Lembaga Kerjasama Bipartit ditetapkan dengan komposisi ”¦.",
+    "pertanyaan": "Jumlah keanggotaan Lembaga Kerjasama Bipartit ditetapkan dengan komposisi …",
     "opsi": {
       "A": "1: 2 yaitu 1 (satu) unsur pekerja banding 2 (dua) unsur pengusaha",
       "B": "2: 1 yaitu 2 (dua) unsur pekerja banding 1 (satu) unsur pengusaha",
@@ -4863,7 +4863,7 @@
     "id": 353,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Kedudukan LKS Bipartit berada di perusahaan dan wajib dibentuk di setiap perusahaan yang mempekerjakan ”¦., dan dapat di bentuk di setiap cabang",
+    "pertanyaan": "Kedudukan LKS Bipartit berada di perusahaan dan wajib dibentuk di setiap perusahaan yang mempekerjakan …, dan dapat di bentuk di setiap cabang",
     "opsi": {
       "A": "20 (dua puluh) orang pekerja/buruh atau lebih",
       "B": "50 (lima puluh) orang pekerja/buruh atau lebih",
@@ -4876,7 +4876,7 @@
     "id": 354,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Masa kerja kepengurusan LKS Bipartit adalah ”¦.",
+    "pertanyaan": "Masa kerja kepengurusan LKS Bipartit adalah …",
     "opsi": {
       "A": "1 (satu) tahun",
       "B": "2 (dua) tahun",
@@ -4889,7 +4889,7 @@
     "id": 355,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Tujuan pembinaan Lembaga Kerjasama Bipartit adalah ”¦.",
+    "pertanyaan": "Tujuan pembinaan Lembaga Kerjasama Bipartit adalah …",
     "opsi": {
       "A": "Mewujudkan kesatuan pola pikir dan bahasan serta untuk menciptakan hubungan kerja yang serasi guna terwujudnya ketenangan kerja dan kelangsungan usaha.",
       "B": "Menurunkan kesejahteraan pekerja, kelangsungan hidup perusahaan dan produktivitas perusahaan.",
@@ -4993,7 +4993,7 @@
     "id": 363,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Azas Penyelenggaraan Sistem Jaminan Sosial Nasional adalah ”¦",
+    "pertanyaan": "Azas Penyelenggaraan Sistem Jaminan Sosial Nasional adalah …",
     "opsi": {
       "A": "Kemanusiaan",
       "B": "Manfaat",
@@ -5019,7 +5019,7 @@
     "id": 365,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Dana yang terkumpul dari iuran peserta merupakan titipan kepada badan-badan penyelenggara untuk dikelola sebaik-baiknya dalam rangka mengoptimalkan dana tersebut untuk kesejahteraan peserta. Hal tersebut merupakan prinsip ”¦",
+    "pertanyaan": "Dana yang terkumpul dari iuran peserta merupakan titipan kepada badan-badan penyelenggara untuk dikelola sebaik-baiknya dalam rangka mengoptimalkan dana tersebut untuk kesejahteraan peserta. Hal tersebut merupakan prinsip …",
     "opsi": {
       "A": "Akuntabilitas",
       "B": "Nirlaba",
@@ -5161,7 +5161,7 @@
     "id": 376,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Prinsip non diskriminasi sebagai hak dasar pekerja di tempat kerja dalam hubungan industrial ditujukan untuk memberikan kenyamanan bekerja yang mengatur tentang Pengupahan yang Sama bagi Laki-Laki dan Wanita untuk Pekerjaan yang Sama Nilainya diatur dalam ”¦.",
+    "pertanyaan": "Prinsip non diskriminasi sebagai hak dasar pekerja di tempat kerja dalam hubungan industrial ditujukan untuk memberikan kenyamanan bekerja yang mengatur tentang Pengupahan yang Sama bagi Laki-Laki dan Wanita untuk Pekerjaan yang Sama Nilainya diatur dalam …",
     "opsi": {
       "A": "Konvensi ILO No. 100",
       "B": "Konvensi ILO No. 111",
@@ -5174,7 +5174,7 @@
     "id": 377,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Prinsip non diskriminasi sebagai hak dasar pekerja di tempat kerja dalam hubungan industrial ditujukan untuk memberikan kenyamanan bekerja yang mengatur tentang Diskriminasi dalam Pekerjaan dan Jabatan diatur dalam ”¦.",
+    "pertanyaan": "Prinsip non diskriminasi sebagai hak dasar pekerja di tempat kerja dalam hubungan industrial ditujukan untuk memberikan kenyamanan bekerja yang mengatur tentang Diskriminasi dalam Pekerjaan dan Jabatan diatur dalam …",
     "opsi": {
       "A": "Konvensi ILO No. 100",
       "B": "Konvensi ILO No. 111",
@@ -5187,7 +5187,7 @@
     "id": 378,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Diskriminasi adalah ”¦.",
+    "pertanyaan": "Diskriminasi adalah …",
     "opsi": {
       "A": "perlakuan yang sifatnya membeda-bedakan antara sesama warga Negara karena pengaruh keturunan, suku, warna kulit dan agama",
       "B": "segala jenis tindakkan yang tidak diinginkan berulang-ulang yang ditujukan kepada pekerja atau kelompok kerja yang mengakibatkan terganggunya dalam pelaksanaan tugas pekerjaan",
@@ -5200,7 +5200,7 @@
     "id": 379,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Yang bukan merupakan alasan mendasar terjadinya diskriminasi di tempat kerja yaitu ”¦",
+    "pertanyaan": "Yang bukan merupakan alasan mendasar terjadinya diskriminasi di tempat kerja yaitu …",
     "opsi": {
       "A": "Suku dan ras",
       "B": "Jenis kelamin",
@@ -5213,7 +5213,7 @@
     "id": 380,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Hal-hal yang dapat menyebabkan mogok kerja antara lain ”¦.",
+    "pertanyaan": "Hal-hal yang dapat menyebabkan mogok kerja antara lain …",
     "opsi": {
       "A": "Tuntutan yang bersifat non-normatif (perbedaan kepentingan antara pekerja dan pengusaha);",
       "B": "Pelaksanaan outsourcing;",
@@ -5226,7 +5226,7 @@
     "id": 381,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Organisasi pengusaha yang ditunjuk oleh Kamar Dagang dan Industri untuk menangani masalah ketenagakerjaan. Ini adalah pengeretian dari ”¦.",
+    "pertanyaan": "Organisasi pengusaha yang ditunjuk oleh Kamar Dagang dan Industri untuk menangani masalah ketenagakerjaan. Ini adalah pengeretian dari …",
     "opsi": {
       "A": "Organisasi ketenagakerjaan",
       "B": "Kadin",
@@ -5252,7 +5252,7 @@
     "id": 383,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Struktur Organisasi organisasi perusahaan yaitu ”¦. (kecuali)",
+    "pertanyaan": "Struktur Organisasi organisasi perusahaan yaitu … (kecuali)",
     "opsi": {
       "A": "Pusat",
       "B": "Daearah",
@@ -5278,7 +5278,7 @@
     "id": 385,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Anggota Pengurus Organisasi Pengusaha daerah yang bertugas untuk mengkoordinir beberapa Kabupaten/ Kota yang berada dalam suatu wilayah yang belum terbentuk Kabupaten/ Kota organisasi disebut sebagai ”¦.",
+    "pertanyaan": "Anggota Pengurus Organisasi Pengusaha daerah yang bertugas untuk mengkoordinir beberapa Kabupaten/ Kota yang berada dalam suatu wilayah yang belum terbentuk Kabupaten/ Kota organisasi disebut sebagai …",
     "opsi": {
       "A": "Dewan kehormatan",
       "B": "Koordinator",
@@ -5421,7 +5421,7 @@
     "id": 396,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Peraturan yang mengatur tentang Serikat Pekerja/Serikat Buruh adalah ”¦”¦”¦”¦",
+    "pertanyaan": "Peraturan yang mengatur tentang Serikat Pekerja/Serikat Buruh adalah …",
     "opsi": {
       "A": "Undang-Undang No 101 Tahun 2000",
       "B": "Undang-Undang No 21 Tahun 2000",
@@ -5434,7 +5434,7 @@
     "id": 397,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Peraturan tentang Tata Cara Pencatatan Serikat Pekerja/Serikat Buruh adalah ”¦.",
+    "pertanyaan": "Peraturan tentang Tata Cara Pencatatan Serikat Pekerja/Serikat Buruh adalah …",
     "opsi": {
       "A": "Kepmenakertrans No. 16 Tahun 2001",
       "B": "Permenaker No. 28 Tahun 2014",
@@ -5447,7 +5447,7 @@
     "id": 398,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Peraturan tentang pedoman verifikasi keanggotaan serikat pekerja/serikat buruh adalah ”¦”¦”¦.",
+    "pertanyaan": "Peraturan tentang pedoman verifikasi keanggotaan serikat pekerja/serikat buruh adalah …",
     "opsi": {
       "A": "Permenakertrans No. 6 Tahun 2005",
       "B": "PP No 8 Tahun 2005",
@@ -5460,7 +5460,7 @@
     "id": 399,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Serikat Pekerja/Serikat Buruh adalah ”¦”¦”¦”¦",
+    "pertanyaan": "Serikat Pekerja/Serikat Buruh adalah …",
     "opsi": {
       "A": "Forum komunikasi dan konsultasi mengenai hal-hal yang berkaitan dengan hubungan industrial di satu perusahaan yang anggotanya terdiri dari pengusaha dan serikat pekerja/ serikat buruh yang sudah tercatat instansi yang bertanggung jawab di bidang ketenagakerjaan atau unsur pekerja/buruh",
       "B": "Forum komunikasi, konsultasi dan musyawarah tentang masalah ketenagakerjaan yang anggotanya terdiri dari unsur organisasi pengusaha, serikat pekerja/serikat buruh, dan pemerintah.",
@@ -5473,7 +5473,7 @@
     "id": 400,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Bertanggung jawab guna memperjuangkan, membela serta melindungi hak dan kepentingan pekerja/buruh serta meningkatkan kesejahteraan pekerja/buruh dan keluarganya Federasi Serikat Pekerja/Serikat Buruh adalah ”¦”¦”¦",
+    "pertanyaan": "Bertanggung jawab guna memperjuangkan, membela serta melindungi hak dan kepentingan pekerja/buruh serta meningkatkan kesejahteraan pekerja/buruh dan keluarganya Federasi Serikat Pekerja/Serikat Buruh adalah …",
     "opsi": {
       "A": "Gabungan serikat pekerja/serikat buruh",
       "B": "Gabungan konfederasi serikat pekerja/serikat buruh",
@@ -5486,7 +5486,7 @@
     "id": 401,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Konfederasi Serikat Pekerja/Serikat Buruh adalah ”¦”¦”¦.",
+    "pertanyaan": "Konfederasi Serikat Pekerja/Serikat Buruh adalah …",
     "opsi": {
       "A": "Gabungan serikat pekerja/serikat buruh",
       "B": "Gabungan federasi serikat pekerja/serikat buruh",
@@ -5564,7 +5564,7 @@
     "id": 407,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Prinsip-prinsip untuk mencegah diskriminasi dalam pekerjaan dan jabatan antara lain, ”¦ kecuali ”¦”¦.",
+    "pertanyaan": "Prinsip-prinsip untuk mencegah diskriminasi dalam pekerjaan dan jabatan antara lain, … kecuali …",
     "opsi": {
       "A": "Akses terhadap penyusunan pengaturan syarat kerja dalam bentuk Perjanjian Kerja, Peraturan Perusahaan, atau Perjanjian Kerja Bersama",
       "B": "Upah kerja yang sama untuk nilai pekerjaan yang berbeda",
@@ -6853,7 +6853,7 @@
     "id": 504,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Fungsi dari Peraturan Perusahaan adalah ”¦.",
+    "pertanyaan": "Fungsi dari Peraturan Perusahaan adalah …",
     "opsi": {
       "A": "Sebagai pedoman induk mengenai hak dan kewajiban bagi pekerja/buruh dan pengusaha dalam hubungan kerja.",
       "B": "Sebagai acuan untuk menyelesaikan perbedaan pendapat mengenai syarat-syarat kerja antara pihak pekerja dan pengusaha dalam hubungan kerja.",
@@ -6866,7 +6866,7 @@
     "id": 505,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Kewajiban Pengusaha terkait dengan peraturan perusahaan adalah sebagai berikut ”¦.",
+    "pertanyaan": "Kewajiban Pengusaha terkait dengan peraturan perusahaan adalah sebagai berikut …",
     "opsi": {
       "A": "Memberitahukan dan menjelaskan isi peraturan perusahaan kepada semua pekerja",
       "B": "Membagikan buku peraturan perusahaan kepada semua pekerja",
@@ -6879,7 +6879,7 @@
     "id": 506,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Perjanjian Kerja Waktu Tertentu yang didasarkan atas jangka waktu dapat diadakan untuk paling lama ”¦. tahun dan boleh diperpanjang ”¦”¦”¦ kali untuk jangka waktu paling lama ”¦”¦”¦”¦ tahun.",
+    "pertanyaan": "Perjanjian Kerja Waktu Tertentu yang didasarkan atas jangka waktu dapat diadakan untuk paling lama … tahun dan boleh diperpanjang … kali untuk jangka waktu paling lama … tahun.",
     "opsi": {
       "A": "2 tahun; 2 kali; 1 tahun",
       "B": "2 tahun; 1 kali; 2 tahun",
@@ -6892,7 +6892,7 @@
     "id": 507,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Untuk pekerjaan-pekerjaan tertentu yang berubah-ubah dalam waktu dan volume pekerjaan serta upah didasarkan pada kehadiran, dapat dilakukan dengan ”¦”¦”¦",
+    "pertanyaan": "Untuk pekerjaan-pekerjaan tertentu yang berubah-ubah dalam waktu dan volume pekerjaan serta upah didasarkan pada kehadiran, dapat dilakukan dengan …",
     "opsi": {
       "A": "Perjanjian Kerja Pemborongan",
       "B": "Perjanjian Kerja Waktu Tertentu",
@@ -6905,7 +6905,7 @@
     "id": 508,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Perusahaan dapat menyerahkan sebagian pelaksanaan pekerjaan kepada perusahaan melalui perjanjian ”¦”¦”¦.",
+    "pertanyaan": "Perusahaan dapat menyerahkan sebagian pelaksanaan pekerjaan kepada perusahaan melalui perjanjian …",
     "opsi": {
       "A": "Harian lepas dan Pemborongan Pekerjaan",
       "B": "Pemborongan pekerjaan dan penyediaan jasa pekerja/buruh",
@@ -6918,7 +6918,7 @@
     "id": 509,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Pekerjaan yang dapat diserahkan kepada perusahaan lain harus memenuhi syarat-syarat sebagai berikut, antara lain; kecuali ”¦.",
+    "pertanyaan": "Pekerjaan yang dapat diserahkan kepada perusahaan lain harus memenuhi syarat-syarat sebagai berikut, antara lain; kecuali …",
     "opsi": {
       "A": "Dilakukan secara Bersama-sama dengan kegiatan utama",
       "B": "Dilakukan dengan perintah langsung atau tidak langsung dari pemberi pekerjaan",
@@ -6931,7 +6931,7 @@
     "id": 510,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Penyedia jasa pekerja/buruh untuk kegiatan jasa penunjang atau kegiatan yang tidak berhubungan langsung dengan proses produksi harus memenuhi syarat sebagai berikut; kecuali ”¦”¦.",
+    "pertanyaan": "Penyedia jasa pekerja/buruh untuk kegiatan jasa penunjang atau kegiatan yang tidak berhubungan langsung dengan proses produksi harus memenuhi syarat sebagai berikut; kecuali …",
     "opsi": {
       "A": "Adanya hubungan kerja antara pekerja/buruh dan perusahaan penyedia jasa pekerja/buruh;",
       "B": "Perjanjian kerja yang berlaku dalam hubungan kerja adalah perjanjian kerja waktu tertentu yang dibuat secara tertulis dan ditandatangani oleh kedua belah pihak;",
@@ -6970,7 +6970,7 @@
     "id": 513,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "PKWT dicatatkan pengusaha kepada instansi yang bertanggung jawab di bidang ketenagakerjaan setempat secara daring paling lama ”¦”¦ hari kerja sejak penandatanganan PKWT",
+    "pertanyaan": "PKWT dicatatkan pengusaha kepada instansi yang bertanggung jawab di bidang ketenagakerjaan setempat secara daring paling lama … hari kerja sejak penandatanganan PKWT",
     "opsi": {
       "A": "7 hari",
       "B": "3 hari",
@@ -6996,7 +6996,7 @@
     "id": 515,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Dalam hal perpanjangan PKWT harus dilakukan pemberitahuan kepada pekerja ”¦.",
+    "pertanyaan": "Dalam hal perpanjangan PKWT harus dilakukan pemberitahuan kepada pekerja …",
     "opsi": {
       "A": "7 hari sebelum berakhir PKWT",
       "B": "7 hari setelah berakhir PKWT",
@@ -7021,7 +7021,7 @@
     "id": 517,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Mekanisme Kerja LKS Bipartit adalah ”¦.",
+    "pertanyaan": "Mekanisme Kerja LKS Bipartit adalah …",
     "opsi": {
       "A": "Mencegah Terjadinya Permasalahan Hubungan Industrial",
       "B": "Kelangsungan hidup, pertumbuhan, dan perkembangan perusahaan termasuk kesejahteraan pekerja/buruh",
@@ -7034,7 +7034,7 @@
     "id": 518,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Kesejahteraan para pekerja/buruh Pembinaan Lembaga Kerjasama Bipartit yang dilakukan meliputi ”¦.",
+    "pertanyaan": "Kesejahteraan para pekerja/buruh Pembinaan Lembaga Kerjasama Bipartit yang dilakukan meliputi …",
     "opsi": {
       "A": "Penyuluhan",
       "B": "Demonstrasi",
@@ -7047,7 +7047,7 @@
     "id": 519,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Pimpinan perusahaan secara berkala setiap ”¦. melaporkan kepada instansi yang bertanggung jawab di bidang ketenagakerjaan kabupaten/kota",
+    "pertanyaan": "Pimpinan perusahaan secara berkala setiap … melaporkan kepada instansi yang bertanggung jawab di bidang ketenagakerjaan kabupaten/kota",
     "opsi": {
       "A": "4 (empat) bulan sekali",
       "B": "6 (enam) bulan sekali",
@@ -7203,7 +7203,7 @@
     "id": 531,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Besarnya iuran JKK bagi Peserta penerima Upah dengan tingkat risiko lingkungan kerja sangat rendah yaitu ”¦",
+    "pertanyaan": "Besarnya iuran JKK bagi Peserta penerima Upah dengan tingkat risiko lingkungan kerja sangat rendah yaitu …",
     "opsi": {
       "A": "0,54% (nol koma lima puluh empat persen) dari Upah sebulan",
       "B": "0,89% (nol koma delapan puluh sembilan persen) dari Upah sebulan",
@@ -7216,7 +7216,7 @@
     "id": 532,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Besarnya iuran JHT bagi Peserta penerima Upah yang bekerja pada Pemberi Kerja selain penyelenggara negara yang ditanggung oleh Pekerja yaitu ”¦",
+    "pertanyaan": "Besarnya iuran JHT bagi Peserta penerima Upah yang bekerja pada Pemberi Kerja selain penyelenggara negara yang ditanggung oleh Pekerja yaitu …",
     "opsi": {
       "A": "2% (dua persen) dari upah",
       "B": "1% (satu persen) dari upah",
@@ -7229,7 +7229,7 @@
     "id": 533,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Besarnya iuran JP bagi Peserta penerima Upah yang bekerja pada Pemberi Kerja selain penyelenggara negara yang ditanggung oleh Pekerja yaitu ”¦",
+    "pertanyaan": "Besarnya iuran JP bagi Peserta penerima Upah yang bekerja pada Pemberi Kerja selain penyelenggara negara yang ditanggung oleh Pekerja yaitu …",
     "opsi": {
       "A": "2% (dua persen) dari upah",
       "B": "3% (tiga persen) dari upah",
@@ -7268,7 +7268,7 @@
     "id": 536,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Perjanjian Versailes tahun 1919, terdapat 3 tujuan khusus untuk promosi kesetaraan bagi pekerja, yaitu”¦ kecuali ”¦.",
+    "pertanyaan": "Perjanjian Versailes tahun 1919, terdapat 3 tujuan khusus untuk promosi kesetaraan bagi pekerja, yaitu… kecuali …",
     "opsi": {
       "A": "Perempuan dan laki-laki wajib menerima upah yang setara untuk pekerjaan yang sama nilainya.",
       "B": "Masing-masing negara supaya mengatur dalam peraturannya sesuai dengan kondisi",
@@ -7281,7 +7281,7 @@
     "id": 537,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Tanggungjawab keluarga serta kesetaraan dalam pendidikan Yang bukan merupakan alasan mendasar terjadinya diskriminasi di tempat kerja yaitu ”¦",
+    "pertanyaan": "Tanggungjawab keluarga serta kesetaraan dalam pendidikan Yang bukan merupakan alasan mendasar terjadinya diskriminasi di tempat kerja yaitu …",
     "opsi": {
       "A": "Suku dan ras",
       "B": "Jenis kelamin",
@@ -7294,7 +7294,7 @@
     "id": 538,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Yang merupakan dampak dari perlakuan diskriminasi di tempat kerja antara lain ”¦",
+    "pertanyaan": "Yang merupakan dampak dari perlakuan diskriminasi di tempat kerja antara lain …",
     "opsi": {
       "A": "Peningkatan produktivitas kerja karyawan",
       "B": "Semangat kerja yang tinggi dalam mengerjakan aktivitasnya",
@@ -7307,7 +7307,7 @@
     "id": 539,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Equal Employment Opportunity (EEO) meliputi ”¦.",
+    "pertanyaan": "Equal Employment Opportunity (EEO) meliputi …",
     "opsi": {
       "A": "Instrumen untuk mencapai disefisiensi",
       "B": "Perlakuan yang adil",
@@ -7359,7 +7359,7 @@
     "id": 543,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Pengusaha dapat melakukan penutupan perusahaan tanpa pemberitahuan terlebih dahulu apabila ”¦.",
+    "pertanyaan": "Pengusaha dapat melakukan penutupan perusahaan tanpa pemberitahuan terlebih dahulu apabila …",
     "opsi": {
       "A": "Pekerja/buruh melaksanakan ketentuan normatif yang telah ditentukan dalam perjanjian kerja (PK)",
       "B": "Pekerja/buruh melaksanakan ketentuan normatif yang telah ditentukan dalam peraturan perusahaan",
@@ -7372,7 +7372,7 @@
     "id": 544,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Mogok kerja tidak sah apabila dilakukan ”¦.",
+    "pertanyaan": "Mogok kerja tidak sah apabila dilakukan …",
     "opsi": {
       "A": "Sebagai akibat gagalnya perundingan",
       "B": "Tanpa pemberitahuan kepada pengusaha dan instansi yang bertanggung jawab di bidang ketenagakerjaan",
@@ -7385,7 +7385,7 @@
     "id": 545,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Kerja; dan tanda tangan ketua dan sekretaris SP/SB sebagai penanggung jawab mogok kerja Yang disebut gagalnya perundingan adalah tidak tercapainya kesepakatan penyelesaian perselisihan hubungan industrial yang dapat disebabkan Pengusaha tidak bersedia melakukan perundingan walaupun serikat pekerja/serikat buruh atau pekerja/buruh telah meminta secara tertulis kepada pengusaha 2 kali dalam tenggang waktu ”¦.",
+    "pertanyaan": "Kerja; dan tanda tangan ketua dan sekretaris SP/SB sebagai penanggung jawab mogok kerja Yang disebut gagalnya perundingan adalah tidak tercapainya kesepakatan penyelesaian perselisihan hubungan industrial yang dapat disebabkan Pengusaha tidak bersedia melakukan perundingan walaupun serikat pekerja/serikat buruh atau pekerja/buruh telah meminta secara tertulis kepada pengusaha 2 kali dalam tenggang waktu …",
     "opsi": {
       "A": "14 hari kerja",
       "B": "13 hari kerja",
@@ -7398,7 +7398,7 @@
     "id": 546,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Pengusaha tidak dibenarkan melakukan penutupan perusahaan (lock out) karena hal-hal sebagai berikut ”¦.",
+    "pertanyaan": "Pengusaha tidak dibenarkan melakukan penutupan perusahaan (lock out) karena hal-hal sebagai berikut …",
     "opsi": {
       "A": "Akibat gagalnya perundingan",
       "B": "Tindakan balasan sehubungan adanya tuntutan normatif dari pekerja/buruh dan/atau serikat pekerja/serikat buruh",
@@ -7424,7 +7424,7 @@
     "id": 548,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Perusahaan-perusahaan, pengusahaÂ- pengusaha dan asosiasi perusahaan sejenis misalnya; Asosiasi Pertextilan Indonesia (API), Indonesia Tobacco Association (ITA), Asosiasi Kontraktor Listrik Indonesia (AKU) dan sebagainya. Ini adalah Keanggotaan Organisasi Pengusaha yang disebut ”¦.",
+    "pertanyaan": "Perusahaan-perusahaan, pengusahaÂ- pengusaha dan asosiasi perusahaan sejenis misalnya; Asosiasi Pertextilan Indonesia (API), Indonesia Tobacco Association (ITA), Asosiasi Kontraktor Listrik Indonesia (AKU) dan sebagainya. Ini adalah Keanggotaan Organisasi Pengusaha yang disebut …",
     "opsi": {
       "A": "Anggota biasa",
       "B": "Anggota luar biasa",
@@ -7450,7 +7450,7 @@
     "id": 550,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Jumlah seluruh anggota dalam susunan keanggotaan LKS Tripartit Nasional sebanyakbanyaknya ”¦”¦”¦”¦. orang yang penetapannya dilakukan dengan memperhatikan komposisi keterwakilan unsur Pemerintah, organisasi pengusaha, dan serikat pekerja/serikat buruh. (pasal 6 Peraturan Pemerintah Nomor 8 Tahun 2005 Tentang Tata Kerja Dan Susunan Organisasi Lembaga Kerja Sama Tripartit)",
+    "pertanyaan": "Jumlah seluruh anggota dalam susunan keanggotaan LKS Tripartit Nasional sebanyakbanyaknya … orang yang penetapannya dilakukan dengan memperhatikan komposisi keterwakilan unsur Pemerintah, organisasi pengusaha, dan serikat pekerja/serikat buruh. (pasal 6 Peraturan Pemerintah Nomor 8 Tahun 2005 Tentang Tata Kerja Dan Susunan Organisasi Lembaga Kerja Sama Tripartit)",
     "opsi": {
       "A": "24",
       "B": "20",
@@ -7476,7 +7476,7 @@
     "id": 552,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Anggota Kehormatan mempunyai mempunyai hak sebagai berikut kecuali”¦",
+    "pertanyaan": "Anggota Kehormatan mempunyai mempunyai hak sebagai berikut kecuali…",
     "opsi": {
       "A": "Hak berbicara",
       "B": "Mengajukan saran atau pendapat baik lisan maupun tertulis demi kemajuan organisasi",
@@ -7502,7 +7502,7 @@
     "id": 554,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Sebagai wadah/forum komunikasi pengusaha untuk saling bertukar pikiran guna menyusun langkah dan tindakan dalam mengatasi masalah hubungan industrial untuk kepentingan”¦”¦.",
+    "pertanyaan": "Sebagai wadah/forum komunikasi pengusaha untuk saling bertukar pikiran guna menyusun langkah dan tindakan dalam mengatasi masalah hubungan industrial untuk kepentingan…",
     "opsi": {
       "A": "Pengusaha",
       "B": "Pemerintah",
@@ -7723,7 +7723,7 @@
     "id": 571,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Berapa lama Masa berlaku PKB baru (PKB yang dibuat pertama kali) ”¦.",
+    "pertanyaan": "Berapa lama Masa berlaku PKB baru (PKB yang dibuat pertama kali) …",
     "opsi": {
       "A": "2 tahun",
       "B": "3 tahun",
@@ -7736,7 +7736,7 @@
     "id": 572,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Dalam hal di perusahaan terdapat lebih dari 1 (satu) serikat pekerja/serikat buruh, maka serikat pekerja/serikat buruh yang berhak mewakili pekerja/buruh dalam melakukan perundingan dengan pengusaha adalah maksimal ”¦”¦ serikat pekerja/serikat buruh yang masing-masing anggotanya minimal 10% (sepuluh perseratus) dari jumlah seluruh pekerja/buruh di perusahaan. Untuk mengisi yang titik-titik Pada kalimat diatas adalah",
+    "pertanyaan": "Dalam hal di perusahaan terdapat lebih dari 1 (satu) serikat pekerja/serikat buruh, maka serikat pekerja/serikat buruh yang berhak mewakili pekerja/buruh dalam melakukan perundingan dengan pengusaha adalah maksimal … serikat pekerja/serikat buruh yang masing-masing anggotanya minimal 10% (sepuluh perseratus) dari jumlah seluruh pekerja/buruh di perusahaan. Untuk mengisi yang titik-titik Pada kalimat diatas adalah",
     "opsi": {
       "A": "1",
       "B": "2",
@@ -7762,7 +7762,7 @@
     "id": 574,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Dalam pembuatan PKB ada verifikasi SP/SB. Jangka waktu verifikasi keanggotaan serikat pekerja/serikat buruh paling lama dilaksanakan ”¦.",
+    "pertanyaan": "Dalam pembuatan PKB ada verifikasi SP/SB. Jangka waktu verifikasi keanggotaan serikat pekerja/serikat buruh paling lama dilaksanakan …",
     "opsi": {
       "A": "7 (tujuh) hari kerja sejak permintaan verifikasi dari pengusaha.",
       "B": "14 (empat belas hari) hari kerja sejak permintaan verifikasi dari pengusaha.",
@@ -7775,7 +7775,7 @@
     "id": 575,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Pihak pengusaha dan pihak serikat pekerja/serikat buruh menunjuk tim perunding sesuai kebutuhan dengan ketentuan masing-masing paling banyak ”¦”¦”¦”¦ orang dengan kuasa penuh.",
+    "pertanyaan": "Pihak pengusaha dan pihak serikat pekerja/serikat buruh menunjuk tim perunding sesuai kebutuhan dengan ketentuan masing-masing paling banyak … orang dengan kuasa penuh.",
     "opsi": {
       "A": "10 orang",
       "B": "9 orang",
@@ -7788,7 +7788,7 @@
     "id": 576,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Dalam hal perundingan pembuatan PKB tidak selesai dalam waktu yang disepakati dalam tata tertib, maka kedua belah pihak dapat menjadwal kembali perundingan dengan waktu paling lama ”¦”¦”¦. hari setelah perundingan gagal.",
+    "pertanyaan": "Dalam hal perundingan pembuatan PKB tidak selesai dalam waktu yang disepakati dalam tata tertib, maka kedua belah pihak dapat menjadwal kembali perundingan dengan waktu paling lama … hari setelah perundingan gagal.",
     "opsi": {
       "A": "30 (tiga puluh)",
       "B": "14 (empa belas)",
@@ -7801,7 +7801,7 @@
     "id": 577,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "PKB dapat diperpanjang ”¦”¦",
+    "pertanyaan": "PKB dapat diperpanjang …",
     "opsi": {
       "A": "1 (satu) kali paling lama 1 (satu) tahun dengan kesepakatan para pihak",
       "B": "1 (satu) kali paling lama 2 (dua) tahun dengan kesepakatan para pihak",
@@ -7892,7 +7892,7 @@
     "id": 584,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Permintaan perundingan secara bipartit sekurang-kurangnya memuat hal-hal sebagai berikut ”¦",
+    "pertanyaan": "Permintaan perundingan secara bipartit sekurang-kurangnya memuat hal-hal sebagai berikut …",
     "opsi": {
       "A": "Hari",
       "B": "Tempat",
@@ -7905,7 +7905,7 @@
     "id": 585,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Sesuai dengan Undang-undang Nomor 2 Tahun 2004 tentang Penyelesaian Perselisihan Hubungan Industrial terdapat ”¦ jenis perselisihan",
+    "pertanyaan": "Sesuai dengan Undang-undang Nomor 2 Tahun 2004 tentang Penyelesaian Perselisihan Hubungan Industrial terdapat … jenis perselisihan",
     "opsi": {
       "A": "1",
       "B": "2",
@@ -7918,7 +7918,7 @@
     "id": 586,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Bertanggung jawab guna memperjuangkan, membela serta melindungi hak dan kepentingan pekerja/buruh serta meningkatkan kesejahteraan pekerja/buruh dan keluarganya Konfederasi Serikat Pekerja/Serikat Buruh adalah ”¦”¦”¦.",
+    "pertanyaan": "Bertanggung jawab guna memperjuangkan, membela serta melindungi hak dan kepentingan pekerja/buruh serta meningkatkan kesejahteraan pekerja/buruh dan keluarganya Konfederasi Serikat Pekerja/Serikat Buruh adalah …",
     "opsi": {
       "A": "Gabungan serikat pekerja/serikat buruh",
       "B": "Gabungan federasi serikat pekerja/serikat buruh",
@@ -7931,7 +7931,7 @@
     "id": 587,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Salah satu sifat Serikat Pekerja/Serikat Buruh adalah, kecuali ”¦”¦”¦.",
+    "pertanyaan": "Salah satu sifat Serikat Pekerja/Serikat Buruh adalah, kecuali …",
     "opsi": {
       "A": "Bebas, terbuka, mandiri, demokratis, dan bertanggungjawab",
       "B": "Bebas, terbuka, jujur, demokratis dan bertanggungjawab",
@@ -7944,7 +7944,7 @@
     "id": 588,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Tujuan adanya Serikat Pekerja/Serikat Buruh adalah ”¦”¦”¦”¦",
+    "pertanyaan": "Tujuan adanya Serikat Pekerja/Serikat Buruh adalah …",
     "opsi": {
       "A": "Meningkatkan kapasitas kemampuan pekerja agar dapat memperjuangkan kesejahteraan pekerja",
       "B": "Meningkatkan kesejahteraan anggota serikat pekerja/serikat buruh",
@@ -7957,7 +7957,7 @@
     "id": 589,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Fungsi dari Serikat Pekerja/Serikat Buruh adalah, kecuali ”¦”¦”¦.",
+    "pertanyaan": "Fungsi dari Serikat Pekerja/Serikat Buruh adalah, kecuali …",
     "opsi": {
       "A": "Sebagai pihak dalam pembuatan perjanjian kerja Bersama dan penyelesaian perselisihan industrial",
       "B": "Sebagai wakil pekerja/buruh dalam Lembaga kerja sama di bidang ketenagakerjaan sesuai dengan tingkatannya",
@@ -7970,7 +7970,7 @@
     "id": 590,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Serikat Pekerja/Serikat Buruh dibentuk sekurang-kurangnya ”¦”¦”¦. orang pekerja/buruh.",
+    "pertanyaan": "Serikat Pekerja/Serikat Buruh dibentuk sekurang-kurangnya … orang pekerja/buruh.",
     "opsi": {
       "A": "10",
       "B": "25",
@@ -7983,7 +7983,7 @@
     "id": 591,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Federasi Serikat Pekerja/Serikat Buruh dibentuk sekurang-kurangnya ”¦”¦”¦.",
+    "pertanyaan": "Federasi Serikat Pekerja/Serikat Buruh dibentuk sekurang-kurangnya …",
     "opsi": {
       "A": "5 konfederasi serikat pekerja/serikat buruh",
       "B": "50 konfederasi serikat pekerja/serikat buruh",
@@ -7996,7 +7996,7 @@
     "id": 592,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Nama dan lambang; dasar negara, asas dan tujuan; tanggal pendirian; tempat kedudukan; keanggotaan dan kepengurusan; sumber dan pertanggungjawaban keuangan; dan ketentuan perubahan; sekurang-kurangnya tercantum dalam ”¦”¦”¦”¦ Serikat Pekerja/Serikat Buruh.",
+    "pertanyaan": "Nama dan lambang; dasar negara, asas dan tujuan; tanggal pendirian; tempat kedudukan; keanggotaan dan kepengurusan; sumber dan pertanggungjawaban keuangan; dan ketentuan perubahan; sekurang-kurangnya tercantum dalam … Serikat Pekerja/Serikat Buruh.",
     "opsi": {
       "A": "Anggaran perusahaan",
       "B": "Anggaran dasar",
@@ -8009,7 +8009,7 @@
     "id": 593,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Serikat Pekerja/Serikat Buruh yang telah terbentuk harus memberitahukan secara tertulis kepada ”¦”¦”¦.",
+    "pertanyaan": "Serikat Pekerja/Serikat Buruh yang telah terbentuk harus memberitahukan secara tertulis kepada …",
     "opsi": {
       "A": "Instansi pemerintah yang bertanggungjawab di bidang serikat pekerja",
       "B": "Instansi pemerintah yang bertanggungjawab di bidang ketenagakerjaan",
@@ -8022,7 +8022,7 @@
     "id": 594,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Instansi pemerintah wajib mencatat dan memberikan nomor bukti pencatatan terhadap serikat pekerja/serikat buruh yang telah sesuai dengan ketentuan selambat-lambatnya ”¦”¦ hari kerja terhitung sejak tanggal diterimanya pemberitahuan.",
+    "pertanyaan": "Instansi pemerintah wajib mencatat dan memberikan nomor bukti pencatatan terhadap serikat pekerja/serikat buruh yang telah sesuai dengan ketentuan selambat-lambatnya … hari kerja terhitung sejak tanggal diterimanya pemberitahuan.",
     "opsi": {
       "A": "14",
       "B": "15",
@@ -8035,7 +8035,7 @@
     "id": 595,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Salah satu hak serikat pekerja/serikat buruh yang telah memiliki nomor bukti pencatatan adalah ”¦.",
+    "pertanyaan": "Salah satu hak serikat pekerja/serikat buruh yang telah memiliki nomor bukti pencatatan adalah …",
     "opsi": {
       "A": "Mewakili sebagian pekerja/buruh dalam menyelesaikan perselisihan hubungan industrial",
       "B": "Membentuk Lembaga atau melakukan kegiatan yang berkaitan dengan usaha peningkatan kesejahteraan pekerja/buruh",
@@ -8048,7 +8048,7 @@
     "id": 596,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Salah satu kewajiban serikat pekerja/serikat buruh yang telah memiliki nomor bukti pencatatan adalah ”¦”¦.",
+    "pertanyaan": "Salah satu kewajiban serikat pekerja/serikat buruh yang telah memiliki nomor bukti pencatatan adalah …",
     "opsi": {
       "A": "Melindungi dan membela pekerja dan pengusaha dari pelanggaran hak-hak",
       "B": "Mempertanggungjawabkan kegiatan organisasi kepada seluruh pekerja/buruh di perusahaan dan pengusaha sesuai dengan anggaran dasar dan anggaran rumah tangga",
@@ -8061,7 +8061,7 @@
     "id": 597,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Siapapun dilarang menghalang-halangi atau memaksa pekerja/buruh untuk membentuk, menjadi pengurus atau tidak menjadi pengurus, menjadi anggota atau tidak menjadi anggota dan/atau menjalankan atau tidak menjalankan kegiatan serikat pekerja/serikat buruh, dengan cara”¦. Kecuali: ”¦”¦”¦.",
+    "pertanyaan": "Siapapun dilarang menghalang-halangi atau memaksa pekerja/buruh untuk membentuk, menjadi pengurus atau tidak menjadi pengurus, menjadi anggota atau tidak menjadi anggota dan/atau menjalankan atau tidak menjalankan kegiatan serikat pekerja/serikat buruh, dengan cara… Kecuali: …",
     "opsi": {
       "A": "Melakukan kampanye anti pembentukan serikat pekerja/serikat buruh",
       "B": "Tidak melakukan intimidasi dalam bentuk apapun terhadap pekerja/buruh",
