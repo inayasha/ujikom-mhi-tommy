@@ -4658,7 +4658,7 @@
     "pertanyaan": "Instansi yang berwenang mengesahkan peraturan perusahaan untuk perusahaan yang terdapat di lebih dari satu propinsi adalah …",
     "opsi": {
       "A": "Direktur Jenderal Pembinaan Hubungan Industrial",
-      "B": "Kepala SKPD bidang ketenagakerjaan provinsi,",
+      "B": "Kepala SKPD bidang ketenagakerjaan provinsi",
       "C": "Kepala SKPD bidang ketenagakerjaan kabupaten/kota",
       "D": "Menteri Ketenagakerjaan"
     },
@@ -6088,8 +6088,10 @@
     "id": 445,
     "jenjang": "madya",
     "paket": "teknis_1",
-    "pertanyaan": "Memasuki usia pensiun, mengalami kecelakaan kerja atau meninggal dunia.",
+    "pertanyaan": "Manakah pernyataan yang tepat mengenai pengertian program Jaminan Hari Tua (JHT), yaitu program yang bertujuan menjamin agar peserta menerima uang tunai apabila memasuki usia pensiun, mengalami kecelakaan kerja atau meninggal dunia?",
     "opsi": {
+      "A": "Program yang memberikan perlindungan atas risiko kecelakaan kerja atau penyakit akibat kerja yang terjadi dalam hubungan kerja, termasuk perjalanan dari rumah menuju tempat kerja dan sebaliknya.",
+      "B": "Program yang bertujuan mempertahankan derajat kehidupan yang layak dengan memberikan penghasilan berkala setelah peserta memasuki usia pensiun atau mengalami cacat total tetap.",
       "C": "Program yang bertujuan untuk memberikan santunan yang dibayarkan kepada ahli waris peserta yang meninggal dunia bukan akibat kecelakaan kerja.",
       "D": "Program tabungan wajib dengan tujuan menjamin peserta menerima uang tunai apabila memasuki masa pensiun, mengalami cacat total tetap atau meninggal dunia."
     },
@@ -7257,10 +7259,10 @@
     "paket": "teknis_1",
     "pertanyaan": "Pekerja/buruh. Hasil identifikasi tersebut dilaporkan ke propinsi",
     "opsi": {
-      "C": "Memebrikan motivasi gairah kerja, disiplin dan produktifitas bagi pekerja",
-      "D": "A, b, c benar",
       "A": "Untuk meningkatlkan kesetiaan dan ketertarikan pekerja kepada perusahaan",
-      "B": "Memberikan keterangandan pemenuhan kebutuhan bagi pekerja beserta keluarganya"
+      "B": "Memberikan keterangandan pemenuhan kebutuhan bagi pekerja beserta keluarganya",
+      "C": "Memebrikan motivasi gairah kerja, disiplin dan produktifitas bagi pekerja",
+      "D": "A, b, c benar"
     },
     "kunci_jawaban": "D"
   },
@@ -8076,10 +8078,10 @@
     "paket": "teknis_1",
     "pertanyaan": "Seluruh kewajiban pengusaha terhadap pekerja/buruh diselesaikan menurut perundang-undangan yang berlaku",
     "opsi": {
-      "C": "Bahwa sebagai organisasi dalam mendirikan, menjalankan dan mengembangkan organisasinya ditentukan oleh kekuatan sendiri tidak dikendalikan oleh pihak lain di luar organisasi",
-      "D": "Bahwa sebagai organisasi dalam mencapai tujuan dan melaksanakan hak dan kewajibannya bertanggungjawab kepada anggota, masyarakat dan negara.",
       "A": "Bahwa sebagai organisasi dalam melaksanakan hak dan kewajibannya, serikat pekerja tidak di bawah pengaruh dan tekanan dari pihak lain",
-      "B": "Bahwa sebagai organisasi dalam menerima anggotanya harus memperjuangkan kepentingan pekerja/buruh"
+      "B": "Bahwa sebagai organisasi dalam menerima anggotanya harus memperjuangkan kepentingan pekerja/buruh",
+      "C": "Bahwa sebagai organisasi dalam mendirikan, menjalankan dan mengembangkan organisasinya ditentukan oleh kekuatan sendiri tidak dikendalikan oleh pihak lain di luar organisasi",
+      "D": "Bahwa sebagai organisasi dalam mencapai tujuan dan melaksanakan hak dan kewajibannya bertanggungjawab kepada anggota, masyarakat dan negara."
     },
     "kunci_jawaban": "A"
   },
@@ -8606,11 +8608,11 @@
     "paket": "teknis_1",
     "pertanyaan": "Bertanggung jawab di bidang ketenagakerjaan",
     "opsi": {
-      "E": "Dilakukan perundingan bipartit",
       "A": "Wajib di mohonkan izin PHK ke Pengadilan Hubungan Industrial melalui gugatan",
       "B": "Wajib diberitahukan dalam bentuk surat pemberitahuan disampaikan secara sah dan patut kepada pekerja atau serikat pekerja paling lama 14 hari kerja sebelum PHK",
       "C": "Wahib diberitahukan dalam bentuk surat pemberitahuan disampaikan secara patut kepada pekerja atau seikat pekerja paling cepat 14 hari kerja sebelum PHK",
-      "D": "Wajib diberitahukan dalam bentuk surat pemberitahuan dan disampaikan secara sah dan patut kepada pekerja paling lama 7 hari kerja sebelum PHK"
+      "D": "Wajib diberitahukan dalam bentuk surat pemberitahuan dan disampaikan secara sah dan patut kepada pekerja paling lama 7 hari kerja sebelum PHK",
+      "E": "Dilakukan perundingan bipartit"
     },
     "kunci_jawaban": "B"
   },
@@ -8868,10 +8870,12 @@
     "paket": "teknis_1",
     "pertanyaan": "Yang termasuk manfaat jaminan sosial bagi pekerja migran Indonesia selama bekerja, yaitu:",
     "opsi": {
-      "A": "biaya perawatan dan pengobatan akibat Kecelakaan Kerja di negara tujuan penempatan sesuai kebutuhan medis, paling lama 1 (satu) tahun.",
-      "B": "bantuan biaya perawatan dan pengobatan akibat Kecelakaan Kerja di negara penempatan sesuai dengan biaya yang dikeluarkan maksimal sebesar Rp50.000.000,00 (lima"
+      "A": "biaya perawatan dan pengobatan akibat Kecelakaan Kerja di negara tujuan penempatan sesuai kebutuhan medis.",
+      "B": "bantuan biaya perawatan dan pengobatan akibat Kecelakaan Kerja di negara penempatan sesuai dengan biaya yang dikeluarkan maksimal sebesar Rp50.000.000,00 (lima puluh juta rupiah).",
+      "C": "santunan berupa uang akibat cacat total tetap atau meninggal dunia karena kecelakaan kerja di negara tujuan penempatan.",
+      "D": "jawaban a, b, dan c benar."
     },
-    "kunci_jawaban": "B"
+    "kunci_jawaban": "D"
   },
   {
     "id": 658,
