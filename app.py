@@ -136,11 +136,9 @@ h2 { font-size: clamp(1.3rem, 4vw, 1.9rem) !important; }
     margin-top: 0.2rem !important;
     flex-shrink: 0 !important;
 }
-/* Teks opsi: hanging indent — baris ke-2 dst sejajar teks setelah "A." */
+/* Teks opsi: line-height nyaman, tanpa indentasi paksa */
 .stRadio > div > label > div:last-child p {
     line-height: 1.55 !important;
-    padding-left: 1.4em !important;
-    text-indent: -1.4em !important;
 }
 
 /* ── Caption — lebih besar sedikit ── */
@@ -466,7 +464,7 @@ with tab_beranda:
     st.divider()
     st.markdown(f"""
 **Panduan:**
-- **Latihan PG** — soal per soal, filter kategori, ⭐ bookmark, cek jawaban
+- **Latihan PG** — soal per soal, filter kategori, ☆ bookmark, cek jawaban
 - **Latihan Essay** — tulis jawaban, ☆ bookmark, lalu tampilkan referensi
 - **Simulasi** — pilih jumlah soal & durasi, timer otomatis, konfirmasi sebelum kumpul
 - Ambang batas lulus: **{int(st.session_state.passing_score)}%**
