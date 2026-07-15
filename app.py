@@ -258,6 +258,7 @@ def init_state():
         'latihan_essay_shown': {},
         # Bookmark
         'bookmarks': set(),
+        'bookmarks_essay': set(),
     }
     for k, v in defaults.items():
         if k not in st.session_state:
@@ -367,7 +368,7 @@ with st.sidebar:
         vertical=True,
     ), unsafe_allow_html=True)
 
-    bm_count = len(st.session_state.bookmarks)
+    bm_count = len(st.session_state.bookmarks) + len(st.session_state.bookmarks_essay)
     if bm_count:
         st.markdown(f'<div style="text-align:center;font-size:0.88rem;opacity:.6;'
                     f'margin-top:0.5rem">🔖 {bm_count} soal bookmark</div>',
@@ -419,7 +420,7 @@ with tab_beranda:
     st.markdown(f"""
 **Panduan:**
 - **Latihan PG** — soal per soal, filter kategori, ⭐ bookmark, cek jawaban
-- **Latihan Essay** — tulis jawaban lalu tampilkan referensi
+- **Latihan Essay** — tulis jawaban, ☆ bookmark, lalu tampilkan referensi
 - **Simulasi** — pilih jumlah soal & durasi, timer otomatis, konfirmasi sebelum kumpul
 - Ambang batas lulus: **{int(st.session_state.passing_score)}%**
     """)
@@ -589,8 +590,21 @@ with tab_essay:
 
     st.markdown(prog_html((idx_e+1)/tot_e, f"Soal {idx_e+1} dari {tot_e}"),
                 unsafe_allow_html=True)
-    st.markdown(f'<div class="q-card"><strong>{qe["pertanyaan"]}</strong></div>',
-                unsafe_allow_html=True)
+
+    # Bookmark essay
+    bm_id_e = qe['id']
+    is_bm_e = bm_id_e in st.session_state.bookmarks_essay
+    c_qe, c_bme = st.columns([11, 1])
+    with c_bme:
+        if st.button("⭐" if is_bm_e else "☆", key=f"bm_essay_{idx_e}_{bm_id_e}", help="Bookmark"):
+            if is_bm_e:
+                st.session_state.bookmarks_essay.discard(bm_id_e)
+            else:
+                st.session_state.bookmarks_essay.add(bm_id_e)
+            st.rerun()
+    with c_qe:
+        st.markdown(f'<div class="q-card"><strong>{qe["pertanyaan"]}</strong></div>',
+                    unsafe_allow_html=True)
 
     st.text_area("Jawaban Anda:", height=130, key=f"essay_in_{idx_e}",
                  label_visibility="collapsed",
@@ -938,28 +952,60 @@ with tab_simulasi:
 with tab_bm:
     st.markdown("## 🔖 Soal Bookmark")
 
-    bm_ids = st.session_state.bookmarks
-    if not bm_ids:
-        st.info("Belum ada soal yang di-bookmark.\nKlik ☆ pada soal di Tab Latihan PG.")
+    bm_ids   = st.session_state.bookmarks
+    bm_ids_e = st.session_state.bookmarks_essay
+
+    if not bm_ids and not bm_ids_e:
+        st.info("Belum ada soal yang di-bookmark.\n\n"
+                "Klik ☆ pada soal di Tab **Latihan PG** atau Tab **Essay**.")
     else:
-        bm_soal = [q for q in soal_pg if q['id'] in bm_ids]
-        st.caption(f"{len(bm_soal)} soal di-bookmark")
+        total_bm = len(bm_ids) + len(bm_ids_e)
+        c_info, c_clear = st.columns([3, 1])
+        with c_info:
+            st.caption(f"{total_bm} soal di-bookmark "
+                       f"({len(bm_ids)} PG, {len(bm_ids_e)} Essay)")
+        with c_clear:
+            if st.button("🗑️ Hapus Semua", key="bm_clear_all", use_container_width=True):
+                st.session_state.bookmarks       = set()
+                st.session_state.bookmarks_essay = set()
+                st.rerun()
 
-        if st.button("🗑️ Hapus Semua", key="bm_clear_all"):
-            st.session_state.bookmarks = set()
-            st.rerun()
+        # ── Bagian PG ──────────────────────────────────────────────
+        if bm_ids:
+            st.markdown("### 📝 Pilihan Ganda")
+            bm_soal = [q for q in soal_pg if q['id'] in bm_ids]
+            for q in bm_soal:
+                kat_label = q.get('kategori', 'Umum')
+                with st.expander(f"[{kat_label}] {q['pertanyaan'][:75]}..."):
+                    for k, v in q['opsi'].items():
+                        if k == q['kunci_jawaban']:
+                            st.markdown(f'<div class="opsi-item opsi-benar">✔️ {k}. {v}</div>',
+                                        unsafe_allow_html=True)
+                        else:
+                            st.markdown(f'<div class="opsi-item">{k}. {v}</div>',
+                                        unsafe_allow_html=True)
+                    st.caption(f"Kunci: **{q['kunci_jawaban']}**")
+                    if st.button("🗑️ Hapus Bookmark", key=f"bm_del_{q['id']}"):
+                        st.session_state.bookmarks.discard(q['id'])
+                        st.rerun()
 
-        for q in bm_soal:
-            kat_label = q.get('kategori', 'Umum')
-            with st.expander(f"[{kat_label}] {q['pertanyaan'][:75]}..."):
-                for k, v in q['opsi'].items():
-                    if k == q['kunci_jawaban']:
-                        st.markdown(f'<div class="opsi-item opsi-benar">✔️ {k}. {v}</div>',
-                                    unsafe_allow_html=True)
-                    else:
-                        st.markdown(f'<div class="opsi-item">{k}. {v}</div>',
-                                    unsafe_allow_html=True)
-                st.caption(f"Kunci: **{q['kunci_jawaban']}**")
-                if st.button("🗑️ Hapus Bookmark", key=f"bm_del_{q['id']}"):
-                    st.session_state.bookmarks.discard(q['id'])
-                    st.rerun()
+        # ── Bagian Essay ───────────────────────────────────────────
+        if bm_ids_e:
+            st.markdown("### ✏️ Essay")
+            bm_essay = [q for q in soal_essay if q['id'] in bm_ids_e]
+            for q in bm_essay:
+                kat_label = q.get('paket', 'Umum')
+                with st.expander(f"[{kat_label}] {q['pertanyaan'][:75]}..."):
+                    jawaban_md = format_jawaban(q['referensi_jawaban'])
+                    st.markdown(
+                        f'''<div style="background:rgba(59,130,246,0.07);border-left:4px solid #3b82f6;
+                        border-radius:0 10px 10px 0;padding:1.15rem 1.35rem;margin:0.3rem 0 0.6rem">
+                        <div style="font-weight:600;color:#3b82f6;margin-bottom:0.55rem;font-size:1.1rem">
+                        📖 Referensi Jawaban:</div>
+                        <div style="line-height:1.75;white-space:pre-line;font-size:1.08rem">{jawaban_md}</div>
+                        </div>''',
+                        unsafe_allow_html=True
+                    )
+                    if st.button("🗑️ Hapus Bookmark", key=f"bm_del_essay_{q['id']}"):
+                        st.session_state.bookmarks_essay.discard(q['id'])
+                        st.rerun()
