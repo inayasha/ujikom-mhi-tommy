@@ -123,27 +123,24 @@ h2 { font-size: clamp(1.3rem, 4vw, 1.9rem) !important; }
     font-size: clamp(1rem, 2.6vw, 1.15rem) !important;
 }
 
-/* ── Radio pilihan ganda: align atas + hanging indent + jarak lega ── */
+/* ── Radio pilihan ganda: bulatan align ke atas + jarak lega ── */
 .stRadio > div {
-    gap: 0.55rem !important;             /* jarak antar opsi */
+    gap: 0.6rem !important;                /* jarak antar opsi */
 }
 .stRadio > div > label {
-    align-items: flex-start !important;   /* bulatan sejajar baris pertama teks */
-    padding: 0.15rem 0 !important;
+    align-items: flex-start !important;    /* bulatan sejajar baris pertama teks */
+    padding: 0.2rem 0 !important;
 }
-/* Bulatan radio tidak ikut mengecil & tetap di atas */
+/* Bulatan radio tetap di atas, tidak mengecil */
 .stRadio > div > label > div:first-child {
-    margin-top: 0.15rem !important;
+    margin-top: 0.2rem !important;
     flex-shrink: 0 !important;
 }
-/* Teks opsi: baris ke-2 dst menjorok sejajar huruf pertama (hanging indent) */
+/* Teks opsi: hanging indent — baris ke-2 dst sejajar teks setelah "A." */
 .stRadio > div > label > div:last-child p {
-    line-height: 1.5 !important;
+    line-height: 1.55 !important;
     padding-left: 1.4em !important;
     text-indent: -1.4em !important;
-}
-.stRadio > div > label > div:last-child {
-    padding-left: 0.15rem !important;
 }
 
 /* ── Caption — lebih besar sedikit ── */
