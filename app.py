@@ -300,6 +300,29 @@ def konfetti_js():
     draw();})();</script>"""
 
 # ══════════════════════════════════════════════════════════════════
+def format_jawaban(teks: str) -> str:
+    """Ubah teks jawaban menjadi markdown rapi dengan list yang terbaca."""
+    import re as _re
+    t = teks
+    # Ejaan
+    t = _re.sub(r'\bsocial\b',     'sosial',     t, flags=_re.IGNORECASE)
+    t = _re.sub(r'\bpublic\b',     'publik',     t, flags=_re.IGNORECASE)
+    t = _re.sub(r'\bdepensasi\b',  'dispensasi', t, flags=_re.IGNORECASE)
+    t = _re.sub(r'\bbipatride?\b', 'bipartit',   t, flags=_re.IGNORECASE)
+    # Sisipkan newline sebelum nomor list (1. 2. dst) di tengah paragraf
+    t = _re.sub(r' ([1-9][0-9]?\. [A-Z])', r'\n\1', t)
+    # Sisipkan newline sebelum sub-poin huruf (a. b. c.)
+    t = _re.sub(r' ([a-e]\. [A-Z\"\(])', r'\n\1', t)
+    # Sisipkan newline sebelum bullet "- " di tengah kalimat
+    t = _re.sub(r' (- [A-Z])', r'\n\1', t)
+    # Ganti bullet "o " menjadi "• "
+    t = _re.sub(r'(?m)^o ', '• ', t)
+    t = _re.sub(r' o ([A-Z])', r'\n• \1', t)
+    # Hapus newline berlebih
+    t = _re.sub(r'\n{3,}', '\n\n', t)
+    return t.strip()
+
+
 # 5. SIDEBAR
 # ══════════════════════════════════════════════════════════════════
 with st.sidebar:
@@ -554,7 +577,16 @@ with tab_essay:
         st.session_state.latihan_essay_shown[idx_e] = True
 
     if st.session_state.latihan_essay_shown.get(idx_e):
-        st.info("**Referensi Jawaban:**\n\n" + qe['referensi_jawaban'])
+        jawaban_md = format_jawaban(qe['referensi_jawaban'])
+        st.markdown(
+            f'''<div style="background:rgba(59,130,246,0.07);border-left:4px solid #3b82f6;
+            border-radius:0 10px 10px 0;padding:1rem 1.2rem;margin-top:0.5rem">
+            <div style="font-weight:600;color:#3b82f6;margin-bottom:0.5rem">
+            📖 Referensi Jawaban:</div>
+            <div style="line-height:1.7;white-space:pre-line">{jawaban_md}</div>
+            </div>''',
+            unsafe_allow_html=True
+        )
 
     st.divider()
     c1e, c2e = st.columns(2)
