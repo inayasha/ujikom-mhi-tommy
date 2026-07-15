@@ -38,6 +38,16 @@ AMBANG_OPSI     = [70, 75, 80, 85]
 # ══════════════════════════════════════════════════════════════════
 st.markdown("""
 <style>
+/* ── Body text default (markdown, write, prose) ── */
+[data-testid="stMarkdownContainer"] p,
+[data-testid="stMarkdownContainer"] li {
+    font-size: clamp(1rem, 2.5vw, 1.12rem) !important;
+    line-height: 1.7;
+}
+/* ── Textarea input (jawaban) lebih besar ── */
+.stTextArea textarea {
+    font-size: clamp(1rem, 2.5vw, 1.12rem) !important;
+}
 /* ── Sidebar rata tengah ── */
 [data-testid="stSidebar"] > div:first-child {
     display: flex;
@@ -54,11 +64,11 @@ st.markdown("""
 }
 
 /* ── Font responsive (mobile) ── */
-h1 { font-size: clamp(1.3rem, 4vw, 2rem) !important; }
-h2 { font-size: clamp(1.15rem, 3.5vw, 1.65rem) !important; }
+h1 { font-size: clamp(1.5rem, 4.5vw, 2.3rem) !important; }
+h2 { font-size: clamp(1.3rem, 4vw, 1.9rem) !important; }
 /* ── Tab labels — lebih besar & proporsional ── */
 [data-testid="stTabs"] button p {
-    font-size: clamp(0.9rem, 2.5vw, 1.05rem) !important;
+    font-size: clamp(1.02rem, 2.8vw, 1.2rem) !important;
     font-weight: 600 !important;
     white-space: nowrap;
 }
@@ -68,34 +78,34 @@ h2 { font-size: clamp(1.15rem, 3.5vw, 1.65rem) !important; }
 
 /* ── Semua tombol Streamlit — perbesar font ── */
 .stButton > button {
-    font-size: clamp(0.9rem, 2.4vw, 1.05rem) !important;
+    font-size: clamp(1.02rem, 2.7vw, 1.2rem) !important;
     font-weight: 600 !important;
     padding: 0.5rem 1rem !important;
     border-radius: 10px !important;
 }
 .stButton > button[kind="primary"] {
-    font-size: clamp(0.95rem, 2.5vw, 1.1rem) !important;
+    font-size: clamp(1.08rem, 2.8vw, 1.25rem) !important;
 }
 
 /* ── Selectbox, radio, textarea label ── */
 .stSelectbox label, .stSelectbox > div,
 .stRadio label, .stTextArea label {
-    font-size: clamp(0.88rem, 2.3vw, 1rem) !important;
+    font-size: clamp(1rem, 2.6vw, 1.15rem) !important;
 }
 .stRadio > div > label > div > p {
-    font-size: clamp(0.88rem, 2.3vw, 1rem) !important;
+    font-size: clamp(1rem, 2.6vw, 1.15rem) !important;
 }
 
 /* ── Caption — lebih besar sedikit ── */
 .stCaption, [data-testid="stCaptionContainer"] {
-    font-size: clamp(0.8rem, 2vw, 0.92rem) !important;
+    font-size: clamp(0.92rem, 2.3vw, 1.05rem) !important;
 }
 
 /* ── Sidebar: perbesar semua teks ── */
 [data-testid="stSidebar"] p,
 [data-testid="stSidebar"] span,
 [data-testid="stSidebar"] div {
-    font-size: clamp(0.85rem, 2.1vw, 0.98rem);
+    font-size: clamp(0.98rem, 2.4vw, 1.12rem);
 }
 
 /* ── Progress bar animasi ── */
@@ -117,11 +127,11 @@ h2 { font-size: clamp(1.15rem, 3.5vw, 1.65rem) !important; }
 .q-card {
     border: 1px solid rgba(128,128,128,0.25);
     border-radius: 14px;
-    padding: 1.1rem 1.3rem;
+    padding: 1.2rem 1.45rem;
     margin-bottom: 0.9rem;
     box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-    font-size: clamp(0.95rem, 2.6vw, 1.08rem);
-    line-height: 1.6;
+    font-size: clamp(1.1rem, 2.9vw, 1.25rem);
+    line-height: 1.7;
 }
 
 /* ── Metric row (center + responsive) ── */
@@ -142,13 +152,13 @@ h2 { font-size: clamp(1.15rem, 3.5vw, 1.65rem) !important; }
     box-shadow: 0 1px 5px rgba(0,0,0,0.05);
 }
 .metric-box .mval {
-    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    font-size: clamp(1.4rem, 4.5vw, 1.75rem);
     font-weight: 700;
     color: #3b82f6;
     line-height: 1.1;
 }
 .metric-box .mlbl {
-    font-size: 0.78rem;
+    font-size: 0.9rem;
     opacity: 0.65;
     margin-top: 0.15rem;
 }
@@ -159,7 +169,7 @@ h2 { font-size: clamp(1.15rem, 3.5vw, 1.65rem) !important; }
     background: rgba(59,130,246,0.12);
     color: #3b82f6;
     border-radius: 99px;
-    font-size: 0.78rem;
+    font-size: 0.9rem;
     font-weight: 600;
     padding: 0.12rem 0.6rem;
     margin-bottom: 0.5rem;
@@ -168,11 +178,11 @@ h2 { font-size: clamp(1.15rem, 3.5vw, 1.65rem) !important; }
 /* ── Opsi jawaban ── */
 .opsi-item {
     display: block;
-    padding: 0.55rem 0.85rem;
+    padding: 0.65rem 0.95rem;
     border-radius: 9px;
-    margin-bottom: 0.32rem;
+    margin-bottom: 0.35rem;
     border: 1.5px solid rgba(128,128,128,0.25);
-    font-size: clamp(0.9rem, 2.4vw, 1.02rem);
+    font-size: clamp(1.02rem, 2.7vw, 1.18rem);
 }
 .opsi-benar {
     border-color: #16a34a !important;
@@ -199,9 +209,9 @@ h2 { font-size: clamp(1.15rem, 3.5vw, 1.65rem) !important; }
     border-radius: 8px;
     border: 1px solid rgba(128,128,128,0.2);
     margin-bottom: 0.35rem;
-    font-size: 0.9rem;
+    font-size: 1.02rem;
 }
-.skor-badge { font-weight: 700; font-size: 1rem; min-width: 52px; text-align: right; }
+.skor-badge { font-weight: 700; font-size: 1.15rem; min-width: 52px; text-align: right; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -253,7 +263,7 @@ def filter_pg(kat):
     return [q for q in soal_pg if q.get('kategori', 'Umum') == kat]
 
 def prog_html(pct, label=""):
-    lbl = f'<div style="font-size:.7rem;opacity:.6;margin-bottom:2px">{label}</div>' if label else ""
+    lbl = f'<div style="font-size:.85rem;opacity:.6;margin-bottom:2px">{label}</div>' if label else ""
     return f'{lbl}<div class="prog-wrap"><div class="prog-bar" style="width:{pct*100:.1f}%"></div></div>'
 
 def metrics_html(*items):
@@ -328,9 +338,9 @@ def format_jawaban(teks: str) -> str:
 with st.sidebar:
     st.markdown("""
     <div style="text-align:center;padding:0.3rem 0 0.5rem">
-      <div style="font-size:2rem">🎓</div>
-      <div style="font-weight:700;font-size:1.05rem;margin-top:0.25rem">CAT MHI</div>
-      <div style="font-size:0.7rem;opacity:.6;margin-top:0.1rem;line-height:1.5">
+      <div style="font-size:2.4rem">🎓</div>
+      <div style="font-weight:700;font-size:1.25rem;margin-top:0.25rem">CAT MHI</div>
+      <div style="font-size:0.85rem;opacity:.6;margin-top:0.1rem;line-height:1.5">
         Mediator Hubungan Industrial<br>Ahli Madya
       </div>
     </div>
@@ -346,13 +356,13 @@ with st.sidebar:
 
     bm_count = len(st.session_state.bookmarks)
     if bm_count:
-        st.markdown(f'<div style="text-align:center;font-size:0.75rem;opacity:.6;'
+        st.markdown(f'<div style="text-align:center;font-size:0.88rem;opacity:.6;'
                     f'margin-top:0.5rem">🔖 {bm_count} soal bookmark</div>',
                     unsafe_allow_html=True)
 
     if st.session_state.simulasi_histori:
         st.divider()
-        st.markdown('<div style="text-align:center;font-size:0.73rem;font-weight:600;opacity:.6">Histori Terakhir</div>',
+        st.markdown('<div style="text-align:center;font-size:0.86rem;font-weight:600;opacity:.6">Histori Terakhir</div>',
                     unsafe_allow_html=True)
         for h in st.session_state.simulasi_histori[-3:]:
             lulus = h["skor"] >= st.session_state.passing_score
@@ -580,10 +590,10 @@ with tab_essay:
         jawaban_md = format_jawaban(qe['referensi_jawaban'])
         st.markdown(
             f'''<div style="background:rgba(59,130,246,0.07);border-left:4px solid #3b82f6;
-            border-radius:0 10px 10px 0;padding:1rem 1.2rem;margin-top:0.5rem">
-            <div style="font-weight:600;color:#3b82f6;margin-bottom:0.5rem">
+            border-radius:0 10px 10px 0;padding:1.15rem 1.35rem;margin-top:0.5rem">
+            <div style="font-weight:600;color:#3b82f6;margin-bottom:0.55rem;font-size:1.1rem">
             📖 Referensi Jawaban:</div>
-            <div style="line-height:1.7;white-space:pre-line">{jawaban_md}</div>
+            <div style="line-height:1.75;white-space:pre-line;font-size:1.08rem">{jawaban_md}</div>
             </div>''',
             unsafe_allow_html=True
         )
