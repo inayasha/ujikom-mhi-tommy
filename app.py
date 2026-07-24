@@ -317,42 +317,40 @@ def _ls_save():
     }, ensure_ascii=False)
     _ls.setItem("cat_mhi_v1", payload)
 
-# getItem selalu dipanggil di posisi tetap (tidak kondisional)
-# agar Streamlit component tree stabil setiap render
-_raw = _ls.getItem("cat_mhi_v1")
+# getItem HANYA dipanggil saat belum loaded — mencegah infinite rerun loop
+# (library mengembalikan nilai ke Python setiap render → memicu rerun terus)
+if not st.session_state._ls_loaded:
+    _raw = _ls.getItem("cat_mhi_v1")
+    # None  → JS belum siap (render pertama, tunggu)
+    # False → key belum ada di localStorage (user baru pertama kali)
+    if _raw is not None:
+        if _raw and _raw is not False:
+            try:
+                _d = json.loads(_raw)
+                # PENTING: JSON key selalu string, konversi ke int
+                if _d.get("pg_answers"):
+                    st.session_state.latihan_pg_answers = {
+                        int(k): v for k, v in _d["pg_answers"].items()
+                    }
+                if _d.get("pg_checked"):
+                    st.session_state.latihan_pg_checked = {
+                        int(k): v for k, v in _d["pg_checked"].items()
+                    }
+                if _d.get("bookmarks"):
+                    st.session_state.bookmarks = set(_d["bookmarks"])
+                if _d.get("bookmarks_e"):
+                    st.session_state.bookmarks_essay = set(_d["bookmarks_e"])
+                if _d.get("histori"):
+                    st.session_state.simulasi_histori = _d["histori"]
+                if _d.get("essay_shown"):
+                    st.session_state.latihan_essay_shown = {
+                        int(k): v for k, v in _d["essay_shown"].items()
+                    }
+            except Exception:
+                pass
+        st.session_state._ls_loaded = True
 
-# Load data hanya sekali — saat _ls_loaded masih False dan JS sudah siap
-if not st.session_state._ls_loaded and _raw is not None:
-    # None  → JS belum siap (render pertama)
-    # False → key belum ada di localStorage (pertama kali pakai)
-    if _raw and _raw is not False:
-        try:
-            _d = json.loads(_raw)
-            # PENTING: JSON key selalu string, konversi ke int untuk pg_answers & pg_checked
-            if _d.get("pg_answers"):
-                st.session_state.latihan_pg_answers = {
-                    int(k): v for k, v in _d["pg_answers"].items()
-                }
-            if _d.get("pg_checked"):
-                st.session_state.latihan_pg_checked = {
-                    int(k): v for k, v in _d["pg_checked"].items()
-                }
-            if _d.get("bookmarks"):
-                st.session_state.bookmarks = set(_d["bookmarks"])
-            if _d.get("bookmarks_e"):
-                st.session_state.bookmarks_essay = set(_d["bookmarks_e"])
-            if _d.get("histori"):
-                st.session_state.simulasi_histori = _d["histori"]
-            if _d.get("essay_shown"):
-                st.session_state.latihan_essay_shown = {
-                    int(k): v for k, v in _d["essay_shown"].items()
-                }
-        except Exception:
-            pass
-    st.session_state._ls_loaded = True
-
-# Save ke localStorage dipanggil di posisi tetap menggunakan flag _needs_save
-# Ini menghindari konflik antara _ls_save() dan st.rerun() di dalam button handler
+# Save ke localStorage via flag _needs_save (dipanggil dari posisi tetap)
 if st.session_state.get('_needs_save'):
     _ls_save()
     st.session_state._needs_save = False
