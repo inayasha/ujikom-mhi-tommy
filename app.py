@@ -42,8 +42,6 @@ def kategori_soal(q):
         return "Umum"
     return PAKET_LABEL.get(p, p.replace('_', ' ').title())
 
-from streamlit_local_storage import LocalStorage
-
 SEMUA_KATEGORI  = sorted(set(kategori_soal(q) for q in soal_pg))
 # Lookup cepat soal PG berdasarkan ID (untuk statistik berbasis ID)
 pg_by_id        = {q['id']: q for q in soal_pg}
@@ -303,57 +301,11 @@ init_state()
 # ══════════════════════════════════════════════════════════════════
 # PERSISTENSI localStorage
 # ══════════════════════════════════════════════════════════════════
-_ls = LocalStorage()
-
 def _ls_save():
-    """Simpan semua state ke SATU key localStorage — hindari DuplicateElementKey."""
-    payload = json.dumps({
-        "pg_answers":  st.session_state.latihan_pg_answers,
-        "pg_checked":  st.session_state.latihan_pg_checked,
-        "bookmarks":   list(st.session_state.bookmarks),
-        "bookmarks_e": list(st.session_state.bookmarks_essay),
-        "histori":     st.session_state.simulasi_histori,
-        "essay_shown": st.session_state.latihan_essay_shown,
-    }, ensure_ascii=False)
-    _ls.setItem("cat_mhi_v1", payload)
+    """Placeholder — persistensi localStorage belum aktif."""
+    pass
 
-# getItem HANYA dipanggil saat belum loaded — mencegah infinite rerun loop
-# (library mengembalikan nilai ke Python setiap render → memicu rerun terus)
-if not st.session_state._ls_loaded:
-    _raw = _ls.getItem("cat_mhi_v1")
-    # None  → JS belum siap (render pertama, tunggu)
-    # False → key belum ada di localStorage (user baru pertama kali)
-    if _raw is not None:
-        if _raw and _raw is not False:
-            try:
-                _d = json.loads(_raw)
-                # PENTING: JSON key selalu string, konversi ke int
-                if _d.get("pg_answers"):
-                    st.session_state.latihan_pg_answers = {
-                        int(k): v for k, v in _d["pg_answers"].items()
-                    }
-                if _d.get("pg_checked"):
-                    st.session_state.latihan_pg_checked = {
-                        int(k): v for k, v in _d["pg_checked"].items()
-                    }
-                if _d.get("bookmarks"):
-                    st.session_state.bookmarks = set(_d["bookmarks"])
-                if _d.get("bookmarks_e"):
-                    st.session_state.bookmarks_essay = set(_d["bookmarks_e"])
-                if _d.get("histori"):
-                    st.session_state.simulasi_histori = _d["histori"]
-                if _d.get("essay_shown"):
-                    st.session_state.latihan_essay_shown = {
-                        int(k): v for k, v in _d["essay_shown"].items()
-                    }
-            except Exception:
-                pass
-        st.session_state._ls_loaded = True
-
-# Save ke localStorage via flag _needs_save (dipanggil dari posisi tetap)
-if st.session_state.get('_needs_save'):
-    _ls_save()
-    st.session_state._needs_save = False
+# (Persistensi localStorage dinonaktifkan — tidak pakai library external)
 
 # ══════════════════════════════════════════════════════════════════
 # HELPERS
