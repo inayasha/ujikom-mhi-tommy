@@ -42,7 +42,11 @@ def kategori_soal(q):
         return "Umum"
     return PAKET_LABEL.get(p, p.replace('_', ' ').title())
 
+from streamlit_local_storage import LocalStorage
+
 SEMUA_KATEGORI  = sorted(set(kategori_soal(q) for q in soal_pg))
+# Lookup cepat soal PG berdasarkan ID (untuk statistik berbasis ID)
+pg_by_id        = {q['id']: q for q in soal_pg}
 JUMLAH_OPSI_SIM = [50, 75, 100]
 DURASI_OPSI     = {"60 menit": 3600, "90 menit": 5400, "120 menit": 7200}
 PASSING_SCORE   = 70.0          # default; bisa diubah user di tab Simulasi
@@ -286,12 +290,58 @@ def init_state():
         # Bookmark
         'bookmarks': set(),
         'bookmarks_essay': set(),
+        # Persistensi
+        '_ls_loaded': False,
     }
     for k, v in defaults.items():
         if k not in st.session_state:
             st.session_state[k] = v
 
 init_state()
+
+# ══════════════════════════════════════════════════════════════════
+# PERSISTENSI localStorage
+# ══════════════════════════════════════════════════════════════════
+_ls = LocalStorage()
+
+def _ls_save():
+    """Simpan state penting ke localStorage browser."""
+    _ls.setItem("cat_pg_answers",   json.dumps(st.session_state.latihan_pg_answers))
+    _ls.setItem("cat_pg_checked",   json.dumps(st.session_state.latihan_pg_checked))
+    _ls.setItem("cat_bookmarks",    json.dumps(list(st.session_state.bookmarks)))
+    _ls.setItem("cat_bookmarks_e",  json.dumps(list(st.session_state.bookmarks_essay)))
+    _ls.setItem("cat_histori",      json.dumps(st.session_state.simulasi_histori))
+    _ls.setItem("cat_essay_shown",  json.dumps(st.session_state.latihan_essay_shown))
+
+# Load data dari localStorage pada render pertama
+if not st.session_state._ls_loaded:
+    _pg_ans  = _ls.getItem("cat_pg_answers")
+    _pg_chk  = _ls.getItem("cat_pg_checked")
+    _bm      = _ls.getItem("cat_bookmarks")
+    _bme     = _ls.getItem("cat_bookmarks_e")
+    _hist    = _ls.getItem("cat_histori")
+    _ess     = _ls.getItem("cat_essay_shown")
+    # Semua None berarti JS belum siap, tunggu rerun berikutnya
+    # False berarti key tidak ada di localStorage (pertama kali)
+    if all(x is not None for x in [_pg_ans, _pg_chk, _bm, _bme, _hist, _ess]):
+        if _pg_ans and _pg_ans is not False:
+            st.session_state.latihan_pg_answers = json.loads(_pg_ans)
+        if _pg_chk and _pg_chk is not False:
+            # JSON key selalu string, konversi ke int (ID soal)
+            st.session_state.latihan_pg_checked = {
+                int(k): v for k, v in json.loads(_pg_chk).items()
+            }
+        if _bm and _bm is not False:
+            st.session_state.bookmarks = set(json.loads(_bm))
+        if _bme and _bme is not False:
+            st.session_state.bookmarks_essay = set(json.loads(_bme))
+        if _hist and _hist is not False:
+            st.session_state.simulasi_histori = json.loads(_hist)
+        if _ess and _ess is not False:
+            st.session_state.latihan_essay_shown = {
+                int(k): v for k, v in json.loads(_ess).items()
+            }
+        st.session_state._ls_loaded = True
 
 # ══════════════════════════════════════════════════════════════════
 # HELPERS
@@ -480,13 +530,12 @@ with tab_pg:
     idx     = min(st.session_state.current_q, total_q - 1)
     q       = questions[idx]
 
-    # Statistik mini
-    all_q_ref = st.session_state.latihan_pg_questions
+    # Statistik mini (berbasis ID soal, bukan index)
     n_checked = len(st.session_state.latihan_pg_checked)
     n_benar   = sum(
-        1 for i in st.session_state.latihan_pg_checked
-        if i < len(all_q_ref) and
-        st.session_state.latihan_pg_answers.get(i) == all_q_ref[i]['kunci_jawaban']
+        1 for qid in st.session_state.latihan_pg_checked
+        if st.session_state.latihan_pg_answers.get(qid)
+        == pg_by_id.get(qid, {}).get('kunci_jawaban')
     )
     if n_checked:
         akurasi = f"{n_benar/n_checked*100:.0f}%"
@@ -507,15 +556,15 @@ with tab_pg:
                 st.session_state.bookmarks.discard(bm_id)
             else:
                 st.session_state.bookmarks.add(bm_id)
+            _ls_save()
             st.rerun()
     with c_rst:
         if st.button("♻️ Acak", use_container_width=True, key="pg_reset"):
             pool = filter_pg(kat_pg)
             st.session_state.latihan_pg_questions  = random.sample(pool, len(pool))
-            st.session_state.latihan_pg_answers    = {}
-            st.session_state.latihan_pg_checked    = {}
             st.session_state.current_q             = 0
             st.session_state.latihan_pg_salah_mode = False
+            # Jawaban dan status cek TIDAK direset — tetap tersimpan per ID soal
             st.rerun()
 
     # Progress
@@ -528,10 +577,10 @@ with tab_pg:
                 unsafe_allow_html=True)
 
     # Opsi
-    saved       = st.session_state.latihan_pg_answers.get(idx)
+    saved       = st.session_state.latihan_pg_answers.get(q['id'])
     opsi_keys   = list(q['opsi'].keys())
     default_idx = opsi_keys.index(saved) if saved in opsi_keys else 0
-    sudah_dicek = st.session_state.latihan_pg_checked.get(idx, False)
+    sudah_dicek = st.session_state.latihan_pg_checked.get(q['id'], False)
 
     if sudah_dicek:
         kunci = q['kunci_jawaban']
@@ -554,9 +603,10 @@ with tab_pg:
                            format_func=lambda x: f"{x}. {q['opsi'][x]}",
                            key=f"pg_r_{idx}_{q['id']}", index=default_idx,
                            label_visibility="collapsed")
-        st.session_state.latihan_pg_answers[idx] = pilihan
+        st.session_state.latihan_pg_answers[q['id']] = pilihan
         if st.button("✔️ Cek Jawaban", type="primary", key=f"pg_cek_{idx}"):
-            st.session_state.latihan_pg_checked[idx] = True
+            st.session_state.latihan_pg_checked[q['id']] = True
+            _ls_save()
             st.rerun()
 
     st.divider()
@@ -579,16 +629,29 @@ with tab_pg:
         if st.button(f"🚨 Latihan Ulang {n_salah} Soal Salah",
                      use_container_width=True, key="pg_salah_btn"):
             salah_q = [
-                all_q_ref[i] for i in st.session_state.latihan_pg_checked
-                if i < len(all_q_ref) and
-                st.session_state.latihan_pg_answers.get(i) != all_q_ref[i]['kunci_jawaban']
+                pg_by_id[qid] for qid in st.session_state.latihan_pg_checked
+                if qid in pg_by_id and
+                st.session_state.latihan_pg_answers.get(qid)
+                != pg_by_id[qid]['kunci_jawaban']
             ]
             st.session_state.latihan_pg_salah_list  = random.sample(salah_q, len(salah_q))
             st.session_state.latihan_pg_salah_mode  = True
-            st.session_state.latihan_pg_answers     = {}
-            st.session_state.latihan_pg_checked     = {}
+            # Jawaban TIDAK direset — tetap tersimpan per ID soal
             st.session_state.current_q              = 0
             st.rerun()
+
+    # Tombol reset progres (tersedia kalau sudah ada progres)
+    if n_checked > 0:
+        with st.expander("⚙️ Opsi lanjutan"):
+            st.caption(f"Progres tersimpan: {n_checked} soal dicek, {n_benar} benar.")
+            if st.button("🗑️ Reset semua progres PG", key="pg_reset_progres",
+                         use_container_width=True):
+                st.session_state.latihan_pg_answers    = {}
+                st.session_state.latihan_pg_checked    = {}
+                st.session_state.latihan_pg_salah_mode = False
+                st.session_state.current_q             = 0
+                _ls_save()
+                st.rerun()
 
 # ══════════════════════════════════════════════════════════════════
 # TAB 3 — LATIHAN ESSAY
@@ -618,6 +681,7 @@ with tab_essay:
                 st.session_state.bookmarks_essay.discard(bm_id_e)
             else:
                 st.session_state.bookmarks_essay.add(bm_id_e)
+            _ls_save()
             st.rerun()
     with c_re:
         if st.button("♻️ Acak", use_container_width=True, key="essay_reset"):
@@ -769,6 +833,7 @@ with tab_simulasi:
                               f"{st.session_state.simulasi_kategori[:18]}"),
                 })
                 st.session_state._hist_saved = True
+                _ls_save()  # persist histori skor ke browser
 
             if lulus:
                 st.success("### ✔️ LULUS")
@@ -807,8 +872,7 @@ with tab_simulasi:
                                if st.session_state.simulasi_answers.get(str(q['id'])) != q['kunci_jawaban']]
                     st.session_state.latihan_pg_salah_list  = random.sample(salah_q, len(salah_q))
                     st.session_state.latihan_pg_salah_mode  = True
-                    st.session_state.latihan_pg_answers     = {}
-                    st.session_state.latihan_pg_checked     = {}
+                    # Jawaban PG TIDAK direset — tetap tersimpan per ID soal
                     st.session_state.current_q              = 0
                     st.rerun()
 
@@ -994,6 +1058,7 @@ with tab_bm:
             if st.button("🗑️ Hapus Semua", key="bm_clear_all", use_container_width=True):
                 st.session_state.bookmarks       = set()
                 st.session_state.bookmarks_essay = set()
+                _ls_save()
                 st.rerun()
 
         # ── Bagian PG ──────────────────────────────────────────────
