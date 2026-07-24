@@ -292,6 +292,7 @@ def init_state():
         'bookmarks_essay': set(),
         # Persistensi
         '_ls_loaded': False,
+        '_needs_save': False,
     }
     for k, v in defaults.items():
         if k not in st.session_state:
@@ -316,34 +317,45 @@ def _ls_save():
     }, ensure_ascii=False)
     _ls.setItem("cat_mhi_v1", payload)
 
-# Load data dari localStorage — satu getItem, satu key
-if not st.session_state._ls_loaded:
-    _raw = _ls.getItem("cat_mhi_v1")
-    # None  → JS belum siap, tunggu rerun berikutnya
+# getItem selalu dipanggil di posisi tetap (tidak kondisional)
+# agar Streamlit component tree stabil setiap render
+_raw = _ls.getItem("cat_mhi_v1")
+
+# Load data hanya sekali — saat _ls_loaded masih False dan JS sudah siap
+if not st.session_state._ls_loaded and _raw is not None:
+    # None  → JS belum siap (render pertama)
     # False → key belum ada di localStorage (pertama kali pakai)
-    if _raw is not None:
-        if _raw and _raw is not False:
-            try:
-                _d = json.loads(_raw)
-                if _d.get("pg_answers"):
-                    st.session_state.latihan_pg_answers = _d["pg_answers"]
-                if _d.get("pg_checked"):
-                    st.session_state.latihan_pg_checked = {
-                        int(k): v for k, v in _d["pg_checked"].items()
-                    }
-                if _d.get("bookmarks"):
-                    st.session_state.bookmarks = set(_d["bookmarks"])
-                if _d.get("bookmarks_e"):
-                    st.session_state.bookmarks_essay = set(_d["bookmarks_e"])
-                if _d.get("histori"):
-                    st.session_state.simulasi_histori = _d["histori"]
-                if _d.get("essay_shown"):
-                    st.session_state.latihan_essay_shown = {
-                        int(k): v for k, v in _d["essay_shown"].items()
-                    }
-            except Exception:
-                pass
-        st.session_state._ls_loaded = True
+    if _raw and _raw is not False:
+        try:
+            _d = json.loads(_raw)
+            # PENTING: JSON key selalu string, konversi ke int untuk pg_answers & pg_checked
+            if _d.get("pg_answers"):
+                st.session_state.latihan_pg_answers = {
+                    int(k): v for k, v in _d["pg_answers"].items()
+                }
+            if _d.get("pg_checked"):
+                st.session_state.latihan_pg_checked = {
+                    int(k): v for k, v in _d["pg_checked"].items()
+                }
+            if _d.get("bookmarks"):
+                st.session_state.bookmarks = set(_d["bookmarks"])
+            if _d.get("bookmarks_e"):
+                st.session_state.bookmarks_essay = set(_d["bookmarks_e"])
+            if _d.get("histori"):
+                st.session_state.simulasi_histori = _d["histori"]
+            if _d.get("essay_shown"):
+                st.session_state.latihan_essay_shown = {
+                    int(k): v for k, v in _d["essay_shown"].items()
+                }
+        except Exception:
+            pass
+    st.session_state._ls_loaded = True
+
+# Save ke localStorage dipanggil di posisi tetap menggunakan flag _needs_save
+# Ini menghindari konflik antara _ls_save() dan st.rerun() di dalam button handler
+if st.session_state.get('_needs_save'):
+    _ls_save()
+    st.session_state._needs_save = False
 
 # ══════════════════════════════════════════════════════════════════
 # HELPERS
@@ -516,6 +528,14 @@ with tab_pg:
     if not st.session_state.latihan_pg_questions:
         pool = filter_pg(kat_pg)
         st.session_state.latihan_pg_questions = random.sample(pool, len(pool))
+        # Setelah refresh: auto-lompat ke soal pertama yang belum dicek
+        # sehingga user tidak perlu scrool melewati soal yang sudah dijawab
+        if st.session_state.latihan_pg_checked:
+            checked_ids = st.session_state.latihan_pg_checked
+            for i, _q in enumerate(st.session_state.latihan_pg_questions):
+                if _q['id'] not in checked_ids:
+                    st.session_state.current_q = i
+                    break
 
     # Mode soal salah
     if st.session_state.latihan_pg_salah_mode and st.session_state.latihan_pg_salah_list:
@@ -558,7 +578,7 @@ with tab_pg:
                 st.session_state.bookmarks.discard(bm_id)
             else:
                 st.session_state.bookmarks.add(bm_id)
-            _ls_save()
+            st.session_state._needs_save = True
             st.rerun()
     with c_rst:
         if st.button("♻️ Acak", use_container_width=True, key="pg_reset"):
@@ -608,7 +628,7 @@ with tab_pg:
         st.session_state.latihan_pg_answers[q['id']] = pilihan
         if st.button("✔️ Cek Jawaban", type="primary", key=f"pg_cek_{idx}"):
             st.session_state.latihan_pg_checked[q['id']] = True
-            _ls_save()
+            st.session_state._needs_save = True
             st.rerun()
 
     st.divider()
@@ -652,7 +672,7 @@ with tab_pg:
                 st.session_state.latihan_pg_checked    = {}
                 st.session_state.latihan_pg_salah_mode = False
                 st.session_state.current_q             = 0
-                _ls_save()
+                st.session_state._needs_save = True
                 st.rerun()
 
 # ══════════════════════════════════════════════════════════════════
@@ -683,7 +703,7 @@ with tab_essay:
                 st.session_state.bookmarks_essay.discard(bm_id_e)
             else:
                 st.session_state.bookmarks_essay.add(bm_id_e)
-            _ls_save()
+            st.session_state._needs_save = True
             st.rerun()
     with c_re:
         if st.button("♻️ Acak", use_container_width=True, key="essay_reset"):
@@ -1060,7 +1080,7 @@ with tab_bm:
             if st.button("🗑️ Hapus Semua", key="bm_clear_all", use_container_width=True):
                 st.session_state.bookmarks       = set()
                 st.session_state.bookmarks_essay = set()
-                _ls_save()
+                st.session_state._needs_save = True
                 st.rerun()
 
         # ── Bagian PG ──────────────────────────────────────────────
