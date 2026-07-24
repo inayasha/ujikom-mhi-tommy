@@ -305,42 +305,44 @@ init_state()
 _ls = LocalStorage()
 
 def _ls_save():
-    """Simpan state penting ke localStorage browser."""
-    _ls.setItem("cat_pg_answers",   json.dumps(st.session_state.latihan_pg_answers))
-    _ls.setItem("cat_pg_checked",   json.dumps(st.session_state.latihan_pg_checked))
-    _ls.setItem("cat_bookmarks",    json.dumps(list(st.session_state.bookmarks)))
-    _ls.setItem("cat_bookmarks_e",  json.dumps(list(st.session_state.bookmarks_essay)))
-    _ls.setItem("cat_histori",      json.dumps(st.session_state.simulasi_histori))
-    _ls.setItem("cat_essay_shown",  json.dumps(st.session_state.latihan_essay_shown))
+    """Simpan semua state ke SATU key localStorage — hindari DuplicateElementKey."""
+    payload = json.dumps({
+        "pg_answers":  st.session_state.latihan_pg_answers,
+        "pg_checked":  st.session_state.latihan_pg_checked,
+        "bookmarks":   list(st.session_state.bookmarks),
+        "bookmarks_e": list(st.session_state.bookmarks_essay),
+        "histori":     st.session_state.simulasi_histori,
+        "essay_shown": st.session_state.latihan_essay_shown,
+    }, ensure_ascii=False)
+    _ls.setItem("cat_mhi_v1", payload)
 
-# Load data dari localStorage pada render pertama
+# Load data dari localStorage — satu getItem, satu key
 if not st.session_state._ls_loaded:
-    _pg_ans  = _ls.getItem("cat_pg_answers")
-    _pg_chk  = _ls.getItem("cat_pg_checked")
-    _bm      = _ls.getItem("cat_bookmarks")
-    _bme     = _ls.getItem("cat_bookmarks_e")
-    _hist    = _ls.getItem("cat_histori")
-    _ess     = _ls.getItem("cat_essay_shown")
-    # Semua None berarti JS belum siap, tunggu rerun berikutnya
-    # False berarti key tidak ada di localStorage (pertama kali)
-    if all(x is not None for x in [_pg_ans, _pg_chk, _bm, _bme, _hist, _ess]):
-        if _pg_ans and _pg_ans is not False:
-            st.session_state.latihan_pg_answers = json.loads(_pg_ans)
-        if _pg_chk and _pg_chk is not False:
-            # JSON key selalu string, konversi ke int (ID soal)
-            st.session_state.latihan_pg_checked = {
-                int(k): v for k, v in json.loads(_pg_chk).items()
-            }
-        if _bm and _bm is not False:
-            st.session_state.bookmarks = set(json.loads(_bm))
-        if _bme and _bme is not False:
-            st.session_state.bookmarks_essay = set(json.loads(_bme))
-        if _hist and _hist is not False:
-            st.session_state.simulasi_histori = json.loads(_hist)
-        if _ess and _ess is not False:
-            st.session_state.latihan_essay_shown = {
-                int(k): v for k, v in json.loads(_ess).items()
-            }
+    _raw = _ls.getItem("cat_mhi_v1")
+    # None  → JS belum siap, tunggu rerun berikutnya
+    # False → key belum ada di localStorage (pertama kali pakai)
+    if _raw is not None:
+        if _raw and _raw is not False:
+            try:
+                _d = json.loads(_raw)
+                if _d.get("pg_answers"):
+                    st.session_state.latihan_pg_answers = _d["pg_answers"]
+                if _d.get("pg_checked"):
+                    st.session_state.latihan_pg_checked = {
+                        int(k): v for k, v in _d["pg_checked"].items()
+                    }
+                if _d.get("bookmarks"):
+                    st.session_state.bookmarks = set(_d["bookmarks"])
+                if _d.get("bookmarks_e"):
+                    st.session_state.bookmarks_essay = set(_d["bookmarks_e"])
+                if _d.get("histori"):
+                    st.session_state.simulasi_histori = _d["histori"]
+                if _d.get("essay_shown"):
+                    st.session_state.latihan_essay_shown = {
+                        int(k): v for k, v in _d["essay_shown"].items()
+                    }
+            except Exception:
+                pass
         st.session_state._ls_loaded = True
 
 # ══════════════════════════════════════════════════════════════════
